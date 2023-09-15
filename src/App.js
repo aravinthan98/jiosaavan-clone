@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import Topnavbar from './topNavBar.js';
+import Maincontent from './mainContentPage.js';
+import LiveMusic from './musicBar.js';
+import LoginPage from './login.js';
+import Queue from './queuePage/queue';
+import { useState} from 'react';
 function App() {
+
+  const[click,setclick]=useState(false);
+  const[login,setLogin]=useState(false);
+  const funcclick=(prob)=>{
+    setclick(prob)
+
+  }
+  const LoginAc=(prob)=>{
+    setLogin(prob)
+  }
+if(login){
+  return(
+    <LoginPage/>
+  )
+}
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Topnavbar logclicked={LoginAc}/>
+      {click?
+      <Queue/>:<Maincontent />
+        
+      }
+      {/* <Queue/> */}
+      <LiveMusic extendclicked={funcclick}/>
+      {/* <LoginPage/> */}
     </div>
   );
 }

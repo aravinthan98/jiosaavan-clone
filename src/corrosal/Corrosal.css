@@ -1,0 +1,53 @@
+.react-multi-carousel-track {
+    margin-left: 15px;
+}
+.react-multiple-carousel__arrow {
+    
+    border-radius: 35px;
+    z-index: 1;
+   
+    /* background: transparent; */
+    min-width: 0px;
+    min-height: 0px;
+  
+    margin-left: -40px;
+    margin-right: 0px;
+    
+}
+.card{
+    margin-top: 25px;
+    text-align: center;
+    padding-left: 10px;
+    
+}
+.card img{
+    width: 117px;
+    height: 117px;
+    border-radius: 5px;
+}
+.card p{
+    font-size: 13px;
+    white-space: nowrap; 
+    width: 120px;
+    margin-left: 10px;
+    overflow: hidden;
+   text-overflow: ellipsis;
+    
+}
+.card h4{
+    width: 120px;
+    font-weight: 500;
+    margin-left: 12px;
+    font-size: 14px;
+    white-space: nowrap; 
+    overflow: hidden;
+   text-overflow: ellipsis;
+}
+/* .caro{
+    display: flex;
+} */
+.trending-list{
+  
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}

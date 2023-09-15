@@ -1,0 +1,68 @@
+.leftnav img{
+    height: 34px;
+    width: 120px;
+    margin: 15px 15px 10px 10px;
+  
+  }
+  .sidenav{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #f6f6f6;
+  }
+  .navbar{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 63px;
+    border-bottom: 0.5px solid rgb(224, 224, 224);
+  }
+  .leftnav{
+    width: 26%;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    
+  }
+  .rightnav{
+    width: 27%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .midnav input{
+    outline: none;
+    border: none;
+    width: 100%;
+    height: 40px;
+    padding-inline:1rem ;
+  }
+  .midnav{
+   
+    height: 40px;
+    width: 540px;
+    border-radius: 99px;
+    overflow: hidden;
+    margin-top: 11px;
+    margin-right: 5px;
+    
+   border: 0.5px solid rgb(221, 220, 220);
+    
+  
+  }
+  .rightnav div{
+  
+    margin: 0px 15px 0px 10px;
+    font-weight: 500;
+  }
+  .leftnav div{
+    margin:20px 8px 10px 8px;
+    font-weight: 500;
+    letter-spacing: normal;
+  }
+  .searchbar::placeholder{
+    text-align: center;
+    color: black;
+  }

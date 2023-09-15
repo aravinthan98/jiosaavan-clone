@@ -1,0 +1,35 @@
+
+
+.roundcard{
+    margin-top: 25px;
+    text-align: center;
+    padding-left: 10px;
+    
+}
+.roundcard img{
+    width: 117px;
+    height: 117px;
+    border-radius: 50%;
+
+}
+.roundcard p{
+    font-size: 13px;
+    white-space: nowrap; 
+    width: 120px;
+    margin-left: 10px;
+    overflow: hidden;
+   text-overflow: ellipsis;
+    
+}
+.roundcard h4{
+    width: 120px;
+    font-weight: 500;
+    margin-left: 12px;
+    font-size: 14px;
+    white-space: nowrap; 
+    overflow: hidden;
+   text-overflow: ellipsis;
+}
+.caro{
+    display: flex;
+}

@@ -1,11 +1,12 @@
 
 import React from "react";
-import './login.css'
+import './login.css';
+import jioSaavnLogo from '../src/assets/jioSaavnLogo.png'
 function LoginPage(){
     return (
         <div className="login-container">
             <div className="left-container">
-                <img className="lo-logo" src="https://www.amuse.io/wp-content/uploads/2023/08/JioSaavn-Logo-White-Transparent.png" alt="log-logo"/>
+                <img className="lo-logo" src={jioSaavnLogo} alt="log-logo"/>
                 <div className="avatar-container">
                     <img className="avatar" src="https://staticfe.saavn.com/web6/jioindw/dist/1693459402/_i/artist/Nucleya.png" alt="login-logo"/>
                     <h2 className="avatar-text">All Your Music.</h2>

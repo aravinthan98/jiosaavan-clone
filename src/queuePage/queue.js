@@ -7,7 +7,7 @@ import {RxCrossCircled} from 'react-icons/rx';
 import {AiOutlineHeart} from 'react-icons/ai';
 import {FiMoreHorizontal} from 'react-icons/fi';
 import {PiDotsSixVerticalBold} from 'react-icons/pi';
-function Queue(){
+function Queue({selectedSong}){
     const[checked,setChecked]=useState(true);
     const handleChange=()=>{
         setChecked(!checked)
@@ -16,9 +16,9 @@ function Queue(){
         <div className="queue-page">
             <div className="page-left">
                 <div className="q-img-container">
-                <img src="https://c.saavncdn.com/973/Vikram-Tamil-2022-20220515182605-500x500.jpg"/>    
-                <h3 className="img-title"><a href="#">Porkanda Singam</a></h3>
-                <p className="img-para"><a href="#">Anirudh Ravichander</a>,<a href="#">Ravi G</a></p>
+                <img src={selectedSong!==null?selectedSong.thumbnail:"https://c.saavncdn.com/973/Vikram-Tamil-2022-20220515182605-500x500.jpg"}/>    
+                <h3 className="img-title"><a href="#">{selectedSong!==null?selectedSong.title:"Porkanda Singam"}</a></h3>
+                <p className="img-para"><a href="#">{selectedSong!==null?selectedSong.artist[0].name:"Anirudh Ravichander"}</a>,<a href="#">Ravi G</a></p>
                 </div>
             </div>
             <div className="page-right"> 

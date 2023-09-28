@@ -1,25 +1,33 @@
+
 .react-multi-carousel-track {
+    width: 90%;
+
+}
+.react-multi-carousel-list{
+    width: 92%;
     margin-left: 15px;
 }
-.react-multiple-carousel__arrow {
+/* .react-multiple-carousel__arrow {
     
     border-radius: 35px;
     z-index: 1;
-   
-    /* background: transparent; */
+    
     min-width: 0px;
-    min-height: 0px;
+    min-height: 0px; 
   
     margin-left: -40px;
-    margin-right: 0px;
+    margin-right: -40px;
     
-}
+}  */
+
 .card{
-    margin-top: 25px;
-    text-align: center;
-    padding-left: 10px;
     
+    /* margin-top: 25px; */
+    text-align: center;
+    /* padding-left: 10px; */
+   
 }
+
 .card img{
     width: 117px;
     height: 117px;
@@ -43,11 +51,35 @@
     overflow: hidden;
    text-overflow: ellipsis;
 }
-/* .caro{
-    display: flex;
-} */
-.trending-list{
-  
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
+
+@media screen and (max-width: 750px) {
+    .card img{
+        width: 147px;
+        height: 147px;
+        border-radius: 5px;
+    }
+
+
+    .react-multiple-carousel__arrow {
+        display: none;
+    }
+    .react-multi-carousel-track {
+        width: 100vw;
+    
+    }
+    .react-multi-carousel-list{
+        width: 100vw;
+       
+    }
+    .card{
+        text-align: center;     
+       width: 147px;
+    }
+    .card img{
+        width: 147px;
+        height: 147px;
+        border-radius: 5px;
+    }
+
 }

@@ -24,6 +24,7 @@
     justify-content: space-around;
     font-size: 1.9em;
     margin-left: 1%;
+    cursor: pointer;
 }
 .rightb{
     width: 20%;
@@ -32,6 +33,7 @@
     height: 100%;
     justify-content: space-around;
     font-size: 1.5em;
+    cursor: pointer;
 }
 
 .rightb p{
@@ -49,4 +51,21 @@
 .leftb p{
     font-size: 15px;
     font-weight: 700;
+}
+@media screen and (max-width: 600px) {
+   .rightb, .plyrepeat, .plyback, .plyskip, .plyshuffle{
+    display: none;
+   }
+   .leftb {
+    width: 100%;
+    text-align: center;
+    
+   }
+   .leftb p {
+    text-align: center;
+   }
+   .live_music{
+
+    margin-bottom: 60px;
+}
 }

@@ -1,38 +1,51 @@
 
 import './App.css';
+import React,{useState} from 'react';
 import Topnavbar from './topNavBar.js';
-import Maincontent from './mainContentPage.js';
+import Corrosal from './corrosal/Corrosal.js'
+import Maincontent from './mainContentPage';
+import Queue from './queuePage/queue.js'
 import LiveMusic from './musicBar.js';
-import LoginPage from './login.js';
-import Queue from './queuePage/queue';
-import { useState} from 'react';
+import Subscription from './subscription/subscription';
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import MobileNavbar from './mobileNavbar/mobileNavbar';
+import LoginPage from './login.js'
+
 function App() {
+  const [selectedSong, setSelectedSong] = useState(null);
 
-  const[click,setclick]=useState(false);
-  const[login,setLogin]=useState(false);
-  const funcclick=(prob)=>{
-    setclick(prob)
 
+
+
+  const handleCardClick = (song) => {
+    setSelectedSong(song);
   }
-  const LoginAc=(prob)=>{
-    setLogin(prob)
-  }
-if(login){
-  return(
-    <LoginPage/>
-  )
-}
+
+ 
+
   return (
     <div className="app">
-      <Topnavbar logclicked={LoginAc}/>
-      {click?
-      <Queue/>:<Maincontent />
+
+
+      <Topnavbar/>
+     
         
-      }
-      {/* <Queue/> */}
-      <LiveMusic extendclicked={funcclick}/>
-      {/* <LoginPage/> */}
+
+        <Routes>
+        <Route path='/' element={<Maincontent handleCardsClick={handleCardClick}/>}/>
+        <Route path='/queue' element={<Queue selectedSong={selectedSong} />}/>
+        </Routes>
+        <LiveMusic
+        selectedSong={selectedSong}
+        
+      />
+      <MobileNavbar/>
+    
+   
+     {/* <Subscription/> */}
+ 
     </div>
+
   );
 }
 

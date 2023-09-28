@@ -26,6 +26,10 @@
     justify-content: center;
     
   }
+  #mus-pod{
+    display: flex;
+    margin: 0;
+  }
   .rightnav{
     width: 27%;
     display: flex;
@@ -53,7 +57,7 @@
   
   }
   .rightnav div{
-  
+    
     margin: 0px 15px 0px 10px;
     font-weight: 500;
   }
@@ -61,8 +65,36 @@
     margin:20px 8px 10px 8px;
     font-weight: 500;
     letter-spacing: normal;
+    
+    font-size: 1rem;
   }
   .searchbar::placeholder{
     text-align: center;
     color: black;
+  }
+  .login-btn{
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 600px) {
+    .midnav, .login-btn, .signup-btn, .gopro{
+      display: none;
+    }
+    .leftnav{
+    
+      display: block;
+    }
+    .navbar{
+      width: 100vw;
+      border: none;
+      height: 12vh;
+    }
+    .sidenav{    
+      width: 100vw;
+      position: relative;
+    }
+    .leftnav div{    
+      font-size: 1.1rem;
+      margin:15px 8px 10px 15px;
+    }
   }

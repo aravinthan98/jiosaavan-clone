@@ -2,6 +2,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import './Corrosal.css'
 import { useEffect ,useState} from "react";
+import Card from "../components/Card";
 
 
 const responsive = {
@@ -30,7 +31,7 @@ const responsive = {
 };
 
 
-const Corrosal=(props)=>{
+const Corrosal=({onCardClick})=>{
     const [songs, setSongs] = useState([]);
 
 //   const [currentSong, setCurrentSong] = useState(null);
@@ -63,7 +64,7 @@ const Corrosal=(props)=>{
   const handleCardClick = (selectedSong) => {
     // Pass the selected song details to the parent component (App.js)
     // You can use a callback function to achieve this
-    props.onCardClick(selectedSong);
+    onCardClick(selectedSong);
   }
  const rows = [];   
   for (let i = 0; i < songs.length; i += 2) {
@@ -85,11 +86,7 @@ infinite={true}
   {rows.map((row, index) => (
         <div className="trending-list" key={index}>
           {row.map((item) => (
-            <div className="card" key={item._id}>
-              <img src={item.thumbnail} onClick={() => handleCardClick(item)} alt="movie"/>
-              <h4>{item.title}</h4>
-              <p>{item.artist[0].name}</p>
-            </div>
+            <Card key={item._id} item={item}/>
           ))}
           
         </div>
@@ -101,3 +98,8 @@ infinite={true}
 )
 }
 export default Corrosal;
+{/* <div className="card" key={item._id}>
+              <img src={item.thumbnail} onClick={() => handleCardClick(item)} alt="movie"/>
+              <h4>{item.title}</h4>
+              <p>{item.artist[0].name}</p>
+            </div> */}

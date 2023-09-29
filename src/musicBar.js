@@ -13,8 +13,11 @@ import {GiPauseButton} from 'react-icons/gi'
 
 import {GrContract} from 'react-icons/gr';
 import { Link } from "react-router-dom";
+import { useCurrentPlayingContext } from "./context/currentlyPlayingContext";
 
-function LiveMusic({ selectedSong }){
+function LiveMusic(){
+    const {selectedSong}=useCurrentPlayingContext()
+
    console.log("selectedSong",selectedSong)
     const[expand,setExpand]=useState(false)
     // const[shrinkc,setShrink]=useState("shrink");
@@ -63,7 +66,8 @@ function LiveMusic({ selectedSong }){
         
         <div className="live_music">
             <div className="leftb">
-                <img src={selectedSong!==null?selectedSong.thumbnail:"https://c.saavncdn.com/973/Vikram-Tamil-2022-20220515182605-500x500.jpg"} width="50px" height="50px" alt="song_logo"/>
+               <Link to='/songDetailPage'> <img src={selectedSong!==null?selectedSong.thumbnail:"https://c.saavncdn.com/973/Vikram-Tamil-2022-20220515182605-500x500.jpg"} width="50px" height="50px" alt="song_logo"/>
+               </Link>
                 <p>{selectedSong!==null?selectedSong.title:"Once upon a time"}<br/><span className="describe">{selectedSong!==null?selectedSong.artist[0].name:"Aniruth Ravichandran"}</span></p>
             </div>
             <div className="midb">

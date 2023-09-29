@@ -10,40 +10,57 @@ import Subscription from './subscription/subscription';
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import MobileNavbar from './mobileNavbar/mobileNavbar';
 import LoginPage from './login.js'
+import SideNavbar from './sideNavbar/sideNavbar';
+import Footer from './footer/footer'
+import SongDetails from './songdetails/songDetails';
+import ComingSoonPage from './commingSoon/commingSoon'
+import CurrentPlayingProvider from './context/currentlyPlayingContext';
+import Layout from './components/Layout';
 
 function App() {
   const [selectedSong, setSelectedSong] = useState(null);
 
-
-
-
   const handleCardClick = (song) => {
     setSelectedSong(song);
   }
-
- 
-
   return (
-    <div className="app">
+    <div className="app">    
+    <CurrentPlayingProvider>
+    <Layout>
+         <Routes>
+        <Route path='/' element={<><Topnavbar/><div className='maincontent_page'>
+          <SideNavbar/>
+          <div className='main-page'>
+              <Maincontent handleCardsClick={handleCardClick} />
+          <Footer/>
+          </div></div>
+          <LiveMusic/></>}/>
 
+        <Route path='/queue' element={<><Topnavbar/><Queue selectedSong={selectedSong} />
+         <LiveMusic/></>}/>
 
-      <Topnavbar/>
-     
-        
+        <Route path='/songDetailPage' element={<><Topnavbar/><div className='maincontent_page'>
+          <SideNavbar/>
+          <div className='main-page'>
+          <SongDetails/>
+          <Footer/>
+          </div></div><LiveMusic selectedSong={selectedSong}/></>}/>
 
-        <Routes>
-        <Route path='/' element={<Maincontent handleCardsClick={handleCardClick}/>}/>
-        <Route path='/queue' element={<Queue selectedSong={selectedSong} />}/>
+          <Route path='/subscription' element={<Subscription/>}/>
+          <Route path='/login' element={<LoginPage/>}/>
+
+          <Route path='/newrelease' element={<><Topnavbar/><div className='maincontent_page'>
+          <SideNavbar/>
+          <div className='main-page'>
+          <ComingSoonPage/>
+          <Footer/>
+          </div></div><LiveMusic selectedSong={selectedSong}/></>}/>
         </Routes>
-        <LiveMusic
-        selectedSong={selectedSong}
-        
-      />
+
       <MobileNavbar/>
-    
-   
-     {/* <Subscription/> */}
- 
+    </Layout>
+     </CurrentPlayingProvider>
+
     </div>
 
   );

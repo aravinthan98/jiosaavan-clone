@@ -23,8 +23,8 @@ function Topnavbar(){
       </div>
       <div className='rightnav'>
         <div>Music Language</div>
-        <div className="login-btn" >Log In</div>
-        <div className="signup-btn">Sign Up</div>
+        <Link to='/login'><div className="login-btn" >Log In</div></Link>
+        <Link to='/login'><div className="signup-btn">Sign Up</div></Link>
       </div>
       </div>
       </div>

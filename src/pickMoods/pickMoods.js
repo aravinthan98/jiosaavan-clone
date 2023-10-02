@@ -52,7 +52,7 @@ function PickMood(){
           .then((data) => {
            
             setHappyMood(data.data); 
-            console.log("happymood",happyMood);
+            
         })
 
         fetch('https://academics.newtonschool.co/api/v1/music/song?filter={"mood":"sad"}', {

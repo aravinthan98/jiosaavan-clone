@@ -36,7 +36,7 @@ function TopAlbum(){
         })
           .then((response) => response.json())
           .then((data) => {
-            console.log("data",data);
+            // console.log("data",data);
            
                 setAlbum(data.data);
 
@@ -59,7 +59,7 @@ infinite={true}
             {album.map((item,index)=>(
               
             <div className="card" key={index}>
-                <img src={item.image} alt="movie"/>
+                <img src={item.image} alt="albumlogo"/>
                 <h4>{item.title}</h4>
                 <p>{item.artists[0].name}</p>
             </div>

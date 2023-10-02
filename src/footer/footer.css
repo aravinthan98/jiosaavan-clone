@@ -10,6 +10,8 @@ body{
     margin-top: 100px;
     border-top: 1px solid #ccc;
     background-color: #f6f6f6;
+    width: 80%;
+    margin-left: 18%;
 }
 .footer-container h5{
     font-size: 11px;
@@ -87,6 +89,8 @@ body{
     .footer-container{
         width: 100vw;
        margin-top: 30px;
+      
+       margin-left: 0;
     }
     .f-top{
         width: 100vw;

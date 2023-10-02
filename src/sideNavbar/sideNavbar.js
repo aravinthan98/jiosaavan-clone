@@ -11,11 +11,11 @@ function SideNavbar(){
         <h4 className="brws">BROWSE</h4>
         <ul className="browse-item">
             <Link to='/newrelease'><li>New Releases</li></Link>
-            <li >Top Charts</li>
-            <li  >Top Playlists</li>
-            <li  >Podcasts</li>
-            <li  >Top Artists</li>
-            <li  >Radio</li>
+            <Link to='/topchart'><li >Top Charts</li></Link>
+            <Link to='/topplaylist'><li  >Top Playlists</li></Link>
+            <Link to='/podcast'><li  >Podcasts</li></Link>
+            <Link to='/topartist'><li  >Top Artists</li></Link>
+            <Link to='/radio'><li  >Radio</li></Link>
         </ul>
         <p className="lib">LIBRARY</p>
         <div className="library-item">

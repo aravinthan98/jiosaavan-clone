@@ -32,7 +32,7 @@ function LoginPage(){
                         <p>I'm not a robot</p>
                         </div>
                     <div className="input-r">
-                    <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png"/>
+                    <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="captcha-logo"/>
                     <p className="recaptcha">reCAPTCHA <br/><span>Privacy-Terms</span></p>      
                     </div>
                     </div>

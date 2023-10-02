@@ -3,15 +3,16 @@ import './topArtist.css'
 
 function TopArtist(){
     const [artists, setArtists] = useState([]);
-    const[adata ,setAdata]=useState([]);
+    // const[adata ,setAdata]=useState([]);
 
-    function handleDetails(song){
-      const info=adata.filter(item => item.artist[0].name === song.name)
+    // function handleDetails(song){
+    //   const info=adata.filter(item => item.artist[0].name === song.name)
       
-      console.log("info",info);
-    }
+    //   console.log("info",info);
+    // }
     const fetchSongs = () => {
         // Replace 'YOUR_PROJECT_ID' with your actual project ID
+        try{
         fetch('https://academics.newtonschool.co/api/v1/music/song?limit=50', {
           headers: {
             'projectId': 'f104bi07c490',
@@ -19,11 +20,11 @@ function TopArtist(){
         })
           .then((response) => response.json())
           .then((data) => {
-            console.log("uniqueArtists",data);
+            // console.log("uniqueArtists",data);
            
-                setAdata(data.data);
+                // setAdata(data.data);
                 const uniqueArtists = [...new Set(data.data.map(item => item.artist[0].name))];
-                console.log("uniqueArtists",uniqueArtists);
+                // console.log("uniqueArtists",uniqueArtists);
                 setArtists(uniqueArtists.map(name => {
                     return {
                         name: name,
@@ -33,11 +34,15 @@ function TopArtist(){
                 console.log("artist",artists);
             
         })
-          .catch((error) => console.error('Error:', error));
-      };
+      }
+      
+      catch(error){
+        console.error(error);
+      }
+    }
 
       useEffect(() => {
-        fetchSongs();         
+        fetchSongs()        
       }, []);
 
 
@@ -53,7 +58,7 @@ return(
            
             {artists.map((item,index)=>(
             <div className="roundcard" key={index}>
-                <img src={item.image} onClick={()=>handleDetails(item)} alt="movie" />
+                <img src={item.image} alt="movie" />
                 <h4>{item.name}</h4>
                 {/* <p>Fast & Furious: The Fast Saga</p> */}
             </div>

@@ -1,3 +1,4 @@
 .caro{
     display: flex;
+    overflow-x: scroll;
 }

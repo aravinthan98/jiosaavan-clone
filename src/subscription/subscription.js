@@ -73,8 +73,8 @@ function Subscription(){
                 </div>
                 <div className="subs-top-last-container">
                     <div><p><strong><em>Why go Pro? <span>Learn More</span></em></strong></p></div>
-                    <div><img className="paytm-logo" src="https://static.saavncdn.com/_i/paytm-logo.png"/>
-                    <img className="amazon-logo" src="https://static.saavncdn.com/_i/amazonPay-logo.png"/></div>
+                    <div><img className="paytm-logo" src="https://static.saavncdn.com/_i/paytm-logo.png" alt="ptmlogo"/>
+                    <img className="amazon-logo" src="https://static.saavncdn.com/_i/amazonPay-logo.png" alt="amznlogo"/></div>
                 </div>
             </div>
             

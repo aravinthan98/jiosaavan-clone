@@ -5,6 +5,7 @@ import { useEffect ,useState} from "react";
 import Card from "../components/Card";
 
 
+
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -31,7 +32,7 @@ const responsive = {
 };
 
 
-const Corrosal=({onCardClick})=>{
+const Corrosal=()=>{
     const [songs, setSongs] = useState([]);
 
 //   const [currentSong, setCurrentSong] = useState(null);
@@ -49,7 +50,7 @@ const Corrosal=({onCardClick})=>{
         // console.log("data",data.data[0].thumbnail);
         setSongs(data.data)
       
-        console.log(data.data)
+        // console.log(data.data)
         // console.log("songs",songs)
       })
       .catch((error) => console.error('Error:', error));
@@ -61,11 +62,7 @@ const Corrosal=({onCardClick})=>{
     
     
   }, []);
-  const handleCardClick = (selectedSong) => {
-    // Pass the selected song details to the parent component (App.js)
-    // You can use a callback function to achieve this
-    onCardClick(selectedSong);
-  }
+
  const rows = [];   
   for (let i = 0; i < songs.length; i += 2) {
     rows.push(songs.slice(i, i + 2));
@@ -76,30 +73,22 @@ return(
 <Carousel 
 responsive={responsive}
 infinite={true}
-//   autoPlay={ true}
-//   autoPlaySpeed={1000}
+
 >
  
-            {/* <div className="caro">
-            <div className="trending-list"> */}
-  
+ 
   {rows.map((row, index) => (
         <div className="trending-list" key={index}>
           {row.map((item) => (
-            <Card key={item._id} item={item}/>
+            // <Link to={`/${item._id}`} key={item._id}>
+              <Card key={item._id} item={item} gtype="Trending song"/>
+            //  </Link>
           ))}
           
         </div>
       ))}
-            {/* </div>
-            </div> */}
 
 </Carousel>
 )
 }
 export default Corrosal;
-{/* <div className="card" key={item._id}>
-              <img src={item.thumbnail} onClick={() => handleCardClick(item)} alt="movie"/>
-              <h4>{item.title}</h4>
-              <p>{item.artist[0].name}</p>
-            </div> */}

@@ -4,21 +4,22 @@ import './songDetails.css';
 import {AiOutlineHeart} from 'react-icons/ai';
 import {FiMoreHorizontal} from 'react-icons/fi'
 import {ImPlay2} from 'react-icons/im';
-import {RxCrossCircled} from 'react-icons/rx';
-
+import {useCurrentPlayingContext} from '../context/currentlyPlayingContext'
 
 function SongDetails(){
+    const {selectedSong}=useCurrentPlayingContext()
+   
 
     return(
         <div className="details-section">
             <div className="details-section-top">
-                <div className="d-image"><img src="https://c.saavncdn.com/973/Vikram-Tamil-2022-20220515182605-500x500.jpg"/></div>
+                <div className="d-image"><img src={selectedSong!==null?selectedSong.thumbnail:"https://c.saavncdn.com/973/Vikram-Tamil-2022-20220515182605-500x500.jpg"} alt="songImage"/></div>
                 <div className="d-description">
                     <div className="d-description-top">
-                    <h1>Porkanda Singam</h1>
-                    <p>Vikram  by Anirudh Ravichander, Ravi G</p>
-                    <p>Song  ·  4,368,540 Plays  ·  3:18  ·  Tamil</p>
-                    <p>(P) 2022 Sony Music Entertainment India Pvt. Ltd.</p>
+                    <h1>{selectedSong!==null?selectedSong.title:" "}</h1>
+                    <p> by {selectedSong!==null?selectedSong.artist[0].name:" "}</p>
+                    <p>No Details</p>
+                    {/* <p>No Details</p> */}
                     </div>
                     <div className="d-btn-section">
                         <div className="d-play-btn">Play</div>
@@ -33,8 +34,8 @@ function SongDetails(){
 
                     <div className="d-b-des">
                         <p className="d-ply"><ImPlay2/></p>
-                        <p className="d-s-name">Once Upon a Time</p>
-                        <p className="d-s-artist">Anirudh Ravichander,Ravi G</p>
+                        <p className="d-s-name">{selectedSong!==null?selectedSong.title:" "}</p>
+                        <p className="d-s-artist">{selectedSong!==null?selectedSong.artist[0].name:" "}</p>
                     </div>
                         
                     <div className="d-b-icons">

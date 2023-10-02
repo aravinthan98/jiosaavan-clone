@@ -11,6 +11,10 @@
     }
     
 }
+.main-page{
+  width: 80%;
+  margin-left: 18%;
+}
 .content {
   position: absolute;
   top: 50%;
@@ -29,5 +33,12 @@
   }
   100% {
       transform: translateY(0px);
+  }
+}
+@media only screen and (max-width: 600px) {
+  .main-page{        
+      width: 100%;
+      margin-left: 0;    
+      padding-top: 50px;     
   }
 }

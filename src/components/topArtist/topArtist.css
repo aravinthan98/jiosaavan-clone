@@ -1,0 +1,69 @@
+
+
+.roundcard{
+    margin-top: 25px;
+    text-align: center;
+    padding-left: 10px;
+    
+}
+.roundcard img{
+    width: 117px;
+    height: 117px;
+    border-radius: 50%;
+
+}
+.roundcard p{
+    font-size: 13px;
+    white-space: nowrap; 
+    width: 120px;
+    margin-left: 10px;
+    overflow: hidden;
+   text-overflow: ellipsis;
+    
+}
+.roundcard h4{
+    width: 120px;
+    font-weight: 500;
+    margin-left: 12px;
+    font-size: 14px;
+    white-space: nowrap; 
+    overflow: hidden;
+   text-overflow: ellipsis;
+}
+.artist-caro{
+    width: 80%;
+    /* margin-left: 18%; */
+    padding-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+.artist-container{
+    padding-top: 50px;
+    margin-left: 18%;
+}
+.roundcard:hover{
+    .roundcard-hovercontent{
+        display: grid;
+        place-items: center;
+       position: absolute;
+        top: 0;
+        bottom: 0px; 
+        left: 5; 
+        transition: opacity .3s ease-in-out;   
+        z-index: 1;
+    }
+}
+.roundcard{
+    position: relative;
+}
+.roundcard-hovercontent{
+    display: none;
+    position: absolute;
+    width: 117px;
+    height: 117px;
+    background: rgba(0,0,0,.7);
+    border-radius: 50%;
+    transition: opacity .3s ease-in-out;   
+    z-index: 1;
+    left: 18px;
+}

@@ -1,0 +1,137 @@
+.d-image img{
+    width: 250px;
+    height: 250px;
+}
+.d-image{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.details-section-top{
+    display: flex;
+    margin-bottom:25px ;
+}
+.d-description{
+    margin-left: 25px;
+    margin-top: 25px;
+    
+}
+.d-description h1{
+    margin-bottom: 10px;
+}
+.d-description-top p{
+    margin-bottom: 7px;
+}
+.d-description-top{
+    margin-bottom: 20px;
+}
+.d-btn-section{
+    display: flex;
+    margin-top: 20px;
+}
+.d-play-btn{
+    padding: 11px 44px ;
+    background-color: #2bc5b4;;
+    border-radius: 99px;
+    font-size: 1.3em;
+    font-weight: 500;
+    color: #fff;
+    cursor: pointer;
+}
+.d-favicon{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    font-size: 2em;
+    color: #575656;
+    text-align: center;
+    
+}
+.d-moreicon{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    font-size: 2em;
+    color: #575656;
+    text-align: center;
+}
+.d-btn-section div{
+    margin-right: 10px;
+}
+#d-fav{
+    margin-top: 8px;
+}
+#d-more{
+    margin-top: 8px;
+}
+.d-b-icons{
+    display: flex;
+  
+}
+.d-b-icons{
+    display: flex;
+    align-items: center;
+    
+}
+.d-b-icons div{
+    padding-left: 30px;
+}
+.d-b-des{
+    display: flex;
+    align-items: center;
+}
+.d-songcard{
+    width: 80%;
+    display: flex;   
+    justify-content: space-between;
+    margin-left: 50px;
+    margin-bottom:20px ;
+    position: relative;
+}
+.details-section-buttom{
+    margin-top: 80px;
+}
+.details-section{
+    width: 80%;
+    margin-left: 18%;
+    padding-top: 40px;
+}
+.d-b-des img{
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    margin: 0 20px;
+    align-items: center;
+}
+.q-smpl, .d-s-artist{
+    padding-top: 8px;
+    text-align: center;
+}
+.d-songcard:hover{
+    .relatedsong-hovercontent{
+        display: grid;
+        place-items: center;
+       position: absolute;
+        top: 0;
+        bottom: 0px;
+        /* right: 6px;  */
+        left: 28px;   
+        transition: opacity .3s ease-in-out;   
+        z-index: 1;
+    }
+}
+.mini-ply-icon{
+    font-size: 1.7em;
+    color: rgb(233, 229, 229);
+}
+.relatedsong-hovercontent{
+    display: none;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: rgba(0,0,0,.7);
+    border-radius: 5px;
+    transition: opacity .3s ease-in-out;   
+    z-index: 1;
+}

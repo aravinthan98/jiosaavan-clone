@@ -1,24 +1,35 @@
 import React from 'react'
-import Topnavbar from '../topNavBar'
-import SideNavbar from '../sideNavbar/sideNavbar'
-import LiveMusic from '../musicBar'
-import Footer from '../footer/footer.js'
+import Topnavbar from './topNavbar/topNavBar'
+import SideNavbar from './sideNavbar/sideNavbar'
+import LiveMusic from './musicBar/musicBar'
+import Footer from './footer/footer'
 import { useLocation } from 'react-router'
 import './Layout.css'
+
 
 
 const Layout = ({ children }) => {
 
   const { pathname } = useLocation();
- 
+
 
   if (pathname.includes('login')) {
     return <> {children}</>;
   }
-  if (pathname.includes('subscription')) {
+  if (pathname.includes('signup')) {
     return <> {children}</>;
   }
+  if (pathname.includes('subscription')) {
+    return <> {children}</>;
 
+  }
+  if (pathname.includes('/change-password')) {
+    return <> {children}</>;
+
+  }
+
+
+    
   return (
     <div>
       <Topnavbar />
@@ -27,7 +38,6 @@ const Layout = ({ children }) => {
           !pathname.includes('/queue') &&
           <SideNavbar />
         }
-       
         {children}
 
           {

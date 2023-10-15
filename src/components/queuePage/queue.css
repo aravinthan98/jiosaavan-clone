@@ -1,0 +1,253 @@
+.queue-page{
+    width: 100%;
+    display: flex;
+   
+   height: 85vh;
+    
+}
+.page-left{
+    width: 40%;
+    height: 75vh;
+    text-align: center;
+}
+.page-left img{
+   width: 100%;
+   margin-bottom: 15px;
+}
+.page-left a{
+    text-decoration: none;
+}
+.img-title a{
+   
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #3e3e3e;
+}
+.img-para a{
+    font-size: 1.1rem;
+    color: #3e3e3e;
+}
+.q-img-container{
+    width: 55.7%;
+    margin-top: 9.5%;
+    margin-left: 19.4%;
+}
+.page-right{
+    width: 60%;
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* flex-direction: column; */
+
+}
+.q-navbar{
+    width: 65%;
+    height: 55px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 2px solid red; */
+    margin-top: 20px;
+    margin-left: 16%;
+}
+.q-navbar h3{
+    font-size: 15px;
+}
+
+.q-navele span{
+    text-align: center;
+   padding: 7px 20px;
+    border-radius: 99px;
+    margin-left: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+    background-color: #2bc5b4;
+    border-color:#2bc5b4 ;
+}
+#clear{
+    background-color: white;
+    color: #6b6a6a;
+    border:1px solid #707070;
+}
+.q-navele{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#qmore{
+    font-size: 1.5rem;
+   margin-top: 5px;
+    
+}
+.line{
+  width: 65%;
+   margin-left: 16%;
+}
+.q-icon img{
+    /* display: none; */
+    background-color: #2bc5b4;
+    color: #2bc5b4;
+    border-radius: 5px;
+}
+.q-icon{
+    width: 40px;
+    height: 40px;
+    background-color: #2bc5b4;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+.ply{
+    display: none;
+    font-size: 2rem;
+    color: white;
+    margin-left: 3px;
+}
+.songcard{
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+.q-autoplay{
+    display: flex;
+    justify-content: space-between;
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 25px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 5px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color:  #2bc5b4;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px  #2bc5b4;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(16px);
+    -ms-transform: translateX(16px);
+    transform: translateX(16px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  .q-playsection{
+    width: 95%;
+    margin-left: 2%;
+   
+  }
+  .q-autoplay{
+    width: 91%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 25px;
+  }
+  .q-autoplay p{
+    font-weight: 440;
+  }
+  .q-related-section{
+    width: 95%;
+    margin-left: 2%;
+  }
+
+  .more{
+    display: none;
+  }
+  .q-smpl{
+    font-size: 1.4rem;
+  }
+  .del{
+    font-size: 1.9rem;
+    display: none;
+  }
+  .q-card-det{
+    width: 60%;
+    display: flex;
+  }
+  .q-des{
+    font-size: 13px;
+  }
+  .q-s-name{
+    font-weight: 640;
+  }
+  .q-songsection{
+    width: 67%;
+    height: 60%;
+    margin-left: 15%;
+    /* border:2px solid red; */
+    overflow-y: scroll;
+  }
+
+  .favorite-song{
+    color: red;
+  }
+
+.songcard:hover{
+    .queuesong-hovercontent{
+        display: grid;
+        place-items: center;
+       position: absolute;
+        top: 0;
+        bottom: 0px;
+        /* right: 6px;  */
+        left: 56px;   
+        transition: opacity .3s ease-in-out;   
+        z-index: 1;
+    }
+}
+.queuesong-hovercontent{
+  display: none;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: rgba(0,0,0,.7);
+  border-radius: 5px;
+  transition: opacity .3s ease-in-out;   
+  z-index: 1;
+}

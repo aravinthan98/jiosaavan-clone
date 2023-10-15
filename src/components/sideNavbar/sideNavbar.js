@@ -4,8 +4,23 @@ import {RiAlbumLine} from 'react-icons/ri';
 import {MdOutlinePodcasts} from 'react-icons/md';
 import {LiaMicrophoneAltSolid} from 'react-icons/lia';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useCurrentPlayingContext } from '../../context/currentlyPlayingContext';
 import './sideNavbar.css'
 function SideNavbar(){
+    const navigate=useNavigate();
+
+    const{login,setLoginIndicator}=useCurrentPlayingContext();
+
+
+    const handleMymusicSection=()=>{
+        if(login){
+            return navigate('/my-music')
+        }
+        else{
+            setLoginIndicator('pre-login')
+        }
+    }
     return(
         <div className="sidebar">
         <h4 className="brws">BROWSE</h4>
@@ -20,10 +35,10 @@ function SideNavbar(){
         <p className="lib">LIBRARY</p>
         <div className="library-item">
             <div><VscHistory/> <span> History</span></div>
-           <Link to='/my-music' ><div><CgMusicNote/> <span> Songs</span></div></Link>
-           <Link to='/my-music' ><div><RiAlbumLine/> <span> Albums</span></div></Link>
-           <Link to='/my-music' ><div><MdOutlinePodcasts/> <span> Podcasts</span></div></Link>
-           <Link to='/my-music' ><div><LiaMicrophoneAltSolid/> <span> Artists</span></div></Link>
+            <div onClick={handleMymusicSection}><CgMusicNote/> <span> Songs</span></div>
+            <div onClick={handleMymusicSection}><RiAlbumLine/> <span> Albums</span></div>
+            <div onClick={handleMymusicSection}><MdOutlinePodcasts/> <span> Podcasts</span></div>
+            <div onClick={handleMymusicSection}><LiaMicrophoneAltSolid/> <span> Artists</span></div>
             
         </div>
 

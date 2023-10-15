@@ -82,6 +82,7 @@ return(
 <Carousel 
 responsive={responsive}
 infinite={true}
+ className="corrosal-card"
 >
 {rows.length === 0 ? (
     <LoaderFn/>

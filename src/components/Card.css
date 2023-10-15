@@ -4,8 +4,7 @@
         place-items: center;
        position: absolute;
         top: 0;
-        bottom: 0px;
-        right: 6px;    
+        left: 24px;   
         transition: opacity .3s ease-in-out;   
         z-index: 1;
     }

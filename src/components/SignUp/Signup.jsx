@@ -68,11 +68,6 @@ function SignUp(){
     .then((response) => response.json())
     .then((result) =>{
       if(result.status=="success"){
-        setProfile({
-            ...profile,
-            userName: `${name}`,
-            token:`${result.token}`
-        })
           return navigate('/login')
       }
       else{
@@ -123,11 +118,11 @@ function SignUp(){
                     <button className="submit-btn" type="submit" onClick={handleClick}>Continue</button>
                     <p className="em">By selecting ‘Continue’, you agree to JioSaavn’s Terms of Service and Privacy Policy.</p>
                   
-                    <hr className="hr-text" data-content="OR CONTINUE WITH"></hr>
+                    {/* <hr className="hr-text" data-content="OR CONTINUE WITH"></hr>
                     <div className="social-app">
                         <button className="social mobile">Mobile Number</button>
                         <button className="social facebook">Facebook</button>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>

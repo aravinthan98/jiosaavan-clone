@@ -1,41 +1,40 @@
 
 import React, { useEffect, useState } from "react";
-import './login.css';
-import jioSaavnLogo from '../../assets/jioSaavnLogo.png'
-// import jioImage from '../../assets/JioSaavnIcon.png'
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { useCurrentPlayingContext } from "../../context/currentlyPlayingContext";
-function LoginPage(){
+function SignUpHover(){
+    const{profile,setProfile,setLoginIndicator}=useCurrentPlayingContext();
+   
 
-    const{setLogin,profile,setProfile}=useCurrentPlayingContext();
 
     const navigate=useNavigate();
     const[email,setEmail]=useState("");
     const[password,setPassword]=useState("");
     const[message,setMessage]=useState("");
+    const[name,setUserName]=useState("");
 
     const[error,setError]=useState(false);
-  
+   
     const[checked,setChecked]=useState(false);
     const handleCheck=()=>{
         setChecked(!checked);
     }
  const handleClick=(e)=>{
    
-    if( email && password&&checked){
+    if( email && password&&name&&checked){
        if(email.indexOf('@')===-1){       
           setMessage('Email is invalid'); 
           setError(true)       
        }
+  
        else if(password.length<8){
         setMessage('Password must be at least 8 characters long')
         setError(true)
-       }
+       }      
        else{
-        fetchAccount()
+            fetchAccount()
        }
-          
     }
     else{   
        setMessage('All Fields must be filled');
@@ -52,6 +51,7 @@ function LoginPage(){
     myHeaders.append("Content-Type", "application/json");
     
     var raw = JSON.stringify({
+      "name": `${name}`,
       "email": `${email}`,
       "password": `${password}`,
       "appType": "music"
@@ -64,56 +64,44 @@ function LoginPage(){
       redirect: 'follow'
     };
     
-    fetch("https://academics.newtonschool.co/api/v1/user/login", requestOptions)
-      .then((response) => response.json())
-      .then((result) =>{
-        if(result.status=="success"){
-            setLogin(true);
-            setProfile({
-                ...profile,
-            userName: `${result.data.name}`,
-            token:`${result.token}`
-            })
-            var myObject = {
-                userName: `${result.data.name}`,
-                token:`${result.token}` 
-            };
-
-            localStorage.setItem('userLogin', JSON.stringify(myObject));
-          
-            return navigate('/')
-        }
-        else{
-            setMessage(result.message);
-            setError(true)
-        }
-     
-    })
+    fetch("https://academics.newtonschool.co/api/v1/user/signup", requestOptions)
+    .then((response) => response.json())
+    .then((result) =>{
+      if(result.status=="success"){
+          return navigate('/pre-login')
+      }
+      else{
+          setMessage(result.message);
+          setError(true)
+      }
+   
+  })
       .catch(error => console.log('error', error));
  }
-
-//  if(message==="pass"){
-//     return navigate('/')
-// }
+    const handleLoginInstant=(e)=>{
+        e.stopPropagation()
+        setLoginIndicator('pre-login')
+    }
+    const handleInstantLogon=()=>{
+        setLoginIndicator('no')
+    }
+    const handlePropagation=(e)=>{
+        e.stopPropagation()
+    }
  
     return (
-        <div className="login-container">
-            <div className="left-container">
-            <Link to='/'><img className="lo-logo" src={jioSaavnLogo} alt="log-logo"/></Link>
-                <div className="avatar-container">
-                    <img className="avatar" src="https://staticfe.saavn.com/web6/jioindw/dist/1693459402/_i/artist/Nucleya.png" alt="login-logo"/>
-                    <h2 className="avatar-text">All Your Music.</h2>
-                    <em className="avatar-text-secondary">Anytime, anywhere.</em>
+        <aside className="loginhover-container" onClick={handleInstantLogon}>
+            <div className="loginhover-center-container" onClick={(e)=>handlePropagation(e)} >
+            <div className="loginhover-content">
+                <div className="account-toggle">
+                   <p>Already have an account?</p><span className="toggle-btn" onClick={(e)=>handleLoginInstant(e)}>Log In</span>
                 </div>
-            </div>
-            <div className="right-container">
-                <div className="account">
-                    Don't have a JioSaavn account yet?<Link to='/signup'><button className="login-btn">Sign Up</button></Link>
-                </div>
-                <div className="login-form">
+                <div className="hoverlogin-form">
                     <h1>Welcome to JioSaavn.</h1>
-                    <p className="loginpara">Log in or sign up with your mobile number.</p>
+                    <p className="loginpara">Sign up to create playlists, build your library, get personalized recommendations & more!</p>
                     <div className={error?"errorBox":"hiddenBox"}>{message}</div>
+                    <input className="loginput" type="text" placeholder="Username" value={name} onChange={(e)=>(setUserName(e.target.value))}/>
+                    <br/>
                     <input className="loginput" type="email" placeholder="Email Address" value={email} onChange={(e)=>(setEmail(e.target.value))} required/>
                     <br/>
                     <input className="loginput" type="password" placeholder="Password"  value={password} onChange={(e)=>(setPassword(e.target.value))} autoComplete="off" required/>
@@ -132,15 +120,11 @@ function LoginPage(){
                     <button className="submit-btn" type="submit" onClick={handleClick}>Continue</button>
                    <Link to="/change-password"><p className="changepassword">Change Password?</p></Link> 
                     <p className="em">By selecting ‘Continue’, you agree to JioSaavn’s Terms of Service and Privacy Policy.</p>
-                  
-                    {/* <hr className="hr-text" data-content="OR CONTINUE WITH"></hr>
-                    <div className="social-app">
-                        <button className="social mobile">Mobile Number</button>
-                        <button className="social facebook">Facebook</button>
-                    </div> */}
+                
                 </div>
             </div>
-        </div>
+            </div>
+        </aside>
     )
 }
-export default LoginPage;
+export default  SignUpHover;

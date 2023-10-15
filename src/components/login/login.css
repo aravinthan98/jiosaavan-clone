@@ -20,10 +20,12 @@
 .lo-logo{
     height: 65px;
     width: 160px;  
+    
 }
 .avatar{
     height: 415px;
     width: 385px;
+    
 }
 .avatar-container{
     position: absolute;

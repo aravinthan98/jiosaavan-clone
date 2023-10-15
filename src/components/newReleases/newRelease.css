@@ -29,6 +29,12 @@
     overflow: hidden;
    text-overflow: ellipsis;
 }
-.caro{
-    display: flex;
+.newRelease-page{
+    width: 80%;
+    margin-left: 18%;
+    padding-top: 40px;
+}
+.newrelease-caro{
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
 }

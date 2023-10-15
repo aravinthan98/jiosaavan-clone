@@ -16,6 +16,11 @@ import SignUp from './components/SignUp/Signup';
 import SearchResultSection from './components/searchCards/SearchResultSection';
 import FavoriteSection from './components/favoritSection/myFavoriteScetion';
 import UpdatePassword from './components/login/updatePassword';
+import NewReleases from './components/newReleases/newRelease';
+import TopChart from './components/topchart/topchart';
+import TopPlayList from './components/editorialPick/topPlaylist'
+import LoginPageHover from './components/login-signup-hover/LoginHover';
+import SignUpHover from './components/login-signup-hover/SignUpHover';
 function App() {
   return (
     <div className="app">
@@ -36,13 +41,16 @@ function App() {
             <Route path='/signup' element={<SignUp/>} />
             <Route path='/change-password' element={<UpdatePassword/>}/>
             
-            <Route path='/newrelease' element={<ComingSoonPage />} />
-            <Route path='/topchart' element={<ComingSoonPage />} />
-            <Route path='/topplaylist' element={<ComingSoonPage />} />
+            <Route path='/newrelease' element={<NewReleases />} />
+            <Route path='/topchart' element={<TopChart />} />
+            <Route path='/topplaylist' element={<TopPlayList />} />
+            
             <Route path='/podcast' element={<ComingSoonPage />} />
             <Route path='/topartist' element={<TopArtist/>} />
             <Route path='/radio' element={<ComingSoonPage />} />
             <Route path='/my-music' element={<FavoriteSection/>}/>
+            <Route path='/languages' element={<ComingSoonPage/>}/>
+
           </Routes>
 
           <MobileNavbar />

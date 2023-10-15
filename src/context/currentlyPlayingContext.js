@@ -22,7 +22,8 @@ const CurrentPlayingProvider = ({ children }) => {
   const[addSong, setAddSong]=useState(0);
   const[favoriteSongs, SetFavoriteSongs]=useState([])
   const [activateHeartId, setActivateHeartId] = useState([]);
-  const [trendingSongData,setTrendingSongData]=useState([])
+  const [trendingSongData,setTrendingSongData]=useState([]);
+  const[loginIndicator,setLoginIndicator]=useState('')
   useEffect(()=>{
     const userlog=JSON.parse(localStorage.getItem('userLogin'));
     if(userlog!==null){
@@ -39,7 +40,7 @@ const CurrentPlayingProvider = ({ children }) => {
     selectedSong,setSelectedSong,songeData, setSongData,albumData, setAlbumData,artistData, setArtistData,
     topSongData, setTopSongData,seletedResult,setSeletedResult,searchBarClicked,setSearchBarClicked,login,
     setLogin,profile,setProfile,addSong, setAddSong,favoriteSongs, SetFavoriteSongs,activateHeartId, setActivateHeartId,
-    trendingSongData,setTrendingSongData}} >
+    trendingSongData,setTrendingSongData,loginIndicator,setLoginIndicator}} >
       {children}
     </CurrentPlayingContext.Provider>
   );

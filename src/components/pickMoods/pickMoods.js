@@ -2,48 +2,23 @@
 import {useState,useEffect} from "react";
 import './pickMoods.css';
 import { useCurrentPlayingContext } from "../../context/currentlyPlayingContext";
-import {TbPlayerPlayFilled} from 'react-icons/tb'
+import {TbPlayerPlayFilled} from 'react-icons/tb';
+import LoaderFn from '../loader/Loader'
 
 function PickMood(){
   const {setCurrentTrackIndex,setSongArr,setAddSong} = useCurrentPlayingContext();
-    const [sadMood, setSadMood] = useState([
-      {
-        thumbnail:"https://c.saavncdn.com/973/Vikram-Tamil-2022-20220515182605-500x500.jpg",
-        title:"SadMood"
-      
-      }
-    ]);
-    const [happyMood, setHappyMood] = useState([{
-      thumbnail:"https://c.saavncdn.com/973/Vikram-Tamil-2022-20220515182605-500x500.jpg",
-        title:"happyMood"
-    }]);
-    const [romanticMood, setRomanticMood] = useState([{
-      thumbnail:"https://c.saavncdn.com/973/Vikram-Tamil-2022-20220515182605-500x500.jpg",
-        title:"romantic"
-    }]);
-    const [excitedMood, setExcitedMood] = useState([{
-      thumbnail:"https://c.saavncdn.com/973/Vikram-Tamil-2022-20220515182605-500x500.jpg",
-      title:"exited"
-    }
-    ]);
-    const [melodies, setMelodies] = useState([{
-      thumbnail:"https://c.saavncdn.com/973/Vikram-Tamil-2022-20220515182605-500x500.jpg",
-      title:"exited"
-    }
-    ]);
-    const [soulSoother, setSoulSoother] = useState([{
-      thumbnail:"https://c.saavncdn.com/973/Vikram-Tamil-2022-20220515182605-500x500.jpg",
-      title:"exited"
-    }
-    ]);
-    // const[adata ,setAdata]=useState([]);
+    const [sadMood, setSadMood] = useState([]);
+    const [happyMood, setHappyMood] = useState([]);
+    const [romanticMood, setRomanticMood] = useState([]);
+    const [excitedMood, setExcitedMood] = useState([]);
+    const [melodies, setMelodies] = useState([]);
+    const [soulSoother, setSoulSoother] = useState([]);
+    const[weeklyTop,setWeeklyTop]=useState([]);
+    const[loading,setLoading]=useState(false)
 
-    // function handleDetails(song){
-    //   const info=adata.filter(item => item.artist[0].name === song.name)
-      
-    //   console.log("info",info);
-    // }
+
      function fetchSongs() {
+        setLoading(true);
         try{
         fetch('https://academics.newtonschool.co/api/v1/music/song?filter={"mood":"happy"}', {
           headers: {
@@ -155,6 +130,33 @@ function PickMood(){
         console.log("Error fetching excitedMood data", error)
       }
       try{
+        fetch('https://academics.newtonschool.co/api/v1/music/song?filter={"featured":"Top 20 of this week"}', {
+          headers: {
+            'projectId': 'f104bi07c490',
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            const weeklyTopSongData=data?.data.map((item) => ({
+              key: item._id,
+              image: item.thumbnail,
+              title: item.title || "",
+              audio: item.audio_url,
+              artist:
+                (item.artist && item.artist[0] && item.artist[0].name) || "",
+              mood: item.mood || "",
+              album: "",
+              songId: item._id,
+                   
+            }))
+            setWeeklyTop(weeklyTopSongData); 
+            // console.log("setExcitedMood",excitedMood);
+        })
+      }
+      catch (error) {
+        console.log("Error fetching Melodies data", error)
+      }
+      try{
         fetch('https://academics.newtonschool.co/api/v1/music/song?filter={"featured":"Evergreen melodies"}', {
           headers: {
             'projectId': 'f104bi07c490',
@@ -209,6 +211,8 @@ function PickMood(){
         catch (error) {
           console.log("Error fetching SoulSoother data", error)
         }
+
+        setLoading(false)
       };
 
       useEffect(() => {
@@ -229,50 +233,56 @@ function PickMood(){
      
 
 return(
-
+      <div>
+        {loading?(<LoaderFn/>):(
         <div className="caro">
-             <div className="card" >
-                <img src={sadMood[0].image} alt="movie"/>
+        
+            <div className="card" >
+                <img src={sadMood[0]?.image} alt="movie"/>
                 <div className='moodscard-hovercontent'><button onClick={(e)=>handlePlayMoods(e,sadMood)} className='card-ply-btn'><TbPlayerPlayFilled className='card-ply-icon'/></button></div>
-                 <h4>{sadMood[0].title}</h4>
+                 <h4>{sadMood[0]?.title}</h4>
                <p>Sad</p>
             </div>
             <div className="card" >
-                <img src={happyMood[0].image} alt="movie"/>
+                <img src={happyMood[0]?.image} alt="movie"/>
                 <div className='moodscard-hovercontent'><button onClick={(e)=>handlePlayMoods(e,happyMood)} className='card-ply-btn'><TbPlayerPlayFilled className='card-ply-icon'/></button></div>
-                <h4>{happyMood[0].title}</h4>
+                <h4>{happyMood[0]?.title}</h4>
                 <p>Happy</p>
             </div>
              <div className="card">
-                 <img src={romanticMood[0].image} alt="movie"/>
+                 <img src={romanticMood[0]?.image} alt="movie"/>
                  <div className='moodscard-hovercontent'><button onClick={(e)=>handlePlayMoods(e,romanticMood)} className='card-ply-btn'><TbPlayerPlayFilled className='card-ply-icon'/></button></div>
-                 <h4>{romanticMood[0].title}</h4>
+                 <h4>{romanticMood[0]?.title}</h4>
                  <p>Romantic</p>
              </div>
              <div className="card">
-                 <img src={excitedMood[0].image} alt="movie"/>
+                 <img src={excitedMood[0]?.image} alt="movie"/>
                  <div className='moodscard-hovercontent'><button onClick={(e)=>handlePlayMoods(e,excitedMood)} className='card-ply-btn'><TbPlayerPlayFilled className='card-ply-icon'/></button></div>
-                 <h4>{excitedMood[0].title}</h4>
+                 <h4>{excitedMood[0]?.title}</h4>
                  <p>Excited</p>
              </div>
              <div className="card">
-                 <img src={melodies[0].image} alt="movie"/>
+                 <img src={melodies[0]?.image} alt="movie"/>
                  <div className='moodscard-hovercontent'><button onClick={(e)=>handlePlayMoods(e,melodies)} className='card-ply-btn'><TbPlayerPlayFilled className='card-ply-icon'/></button></div>
-                 <h4>{melodies[0].title}</h4>
+                 <h4>{melodies[0]?.title}</h4>
                  <p>Evergreen melodies</p>
              </div>
              <div className="card">
-                 <img src={soulSoother[0].image} alt="movie"/>
+                 <img src={soulSoother[0]?.image} alt="movie"/>
                  <div className='moodscard-hovercontent'><button onClick={(e)=>handlePlayMoods(e,soulSoother)} className='card-ply-btn'><TbPlayerPlayFilled className='card-ply-icon'/></button></div>
-                 <h4>{soulSoother[0].title}</h4>
+                 <h4>{soulSoother[0]?.title}</h4>
                  <p>Soul Soother</p>
              </div>
-              
+             <div className="card">
+                 <img src={weeklyTop[0]?.image} alt="movie"/>
+                 <div className='moodscard-hovercontent'><button onClick={(e)=>handlePlayMoods(e,weeklyTop)} className='card-ply-btn'><TbPlayerPlayFilled className='card-ply-icon'/></button></div>
+                 <h4>{weeklyTop[0]?.title}</h4>
+                 <p>Weekly Top 20 Songs</p>
+             </div>
          </div>
-           
-              
-          
-
+        )
+        }
+      </div>
 )
 }
 export default PickMood;

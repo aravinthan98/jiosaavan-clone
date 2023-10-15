@@ -12,13 +12,14 @@ import {PiChalkboardBold} from 'react-icons/pi';
 import {BsFiles} from 'react-icons/bs';
 import {BsCloudArrowDown} from 'react-icons/bs';
 import jioSaavnLogo from '../../assets/jioSaavnLogo.png'
+import { Link } from "react-router-dom";
 function Subscription(){
     return(
         <div className="subs-section">
             <div className="subs-section-top">
 
             <div className="subs-navbar">
-            <img className="subs-logo" src={jioSaavnLogo} alt="jiosaavn-logo"/>
+           <Link to='/'><img className="subs-logo" src={jioSaavnLogo} alt="jiosaavn-logo"/></Link> 
             
             <div className="subs-navbar-btns">
                 <div><p className="subs boarder-styl">Redeem</p></div>

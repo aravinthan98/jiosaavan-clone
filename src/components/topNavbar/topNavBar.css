@@ -36,6 +36,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    position: relative;
   }
   /* .midnav input{
     outline: none;
@@ -133,6 +134,7 @@ transition: right .3s ease-in-out,left .3s ease-in-out,padding .3s ease-in-out,b
   
 }
 .myprofile-logo-top{
+  cursor: pointer;
   margin: 0!important
 }
 .myprofile-section-top img{
@@ -140,6 +142,9 @@ transition: right .3s ease-in-out,left .3s ease-in-out,padding .3s ease-in-out,b
   width: 30px;
   margin-right: 5px;
   border-radius: 50%;
+}
+.languages-sec,.music,.pod{
+  color: #3e3e3e;
 }
 .myprofile-name-top{
   margin: 0!important;
@@ -170,6 +175,44 @@ transition: right .3s ease-in-out,left .3s ease-in-out,padding .3s ease-in-out,b
  overflow: hidden;
  margin-top: 30px;
 }
+.profile-dropedown{
+  position: absolute;
+  width: 198px;
+  background: #fff;
+  right: 10px;
+  z-index: 1010;
+  top: 55px;
+   border-radius: 8px; 
+  bottom: auto;
+  box-shadow: 0 0 12px 4px rgba(0,0,0,.05);
+  left: auto;
+  overflow: hidden;
+  position: absolute;
+  
+  /* transform: translateY(-11px);
+  transition: none; */
+ 
+}
+.profile-dropedown-section{
+
+    padding-bottom: 5.5px!important;
+    padding-top: 5.5px!important;
+}
+.profile-dropedown-section p{
+    font-size: .8rem;
+    line-height: 1;
+    padding: 11px 22px;
+ 
+    font-weight: 600;
+}
+.profile-dropedown-section p:hover{
+  background: #96f0e5;
+  cursor: pointer;
+}
+.noprofile{
+  display: none;
+}
+
   @media screen and (max-width: 600px) {
     .midnav, .login-btn, .signup-btn, .gopro{
       display: none;

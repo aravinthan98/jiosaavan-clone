@@ -13,6 +13,7 @@ function Topnavbar(){
   const[inputValue,setInputValue]=useState('')
   const{searchBarClicked,setSearchBarClicked,login,profile}=useCurrentPlayingContext();
 
+  const[profileClicked,setProfileClicked]=useState(false);
   
   const debounceSearch = (e) => {
     setInputValue(e.target.value);
@@ -20,6 +21,12 @@ function Topnavbar(){
     
   }
 
+  const handleLogOut=()=>{
+    console.log("login",login)
+    if(login){
+      localStorage.clear();
+    }
+  }
     return(
       <>
       <div className="sidenav">
@@ -28,8 +35,8 @@ function Topnavbar(){
       <Link to='/'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/JioSaavn_Logo.svg/1024px-JioSaavn_Logo.svg.png' alt="logo"/>
       </Link>
       <div id="mus-pod">
-      <div className="mus">Music</div>
-      <div  className="pod">Podcasts</div>
+      <div className="music">Music</div>
+     <Link to='/podcast'><div className="pod">Podcasts</div></Link> 
       </div>
       <Link to='/subscription'>
       <div className="gopro">Go Pro</div>
@@ -41,9 +48,9 @@ function Topnavbar(){
       {/* <input type='text' className='searchbar' placeholder="Search here" /> */}
       </div>
       <div className='rightnav'>
-        <div>Music Language</div>
+       <Link to='/languages'><div className="languages-sec">Music Language</div></Link> 
         {login?(<div className='myprofile-section-top'>
-                    <div className='myprofile-logo-top'><img src='https://staticfe.saavn.com/web6/jioindw/dist/1696482270/_i/default_images/default-user-500x500.jpg' className='profile-logo' alt='my-logo'/></div>
+                    <div className='myprofile-logo-top' onClick={()=>setProfileClicked(!profileClicked)}><img src='https://staticfe.saavn.com/web6/jioindw/dist/1696482270/_i/default_images/default-user-500x500.jpg' className='profile-logo' alt='my-logo'/></div>
                     <div className='myprofile-name-top'>
                         <h5>{profile.userName&& profile.userName}</h5>
                     </div>
@@ -69,12 +76,16 @@ function Topnavbar(){
           <div className="searchbox-results">
             {inputValue?(<SearchSection val={inputValue}/>):(<SearchTreandingSong/>)
 
-            }
-          
-
-              
+            }     
           </div>
         </div>
+        <aside className={profileClicked?"profile-dropedown":"noprofile"}>
+          <div className="profile-dropedown-section">
+          <Link to='/my-music'><p>My Music</p></Link> 
+           <Link to='/my-music'><p>My Profile</p></Link> 
+            <p onClick={handleLogOut}>Log Out</p>
+          </div>
+        </aside>
         </> 
     )
 }

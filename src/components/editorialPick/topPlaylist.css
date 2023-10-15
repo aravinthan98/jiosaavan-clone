@@ -1,34 +1,9 @@
-
-
-.card{
-    margin-top: 25px;
-    text-align: center;
-    padding-left: 10px;
-    
+.topplaylist-section{
+    width: 80%;
+    margin-left: 18%;
+    padding-top: 40px;
 }
-.card img{
-    width: 117px;
-    height: 117px;
-    border-radius: 5px;
+.topplaylist-container{
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
 }
-.card p{
-    font-size: 13px;
-    white-space: nowrap; 
-    width: 120px;
-    margin-left: 10px;
-    overflow: hidden;
-   text-overflow: ellipsis;
-    
-}
-.card h4{
-    width: 120px;
-    font-weight: 500;
-    margin-left: 12px;
-    font-size: 14px;
-    white-space: nowrap; 
-    overflow: hidden;
-   text-overflow: ellipsis;
-}
-/* .caro{
-    display: flex;
-} */

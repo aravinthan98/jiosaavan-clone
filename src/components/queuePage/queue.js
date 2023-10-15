@@ -8,14 +8,14 @@ import {FiMoreHorizontal} from 'react-icons/fi';
 import {PiDotsSixVerticalBold} from 'react-icons/pi';
 import { useCurrentPlayingContext } from "../../context/currentlyPlayingContext";
 import {AiFillHeart} from 'react-icons/ai'
-
+import { useNavigate } from "react-router";
 
 
 function Queue(){
     const {currentTrackIndex,setCurrentTrackIndex,songArr,profile,login,setAddSong,favoriteSongs,
-         SetFavoriteSongs,activateHeartId, setActivateHeartId} = useCurrentPlayingContext();
+         SetFavoriteSongs,activateHeartId, setActivateHeartId,setLoginIndicator} = useCurrentPlayingContext();
     
-    
+    const navigate=useNavigate();
     const[checked,setChecked]=useState(true);
     const[relatedSong,setRelatedSong]=useState(songArr);
     const favoriteFetch=(songId)=>{
@@ -87,10 +87,12 @@ function Queue(){
         favoriteFetch(id) 
         
         }
+        else{
+            setLoginIndicator('pre-login')
+        }
     }
     const handleSongPlay=(id)=>{  
-        // console.log("songArr",songArr) 
-        // console.log("songArr",id) 
+    
         const songindex=songArr.findIndex(object => {
             return object.songId === id;
 

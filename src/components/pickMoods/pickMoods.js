@@ -189,7 +189,7 @@ function PickMood(){
         })
           .then((response) => response.json())
           .then((data) => {
-            const melodieSongData=data?.data.map((item) => ({
+            const melodieSongData=data.length!==0 &&data.data?.map((item) => ({
               key: item._id,
               image: item.thumbnail,
               title: item.title || "",

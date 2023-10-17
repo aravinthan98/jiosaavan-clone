@@ -237,7 +237,7 @@ input[type="radio"]{
     position: relative;
     z-index: 1;
     margin: 50px auto;
-    width: 90vw;
+    width: 90%;
     max-width: 780px;
     border-collapse: separate;
     font-weight: 700;

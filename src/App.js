@@ -23,41 +23,41 @@ import LoginPageHover from './components/login-signup-hover/LoginHover';
 import SignUpHover from './components/login-signup-hover/SignUpHover';
 function App() {
   return (
-    <div className="app">
-      <CurrentPlayingProvider>
-        <Layout>
-          <Routes>
-            <Route path='/'  element={<Maincontent className='main-page'/>}/>
-        
+    <>
+        <CurrentPlayingProvider>
+          <Layout>
+            <Routes>
+              <Route path='/'  element={<Maincontent className='main-page'/>}/>
           
-
-            <Route path='/queue' element={<Queue/>} />
-
-            <Route path='/songDetailPage/:id' element={<SongDetails />} />
-            <Route path='/search/:id' element={<SearchResultSection/>}/>
-            <Route path='/subscription' element={<Subscription />} />
-            <Route path='/login' element={<LoginPage/>} />
             
-            <Route path='/signup' element={<SignUp/>} />
-            <Route path='/change-password' element={<UpdatePassword/>}/>
-            
-            <Route path='/newrelease' element={<NewReleases />} />
-            <Route path='/topchart' element={<TopChart />} />
-            <Route path='/topplaylist' element={<TopPlayList />} />
-            
-            <Route path='/podcast' element={<ComingSoonPage />} />
-            <Route path='/topartist' element={<TopArtist/>} />
-            <Route path='/radio' element={<ComingSoonPage />} />
-            <Route path='/my-music' element={<FavoriteSection/>}/>
-            <Route path='/languages' element={<ComingSoonPage/>}/>
 
-          </Routes>
+              <Route path='/queue' element={<Queue/>} />
 
-          <MobileNavbar />
-        </Layout>
-      </CurrentPlayingProvider>
+              <Route path='/songDetailPage/:id' element={<SongDetails />} />
+              <Route path='/search/:id' element={<SearchResultSection/>}/>
+              <Route path='/subscription' element={<Subscription />} />
+              <Route path='/login' element={<LoginPage/>} />
+              
+              <Route path='/signup' element={<SignUp/>} />
+              <Route path='/change-password' element={<UpdatePassword/>}/>
+              
+              <Route path='/newrelease' element={<NewReleases />} />
+              <Route path='/topchart' element={<TopChart />} />
+              <Route path='/topplaylist' element={<TopPlayList />} />
+              
+              <Route path='/podcast' element={<ComingSoonPage />} />
+              <Route path='/topartist' element={<TopArtist/>} />
+              <Route path='/radio' element={<ComingSoonPage />} />
+              <Route path='/my-music' element={<FavoriteSection/>}/>
+              <Route path='/languages' element={<ComingSoonPage/>}/>
 
-    </div>
+            </Routes>
+
+            <MobileNavbar />
+          </Layout>
+        </CurrentPlayingProvider>
+
+    </>
 
   );
 }

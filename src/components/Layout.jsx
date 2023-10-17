@@ -36,9 +36,9 @@ const Layout = ({ children }) => {
 
     
   return (
-    <div>
+    <>
       <Topnavbar />
-      <div className='maincontent_page'>
+      <>
         {
           !pathname.includes('/queue') &&
           <SideNavbar />
@@ -50,13 +50,13 @@ const Layout = ({ children }) => {
           <Footer className='main-page'/>
         }
        
-      </div>
+      </>
       <LiveMusic />
       {loginIndicator==='pre-login' && <LoginPageHover/>}
       {loginIndicator==='pre-signup' && <SignUpHover/>}
      
      
-    </div>
+    </>
   )
 }
 

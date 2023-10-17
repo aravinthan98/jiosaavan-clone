@@ -233,7 +233,7 @@ function PickMood(){
      
 
 return(
-      <div>
+      <>
         {loading?(<LoaderFn/>):(
         <div className="caro">
         
@@ -282,7 +282,7 @@ return(
          </div>
         )
         }
-      </div>
+      </>
 )
 }
 export default PickMood;

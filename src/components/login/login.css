@@ -16,6 +16,7 @@
     height: 100%;
     width: 52%;
     position: relative;
+    
 }
 .lo-logo{
     height: 65px;
@@ -47,6 +48,7 @@
     color: #3f424c;
     font-size: 13px;  
     padding: 22px;
+    display: flex;
 }
 .account button{
     padding: 6px 22px;
@@ -59,7 +61,7 @@
    position: absolute;
     height: 90%;
     width: 70%;
-    top: 8%;
+    top: 15%;
     left: 13%;
     text-align: center;
     
@@ -206,4 +208,46 @@
 .facebook{
     background-color: #3d5798;
     border:none;
+}
+.jio-logo-log{
+    display: none;
+    width: 150px;
+    position: absolute;
+    top: 0;
+   left: 50%;
+}
+@media  screen and (max-width: 600px) {
+  .left-container{
+    display: none;
+  }
+  .right-container{
+    width: 100%;
+  }
+  .jio-logo-log{
+    display: block;
+    width: 130px;
+    position: absolute;
+    top: 0;
+   left: 0;
+   /* width: 20%; */
+  }
+  .login-form{
+     width: 96%; 
+     left: 0;  
+ }
+ .login-form h1{
+    font-size: 1.6rem;
+ }
+
+.capta-container {
+    margin-left: 14%;
+    width: 80%;
+}
+.account-toggle-text{
+    display: none;
+}
+.account button{
+   right: 0;
+}
+
 }

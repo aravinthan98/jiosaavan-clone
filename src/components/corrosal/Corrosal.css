@@ -49,7 +49,7 @@
     padding-bottom: 40px;
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 600px) {
     .card img{
         width: 147px;
         height: 147px;
@@ -61,21 +61,17 @@
         display: none;
     }
     .react-multi-carousel-track {
-        width: 100vw;
+        width: 100%;
     
     }
     .react-multi-carousel-list{
-        width: 100vw;
+        width: 100%;
        
     }
     .card{
         text-align: center;     
        width: 147px;
     }
-    .card img{
-        width: 147px;
-        height: 147px;
-        border-radius: 5px;
-    }
+  
 
 }

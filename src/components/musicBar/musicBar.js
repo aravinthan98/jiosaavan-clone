@@ -197,8 +197,8 @@ function LiveMusic(){
             </div>
             <div className="rightb">
                 <p>{formatTime(currentTime)}/{formatTime(duration)}</p>
-                <TfiMoreAlt/>
-               
+                <Link to={`/songDetailPage/${songArr.length!=0?songArr[currentTrackIndex].songId:"13a"}`}>  <TfiMoreAlt className="more-btn"/>
+                    </Link>
                 <div className="volume-sec"
                 //  onMouseEnter={handleMouseEnter}
                     // onMouseLeave={handleMouseLeave}

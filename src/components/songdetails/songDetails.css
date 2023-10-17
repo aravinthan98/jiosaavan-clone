@@ -135,3 +135,30 @@
     transition: opacity .3s ease-in-out;   
     z-index: 1;
 }
+.favorite-fill{
+    color: red;
+    padding-top: 10px;
+}
+@media screen and (max-width: 600px) {
+    .details-section-top{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+    }
+    .d-play-btn{
+        display: none;
+    }
+    .d-description{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .details-section {
+        /* width: 100vw; */
+        margin-left: 0;
+        padding-top: 60px;
+        margin-right: 0;
+        width: 100%;
+    }
+}

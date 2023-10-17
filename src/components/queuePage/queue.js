@@ -7,16 +7,17 @@ import {AiOutlineHeart} from 'react-icons/ai';
 import {FiMoreHorizontal} from 'react-icons/fi';
 import {PiDotsSixVerticalBold} from 'react-icons/pi';
 import { useCurrentPlayingContext } from "../../context/currentlyPlayingContext";
-import {AiFillHeart} from 'react-icons/ai'
-import { useNavigate } from "react-router";
+import {AiFillHeart} from 'react-icons/ai';
+import { Link } from "react-router-dom";
+
 
 
 function Queue(){
     const {currentTrackIndex,setCurrentTrackIndex,songArr,profile,login,setAddSong,favoriteSongs,
          SetFavoriteSongs,activateHeartId, setActivateHeartId,setLoginIndicator} = useCurrentPlayingContext();
     
-    const navigate=useNavigate();
-    const[checked,setChecked]=useState(true);
+   
+    // const[checked,setChecked]=useState(true);
     const[relatedSong,setRelatedSong]=useState(songArr);
     const favoriteFetch=(songId)=>{
             var myHeaders = new Headers();
@@ -106,9 +107,9 @@ function Queue(){
         setRelatedSong(songArr.slice(currentTrackIndex+1,songArr.length));          
         }
     },[currentTrackIndex])
-    const handleChange=()=>{
-        setChecked(!checked)
-    }
+    // const handleChange=()=>{
+    //     setChecked(!checked)
+    // }
   
     return (
         <div className="queue-page">
@@ -122,13 +123,15 @@ function Queue(){
             <div className="page-right"> 
                 <div className="q-navbar">
                     <h3>Queue</h3>
-                    <div className="q-navele">
-                        <p id="qmore"><TfiMoreAlt/></p>
+                    <Link to={`/songDetailPage/${songArr.length!=0?songArr[currentTrackIndex].songId:"13a"}`}>  <p id="qmore"><TfiMoreAlt className="more-btn"/></p>
+                    </Link>
+                    {/* <div className="q-navele">
+                        
                         <p>
                         <span id="save"> Save</span>
                         <span id="clear">Clear</span>
                         </p>
-                    </div>
+                    </div> */}
                 </div>
                 <hr className="line"></hr>
                 <div className="q-songsection">
@@ -156,7 +159,7 @@ function Queue(){
                             </div>
                             <div>
                                <p className="q-smpl more"><FiMoreHorizontal/></p>
-                               <p>3:18</p>
+                               <p>0:20</p>
                             </div>
                             
 
@@ -164,10 +167,10 @@ function Queue(){
                     </div>
                     <div className="q-autoplay">
                             <p>Autoplay more like this.</p>
-                            <label className="switch">
+                            {/* <label className="switch">
                             <input type="checkbox" onChange={handleChange} checked={checked}/>
                             <span className="slider round"></span>
-                            </label>
+                            </label> */}
                     </div>
                     <div className="q-related-section">
                     {relatedSong && relatedSong.map((item,index)=>(
@@ -194,7 +197,7 @@ function Queue(){
                                 </div>
                                 <div>
                                 <p className="q-smpl more"><FiMoreHorizontal/></p>
-                                <p>3:18</p>
+                                <p>0:20</p>
                                 </div>
                                 
 

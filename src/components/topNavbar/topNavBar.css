@@ -222,13 +222,15 @@ transition: right .3s ease-in-out,left .3s ease-in-out,padding .3s ease-in-out,b
       display: block;
     }
     .navbar{
-      width: 100vw;
+      /* width: 100vw; */
       border: none;
       height: 12vh;
+      width: 100%;
     }
     .sidenav{    
-      width: 100vw;
+      /* width: 100vw; */
       position: relative;
+      width: 100%;
     }
     .leftnav div{    
       font-size: 1.1rem;

@@ -4,6 +4,7 @@ import {GrHomeRounded} from 'react-icons/gr';
 import {BiSearch} from 'react-icons/bi';
 import {ImCompass2} from 'react-icons/im';
 import {PiUser} from 'react-icons/pi'
+import { Link } from "react-router-dom";
 
 function MobileNavbar(){
 
@@ -12,7 +13,7 @@ function MobileNavbar(){
             <div className="mobile-nav">
                 <div className="m-home">
                 <p><GrHomeRounded/></p>
-                <span>Home</span>
+               <Link to='/'><span>Home</span></Link> 
                 </div>
                 <div className="m-serch">             
                 <p><BiSearch/></p>
@@ -24,7 +25,7 @@ function MobileNavbar(){
                 </div>
                 <div className="m-log">
                 <p><PiUser/></p>
-                <span>Login</span>
+               <Link to='/login'><span>Login</span></Link> 
                 </div>
                 
             </div>

@@ -4,11 +4,14 @@ import './songDetails.css';
 import {AiOutlineHeart} from 'react-icons/ai';
 import {FiMoreHorizontal} from 'react-icons/fi'
 import {ImPlay2} from 'react-icons/im';
+import {AiFillHeart} from 'react-icons/ai'
+
 import {useCurrentPlayingContext} from '../../context/currentlyPlayingContext'
 
 
 function SongDetails(){
-    const {currentTrackIndex,songArr,setCurrentTrackIndex}=useCurrentPlayingContext()
+    const {currentTrackIndex,songArr,setCurrentTrackIndex,profile,login,setAddSong,favoriteSongs,
+        SetFavoriteSongs,activateHeartId,setActivateHeartId,setLoginIndicator}=useCurrentPlayingContext()
    const handleDetailPlayButton=()=>{
 
    }
@@ -20,6 +23,59 @@ function SongDetails(){
    
     setCurrentTrackIndex(songindex); 
    }
+   const favoriteFetch=(songId)=>{
+    var myHeaders = new Headers();
+    myHeaders.append("projectId", "f104bi07c490");
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Authorization", `Bearer ${profile.token}`);
+
+    var raw = JSON.stringify({
+    "songId": `${songId}`
+    });
+
+    var requestOptions = {
+    method: 'PATCH',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+    };
+
+    fetch("https://academics.newtonschool.co/api/v1/music/favorites/like", requestOptions)
+    .then(response => response.json())
+    .then((result) => {
+        if(result.status==='success'){
+            setAddSong((prev)=>prev+1);
+        }
+        console.log("result",result)
+    })
+    .catch(error => console.log('error', error));        
+}
+
+   const handleFavorite=(item,id)=>{
+    console.log("id",id)
+    console.log("item",item)
+    if(login){
+    const idCheck = activateHeartId.includes(id);
+    console.log("idCheck", idCheck)
+    if (idCheck) {
+        const newIdArray=activateHeartId.filter((item)=>item!==id)
+        const newObjectArray=favoriteSongs.filter((song)=>song.songId!==id)
+        setActivateHeartId(newIdArray)
+        SetFavoriteSongs(newObjectArray)
+    } else {    
+        const newIdArray=[...activateHeartId,id]
+        const newObjectArray=[...favoriteSongs,item]
+        setActivateHeartId(newIdArray)
+        SetFavoriteSongs(newObjectArray)   
+    }
+   
+    favoriteFetch(id) 
+    
+    }
+    else{
+        setLoginIndicator('pre-login')
+    }
+}
     return(
         <div className="details-section">
             <div className="details-section-top">
@@ -33,8 +89,8 @@ function SongDetails(){
                     </div>
                     <div className="d-btn-section">
                         <div className="d-play-btn" onClick={handleDetailPlayButton}>Play</div>
-                        <div className="d-favicon"><AiOutlineHeart id="d-fav"/></div>
-                        <div className="d-moreicon"><FiMoreHorizontal id="d-more"/></div>
+                        <div className="d-favicon" onClick={()=>handleFavorite(songArr[currentTrackIndex],songArr[currentTrackIndex]?.songId)}>{activateHeartId.includes(songArr[currentTrackIndex]?.songId)?<AiFillHeart className="favorite-fill"/>:<AiOutlineHeart id="d-fav"/>}</div>
+                        {/* <div className="d-moreicon"><FiMoreHorizontal id="d-more"/></div> */}
                     </div>
 
                 </div>
@@ -51,11 +107,11 @@ function SongDetails(){
                     <p className="d-s-artist">{item.length!==0 && item.artist?item.artist:" "}</p>
                     <div className="d-b-icons">
                     <div>
-                        <p className="q-smpl fav"><AiOutlineHeart/></p> 
+                        <p className="q-smpl fav"onClick={()=>handleFavorite(item,item?.songId)}>{activateHeartId.includes(item?.songId)?<AiFillHeart className="favorite-song"/>:<AiOutlineHeart/>}</p> 
                     </div>
                     <div>
                         <p className="q-smpl more"><FiMoreHorizontal/></p>
-                        <p>3:18</p>
+                        <p>0:20</p>
                     </div>
                     </div>        
                 </div>

@@ -5,6 +5,7 @@ import image from '../../assets/jioSaavnLogo.png'
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { useCurrentPlayingContext } from "../../context/currentlyPlayingContext";
+import jioMobileLogo from '../../assets/JioSaavn Logo on White.png'
 function SignUp(){
     const{profile,setProfile}=useCurrentPlayingContext();
 
@@ -93,7 +94,7 @@ function SignUp(){
             </div>
             <div className="right-container">
                 <div className="account">
-                Already have an account?<Link to='/login'><button className="login-btn">Login</button></Link>
+                <p className="account-toggle-text">Already have an account?</p><Link to='/login'><button className="sign-btn">Login</button></Link>
                 </div>
                 <div className="login-form">
                     <h1>Welcome to JioSaavn.</h1>
@@ -125,6 +126,9 @@ function SignUp(){
                     </div> */}
                 </div>
             </div>
+            <Link to='/'>  
+                <img className="jio-logo-log" src={jioMobileLogo} alt="log-logo"/>
+            </Link>
         </div>
     )
 }

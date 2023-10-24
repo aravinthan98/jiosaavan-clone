@@ -25,7 +25,7 @@ function LoginPage(){
  const handleClick=(e)=>{
    
     if( email && password&&checked){
-       if(email.indexOf('@')===-1){       
+       if(email.indexOf('@')===-1||email.indexOf('.com')===-1){       
           setMessage('Email is invalid'); 
           setError(true)       
        }

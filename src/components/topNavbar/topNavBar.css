@@ -179,7 +179,7 @@ transition: right .3s ease-in-out,left .3s ease-in-out,padding .3s ease-in-out,b
  margin-top: 30px;
 }
 .profile-dropedown{
-  position: absolute;
+  position: fixed;
   width: 198px;
   background: #fff;
   right: 10px;
@@ -190,7 +190,7 @@ transition: right .3s ease-in-out,left .3s ease-in-out,padding .3s ease-in-out,b
   box-shadow: 0 0 12px 4px rgba(0,0,0,.05);
   left: auto;
   overflow: hidden;
-  position: absolute;
+  
   
   /* transform: translateY(-11px);
   transition: none; */

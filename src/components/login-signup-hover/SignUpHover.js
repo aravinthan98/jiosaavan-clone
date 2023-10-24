@@ -68,7 +68,8 @@ function SignUpHover(){
     .then((response) => response.json())
     .then((result) =>{
       if(result.status=="success"){
-          return navigate('/pre-login')
+          
+          setLoginIndicator('pre-login')
       }
       else{
           setMessage(result.message);

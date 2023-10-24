@@ -72,8 +72,17 @@ function UpdatePassword(){
     };
     
     fetch("https://academics.newtonschool.co/api/v1/user/updateMyPassword", requestOptions)
-      .then(response => response.text())
-      .then(result => console.log(result))
+    .then((response) => response.json())
+    .then((result) =>{
+      if(result.status=="success"){    
+          return navigate('/')
+      }
+      else{
+          setMessage(result.message);
+          setError(true)
+      }
+   
+  })
       .catch(error => console.log('error', error));
  }
 

@@ -79,7 +79,7 @@ function LoginPageHover(){
 
             localStorage.setItem('userLogin', JSON.stringify(myObject));
           
-            return navigate('/')
+            setLoginIndicator('no')
         }
         else{
             setMessage(result.message);

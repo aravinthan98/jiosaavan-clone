@@ -85,9 +85,9 @@ function Topnavbar(){
         </div>
         <aside className={profileClicked?"profile-dropedown":"noprofile"}>
           <div className="profile-dropedown-section">
-          <Link to='/my-music'><p>My Music</p></Link> 
-           <Link to='/my-music'><p>My Profile</p></Link> 
-           <Link to="/change-password"><p>Change Password</p></Link>
+          <Link to='/my-music'><p onClick={()=>setProfileClicked(!profileClicked)}>My Music</p></Link> 
+           <Link to='/my-music'><p onClick={()=>setProfileClicked(!profileClicked)}>My Profile</p></Link> 
+           <Link to="/change-password"><p onClick={()=>setProfileClicked(!profileClicked)}>Change Password</p></Link>
             <p onClick={handleLogOut}>Log Out</p>
           </div>
         </aside>

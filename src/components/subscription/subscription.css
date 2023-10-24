@@ -59,12 +59,17 @@
 }
 .subs-top-title-2 a{
     color: white;
+    text-decoration: underline;
 }
 .subs-top-card-container{
     display: flex;
     width: 100%;
     justify-content: space-between;
    
+}
+.subs-top-last-container a{
+    color:#2bc5b4;
+    cursor: pointer;
 }
 .subs-card{
     width: 460px;
@@ -385,6 +390,10 @@ tbody{
     font-size: 1.7em;
     opacity: .69;
    float: left;
+   
+}
+.subs-copyrights-socialmedia a{
+    color: rgba(139, 157, 191, .69);
 }
 .subs-copyrights-socialmedia svg{
     margin: 0 10px ;

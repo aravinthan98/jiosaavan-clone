@@ -29,8 +29,8 @@ function Subscription(){
             </div>
             <div className="subs-top-maincontainer">
                 <p className="subs-top-title">All your music and JioTunes,<span>plus...</span></p>
-                <h1 className="subs-top-title-2">Ad-free Music, Unlimited Downloads, Exclusive Original Content and <a href="#">More</a>.</h1>
-                <div className="subs-top-card-container">
+                <h1 className="subs-top-title-2">Ad-free Music, Unlimited Downloads, Exclusive Original Content and <a href="#planDetails">More</a>.</h1>
+                <div className="subs-top-card-container" id="getplans">
                     <div className="subs-card">
                         <div className="subs-container-head"><strong>JioSaavn</strong></div>
                         
@@ -40,11 +40,11 @@ function Subscription(){
                             <p><strong><em>*Limited Period Offer</em></strong></p>
                             <div className="payment-type">
                                 <div className="subs-amazon">
-                                <input type="radio" id="amazon-1"/>
+                                <input type="radio" id="amazon-1" name="prime-payment"/>
                                 <label htmlFor="amazon-1">Pay with Amazon Pay</label>
                                 </div>
                                 <div className="subs-paytm">
-                                <input type="radio" id="paytm-1"/>
+                                <input type="radio" id="paytm-1" name="prime-payment"/>
                                 <label htmlFor="paytm-1">Pay with Paytm</label>
                                 </div>
                             </div>
@@ -60,11 +60,11 @@ function Subscription(){
                             <p><strong><em>*offer </em></strong></p>
                             <div className="payment-type">
                                 <div className="subs-amazon " id="notpick">
-                                <input type="radio" id="amazon-1"/>
+                                <input type="radio" id="amazon-1" name="payment"/>
                                 <label htmlFor="amazon-1">Pay with Amazon Pay</label>
                                 </div>
                                 <div className="subs-paytm " id="notpick">
-                                <input type="radio" id="paytm-1"/>
+                                <input type="radio" id="paytm-1" name="payment"/>
                                 <label htmlFor="paytm-1">Pay with Paytm</label>
                                 </div>
                             </div>
@@ -73,7 +73,7 @@ function Subscription(){
                     </div>
                 </div>
                 <div className="subs-top-last-container">
-                    <div><p><strong><em>Why go Pro? <span>Learn More</span></em></strong></p></div>
+                    <div><p><strong><em>Why go Pro? <span><a>Learn More</a></span></em></strong></p></div>
                     <div><img className="paytm-logo" src="https://static.saavncdn.com/_i/paytm-logo.png" alt="ptmlogo"/>
                     <img className="amazon-logo" src="https://static.saavncdn.com/_i/amazonPay-logo.png" alt="amznlogo"/></div>
                 </div>
@@ -98,7 +98,7 @@ function Subscription(){
                     </div>
                 </div>
             </div>
-            <div className="subs-floting-container">
+            <div className="subs-floting-container" >
                 <div className="subs-floting-card">
                     <span><GoCircleSlash/></span>
                     <h5>Ad-Free Music</h5>
@@ -120,7 +120,7 @@ function Subscription(){
                     <p>Save data and listen offline, no internet required.</p>
                 </div>
             </div>
-            <div className="subs-mid-container2">
+            <div className="subs-mid-container2" id="planDetails">
                 <div className="subs-mid2">
                     <h3><em>Get Even More With Pro.</em></h3>
                     <table className="table-list">
@@ -193,7 +193,7 @@ function Subscription(){
                     <div className="subs-mid-container2-btom">
                         <h3><em>Try Pro Now</em></h3>
                         <h4>Make music beautiful.</h4>
-                        <a className="subs-mid-btom-btn" href="#">Pick a Plan</a>
+                        <a className="subs-mid-btom-btn" href="#getplans">Pick a Plan</a>
                     </div>
                 </div>
             </div>
@@ -244,7 +244,13 @@ function Subscription(){
                         </div>
                     </div>
                 <div className="subs-copyrights">
-                    <div className="subs-copyrights-socialmedia"><BsTwitter/><FaFacebookF/><BsInstagram/><GrSnapchat/><GrYoutube/></div>
+                    <div className="subs-copyrights-socialmedia">
+                        <a href="https://twitter.com/JioSaavn" target="blank"><BsTwitter/></a>
+                        <a href="https://www.facebook.com/JioSaavn" target="blank"><FaFacebookF/></a>
+                        <a href="https://www.instagram.com/jiosaavn/" target="blank"><BsInstagram/></a>
+                        <a href="https://www.snapchat.com/add/jiosaavn" target="blank"><GrSnapchat/></a>
+                        <a href="https://www.youtube.com/c/JioSaavn" target="blank"><GrYoutube/></a>
+                        </div>
                     <p>© 2023 Saavn Media Pvt Ltd. All rights reserved</p>
 
                 </div>

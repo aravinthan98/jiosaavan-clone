@@ -5,6 +5,7 @@ import {AiOutlineTwitter} from 'react-icons/ai';
 import {GrYoutube} from 'react-icons/gr';
 import {BsInstagram} from 'react-icons/bs';
 import {FaLinkedin} from 'react-icons/fa';
+import { Link } from "react-router-dom";
 
 function Footer(){
 
@@ -36,12 +37,12 @@ function Footer(){
             <p>Amitabh Bachchan</p>
             <p>Varun Dhawan</p>
         <h5>BROWSE</h5>  
-            <p>New Releases</p>
-            <p>Featured Playlists</p>
-            <p>Weekly Top Songs</p>
-            <p>Top Artists</p>
-            <p>Top Charts</p>
-            <p>Top Radios</p>
+        <Link to='/newrelease'><p>New Releases</p></Link>
+           <Link to='/topplaylist'><p>Featured Playlists</p></Link> 
+           <Link to='/newrelease'><p>Weekly Top Songs</p></Link>
+           <Link to='/topartist'><p>Top Artists</p></Link> 
+        <Link to='/topchart'><p>Top Charts</p></Link>  
+        <Link to='/radio'> <p>Top Radios</p></Link>
         </div>
         <div>
         <h5>DEVOTIONAL SONGS</h5>
@@ -98,20 +99,21 @@ function Footer(){
         </div>
        </div>
        <div className="f-mid ">
-            <p>JioSaavn Pro</p>
-            <p>JioSaavn for iOS</p>
-            <p>JioSaavn for Android</p>
-            <p>New Releases</p>
+            <Link to='subscription'><p>JioSaavn Pro</p></Link>
+            <a href="https://apps.apple.com/us/app/jiosaavn-music-podcasts/id441813332" target="blank"><p>JioSaavn for iOS</p></a>
+            <a href="https://play.google.com/store/apps/details?id=com.jio.media.jiobeats&referrer=utm_source%4DSite%26utm_medium%3DHomePage%26utm_campaign%3DProducts" target="blank"><p>JioSaavn for Android</p></a>
+            <Link to='/newrelease'><p>New Releases</p></Link>
        </div>
        <div className="f-last ">
        <div className="f-comment"><p>© 2023 Saavn Media Limited All rights reserved.</p></div>
        <div className="f-social-media">
         <p>FOLLOW US</p>
-        <RiFacebookBoxFill id="f-facebook"/>
-        <AiOutlineTwitter id="f-twitter"/>
-        <GrYoutube id="f-youtube"/>
-       <BsInstagram id="f-instagram"/>
-       <FaLinkedin id="f-linkedin"/>
+    
+        <a href="https://www.facebook.com/JioSaavn" target="blank"> <RiFacebookBoxFill id="f-facebook"/></a>
+        <a href="https://twitter.com/JioSaavn" target="blank"><AiOutlineTwitter id="f-twitter"/></a>
+        <a href="https://www.youtube.com/c/JioSaavn" target="blank"><GrYoutube id="f-youtube"/></a>
+        <a href="https://www.instagram.com/jiosaavn/" target="blank"><BsInstagram id="f-instagram"/></a>
+        <a href="https://www.linkedin.com/company/jio-saavn/" target="blank"><FaLinkedin id="f-linkedin"/></a>
        </div>
        
        </div>

@@ -37,7 +37,7 @@ const Layout = ({ children }) => {
 
     
   return (
-    <>
+    <div className='layout'>
       {!pathname.includes('my-music-sec')&&
         <Topnavbar />
       }   
@@ -61,7 +61,7 @@ const Layout = ({ children }) => {
       <MobileNavbar/>
       }
      
-    </>
+    </div>
   )
 }
 

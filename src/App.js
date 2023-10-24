@@ -5,7 +5,6 @@ import Maincontent from './components/mainContent/mainContentPage';
 import Queue from './components/queuePage/queue'
 import Subscription from './components/subscription/subscription';
 import { Routes, Route } from "react-router-dom";
-import MobileNavbar from './components/mobileNavbar/mobileNavbar';
 import LoginPage from './components/login/login';
 import SongDetails from './components/songdetails/songDetails';
 import ComingSoonPage from './commingSoon/commingSoon'
@@ -22,9 +21,9 @@ import TopPlayList from './components/editorialPick/topPlaylist'
 import MobileMyMusic from './components/mobileMymusic/MobileMyMusic';
 import FavoriteSongs from './components/favoritSection/favoriteSong';
 import MobileProfile from './components/mobileMymusic/MobileProfile';
-import { useLocation } from 'react-router'
+
 function App() {
-  const { pathname } = useLocation();
+
   return (
     <>
         <CurrentPlayingProvider>
@@ -58,10 +57,7 @@ function App() {
               <Route path='/my-music-sec/my-profile-m' element={<MobileProfile/>}/>
               <Route path='/redeem' element={<ComingSoonPage/>}/>
             </Routes>
-          {/* {!pathname.includes('subscription')&&
-            <MobileNavbar />
-          } */}
-            
+  
           </Layout>
         </CurrentPlayingProvider>
 

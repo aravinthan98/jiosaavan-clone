@@ -23,6 +23,7 @@ body{
 }
 .footer-container p{
     font-size: 14px;
+    color: #3e3e3e;
 }
 .f-top{
     display: flex;

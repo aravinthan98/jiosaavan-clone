@@ -1,0 +1,14 @@
+@media screen and (max-width: 600px){
+    .mobile-navlist{
+        margin-top: 10px;
+    }
+    .mobile-navlist .my-list{
+        padding: 22px;
+        font-size: 1.2rem;
+        background-color: white;
+        border-bottom: 2px solid #f6f6f6;
+    }
+    .settings{
+        margin-top: 30px;
+    }
+}

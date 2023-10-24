@@ -1,4 +1,4 @@
-.caro{
+.pickmood-container{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     /* overflow-x: scroll; */
@@ -13,7 +13,7 @@
        position: absolute;
         top: 0;
         bottom: 0px; 
-        left: 5; 
+        left: 0; 
         transition: opacity .3s ease-in-out;   
         z-index: 1;
     }
@@ -30,13 +30,16 @@
     border-radius: 5px;
     transition: opacity .3s ease-in-out;   
     z-index: 1;
-    left: 23px;
+    left: 0;
+    top: 0;
 }
-@media only screen and (max-width: 600px) {
-    .caro{
+@media  screen and (max-width: 600px) {
+    .pickmood-container{
+        width: 100%;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         overflow-x: scroll;
-        width: 100%;
+     
+        
     }
 }

@@ -235,7 +235,7 @@ function PickMood(){
 return(
       <>
         {loading?(<LoaderFn/>):(
-        <div className="caro">
+        <div className="pickmood-container">
         
             <div className="card" >
                 <img src={sadMood[0]?.image} alt="movie"/>

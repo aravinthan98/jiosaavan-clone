@@ -22,8 +22,8 @@ function Subscription(){
            <Link to='/'><img className="subs-logo" src={jioSaavnLogo} alt="jiosaavn-logo"/></Link> 
             
             <div className="subs-navbar-btns">
-                <div><p className="subs boarder-styl">Redeem</p></div>
-                <div><p className="subs ">MyAccount</p></div>
+            <Link to='/redeem'><div><p className="subs boarder-styl">Redeem</p></div></Link> 
+            <Link to='/my-music'> <div><p className="subs ">MyAccount</p></div></Link> 
             </div>
            
             </div>
@@ -203,34 +203,44 @@ function Subscription(){
                     <div className="subs-footer-container">
                         <div className="subs-footer-card">
                             <h6>JioSaavn</h6>
+                            <div className="footer-item-link">
                             <p>About</p>
                             <p>Careers</p>
                             <p>Logos & Guidelines</p>
+                            </div>
                         </div>
                         <div className="subs-footer-card">
                             <h6>Products</h6>
+                            <div className="footer-item-link">
                             <p>iOS</p>
                             <p>Android</p>
                             <p>Windows</p>
                             <p>Web Player</p>
                             <p>Sonos</p>
+                            </div>
                         </div>
                         <div className="subs-footer-card">
                             <div>
                                 <h6>Brands & Advertisers</h6>
+                                <div className="footer-item-link">
                                 <p>JioSaavn for Brands</p>
+                                </div>
                                 </div>
                             <div>
                                 <h6>Gifts & Promotions</h6>
+                                <div className="footer-item-link">
                                 <p>Redeem Pro</p>
+                                </div>
                             </div>
                         </div>
                         <div className="subs-footer-card">
                             <h6>Connect</h6>
+                            <div className="footer-item-link">
                             <p>Help</p>
                             <p>Artists & Labels</p>
                             <p>Terms & Privacy</p>
                             <p>Contact</p>
+                            </div>
                         </div>
                     </div>
                 <div className="subs-copyrights">

@@ -19,9 +19,12 @@ import UpdatePassword from './components/login/updatePassword';
 import NewReleases from './components/newReleases/newRelease';
 import TopChart from './components/topchart/topchart';
 import TopPlayList from './components/editorialPick/topPlaylist'
-import LoginPageHover from './components/login-signup-hover/LoginHover';
-import SignUpHover from './components/login-signup-hover/SignUpHover';
+import MobileMyMusic from './components/mobileMymusic/MobileMyMusic';
+import FavoriteSongs from './components/favoritSection/favoriteSong';
+import MobileProfile from './components/mobileMymusic/MobileProfile';
+import { useLocation } from 'react-router'
 function App() {
+  const { pathname } = useLocation();
   return (
     <>
         <CurrentPlayingProvider>
@@ -49,11 +52,16 @@ function App() {
               <Route path='/topartist' element={<TopArtist/>} />
               <Route path='/radio' element={<ComingSoonPage />} />
               <Route path='/my-music' element={<FavoriteSection/>}/>
+              <Route path='/my-music-sec' element={<MobileMyMusic/>}/>
               <Route path='/languages' element={<ComingSoonPage/>}/>
-
+              <Route path='/my-music/songs' element={<FavoriteSongs/>}/>
+              <Route path='/my-music-sec/my-profile-m' element={<MobileProfile/>}/>
+              <Route path='/redeem' element={<ComingSoonPage/>}/>
             </Routes>
-
+          {/* {!pathname.includes('subscription')&&
             <MobileNavbar />
+          } */}
+            
           </Layout>
         </CurrentPlayingProvider>
 

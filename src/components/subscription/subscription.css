@@ -6,8 +6,7 @@
 }
 .subs-logo{
     height: 85px;
-    width: 210px; 
-    
+    width: 210px;   
 }
 .subs-navbar{
     display: flex;
@@ -27,12 +26,14 @@
     display: flex;
     
 }
+
 .subs-navbar-btns div{
     padding: 20px 15px;
 }
 .subs-navbar-btns p{
     padding: 5px 15px 7px 15px;
     font-weight: 500;
+    color: white;
 }
 .boarder-styl{
     border-radius: 99px;
@@ -321,8 +322,6 @@ tbody{
     text-align: center;
     text-decoration: none;
    margin-left: 41%;
-  
-
 }
 
 
@@ -444,4 +443,187 @@ tbody{
 .subs-floting-card span{
     font-size: 4em;
     color: #2bc5b4;
+}
+@media screen and (max-width: 600px){
+    .subs-logo{
+        height: 70px;
+        width: 170px;   
+    }
+    .subs-navbar-btns{
+        display: none;
+    }
+    .subs-navbar{
+        width: 100%;
+        height: 70px;
+        margin: 0;
+        padding: 0px 30px 0px 0px;
+ 
+    }
+    .subs-top-maincontainer{
+        color: #fff;
+        margin-top: 10px;
+        padding: 0px 15px;
+        
+    }
+    .subs-top-card-container{
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        justify-content:center;
+       
+    }
+    .subs-top-title{
+        margin-bottom: 10px;
+        font-size: 1.125em;
+        font-style:italic ;
+        
+    }
+    .subs-top-title-2{
+        margin-bottom: 20px;
+        line-height: 1.3;
+        font-size: 1.2em;
+        font-weight: 600;
+    }
+    .subs-card{
+        width: 100%;
+        height: 50%;
+       
+        background-color: #2bc5b4;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        
+    }
+    .subs-top-container{
+        padding: 20px;
+        
+    }
+    .subs-container-head{
+        font-size: 1.2em;
+        font-weight: 700;
+        color: #fff;
+        padding: 10px 0px 10px 30px;
+    }
+    .subs-top-container h2{
+        margin: 0px 0 10px;
+        font-size: 2em;
+        line-height: 1.1;
+        font-weight: 600;
+    }
+    .subs-top-container p+p{
+        margin-bottom: 15px;
+    }
+    .sub-payment-btn{
+      
+      padding: 6px 0px ;
+      margin-top: 15px;
+     
+    }
+    .subs-top-last-container{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-bottom: 30px;
+    }
+    .subs-top-last-container p{
+        font-size: 1.2em;
+    }
+    .subs-mid h3{
+        margin: 30px 0;
+        font-size: 1.25em;
+        font-weight: 700;
+        color: #3e3e3e;
+    }
+    .subs-floting-container{
+        /* width: 1000; */
+        display: flex;
+        flex-direction: column;
+        padding: 10px 5%;
+        position: absolute;
+        margin-left:12% ;
+        border-radius: 10px;
+    }
+    .subs-floting-card{
+        width: 220px;
+        padding-left:15px ;
+        padding-right: 15px;
+        margin: 10px 0;
+        text-align: center;
+        
+    }
+    .subs-mid-container{
+        background-color: #f6f6f6;
+        text-align: center;
+        position: relative;
+        padding-top: 200%;
+        padding-bottom: 30px;
+    }
+    .subs-mid-logo-bottom img{
+       width: 33%;
+       margin: 10px;
+    }
+    .subs-mid-container2{
+        padding-bottom: 120px;
+        padding-top: 40px;
+    
+    }
+    .subs-mid2{
+        padding: 0 20px;
+        max-width: 1200px;
+        position: relative;
+        margin: 0 ;
+        
+        z-index: 10;
+    }
+    .subs-mid-container2-btom h3{
+        font-size: 1.25em;
+    }
+    .subs-mid-btom-btn{
+      
+       margin-left: 20%;
+    }
+    .subs-footer-container{
+        margin-bottom: 56px;
+       
+        display: flex;
+        padding-top: 43px;
+        padding-left: 10px;
+        flex-wrap: wrap;
+        background: #2a2d36;
+    }
+    .subs-section{
+        width: 100%;
+       
+    }
+    .subs-navbar{
+        width: 100%;
+        margin: 0;
+        padding: 0px;
+       
+    }
+    .subs-footer-sec img{
+
+        display: none;
+    }
+    .subs-footer-card{
+        width: 90%;
+        padding-left: 15px;
+        padding-right: 15px;
+        
+    }
+    .footer-item-link{
+        display: flex;
+        justify-content: space-between;
+    }
+    .subs-copyrights p {
+        float: left;
+        font-size: .75em;
+        line-height: 2.6em;
+        
+    }
+
+    
 }

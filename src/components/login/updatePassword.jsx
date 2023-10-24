@@ -5,6 +5,7 @@ import jioSaavnLogo from '../../assets/jioSaavnLogo.png'
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { useCurrentPlayingContext } from "../../context/currentlyPlayingContext";
+import jioMobileLogo from '../../assets/JioSaavn Logo on White.png'
 function UpdatePassword(){
 
     const{setLogin,profile}=useCurrentPlayingContext();
@@ -118,6 +119,12 @@ function UpdatePassword(){
       
                 </div>
             </div>
+
+            <Link to='/'>
+                
+                <img className="jio-logo-log" src={jioMobileLogo} alt="log-logo"/>
+        
+                </Link>
         </div>
     )
 }

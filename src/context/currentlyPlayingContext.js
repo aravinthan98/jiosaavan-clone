@@ -23,7 +23,8 @@ const CurrentPlayingProvider = ({ children }) => {
   const[favoriteSongs, SetFavoriteSongs]=useState([])
   const [activateHeartId, setActivateHeartId] = useState([]);
   const [trendingSongData,setTrendingSongData]=useState([]);
-  const[loginIndicator,setLoginIndicator]=useState('')
+  const[loginIndicator,setLoginIndicator]=useState('');
+ 
   useEffect(()=>{
     const userlog=JSON.parse(localStorage.getItem('userLogin'));
     if(userlog!==null){

@@ -64,14 +64,14 @@ function FavoriteSongs(){
                  <div className='relatedsong-hovercontent' onClick={()=>handleSongPlay(item.songId)} >< ImPlay2 className='mini-ply-icon'/></div>
                  <p className="d-s-name">{item?item.title:" "}</p>                
              </div>
-                <p className="d-s-artist">{item?item.title:" "}</p>
+              
              <div className="d-b-icons">
              <div>
                  <p className="q-smpl fav"><AiFillHeart className="favorite-song"/></p> 
              </div>
              <div>
                  <p className="q-smpl more"><FiMoreHorizontal/></p>
-                 <p>3:18</p>
+                 <p>0:20</p>
              </div>
              </div>        
         </div>

@@ -93,7 +93,21 @@ body{
        margin-left: 0;
     }
     .f-top{
-        width: 100%;
+        width: 95%;
         overflow-x: scroll;
+    }
+    .f-mid{
+        width: 95%;
+        overflow-x: scroll;
+    }
+    .f-last{
+       
+            width: 100%;
+            display: block;
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: 0;
+            padding-right: 0;
+        
     }
 }

@@ -14,10 +14,10 @@
     /* padding-top: 40px; */
 }
 .card{
-    
+    width: 117px;
     margin-top: 25px;
     text-align: center;
-    padding-left: 10px;
+    /* padding-left: 10px; */
    
 }
 
@@ -30,16 +30,17 @@
 .card p{
     font-size: 13px;
     white-space: nowrap; 
-    width: 120px;
-    margin-left: 10px;
+    width: 117px;
+   
     overflow: hidden;
    text-overflow: ellipsis;
+   
     
 }
 .card h4{
     width: 120px;
     font-weight: 500;
-    margin-left: 12px;
+  
     font-size: 14px;
     white-space: nowrap; 
     overflow: hidden;
@@ -51,8 +52,8 @@
 
 @media screen and (max-width: 600px) {
     .card img{
-        width: 147px;
-        height: 147px;
+        width: 117px;
+        height: 117px;
         border-radius: 5px;
     }
 
@@ -74,8 +75,7 @@
     }
     .corrosal-card{
         width: 100%;
-        /* margin-left: 18%; */
-        /* padding-top: 40px; */
+   
     }
   
 

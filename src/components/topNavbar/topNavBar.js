@@ -7,13 +7,15 @@ import Corrosal from "../corrosal/Corrosal";
 import  SearchSection  from "../searchSection/SearchSection";
 import {useCurrentPlayingContext} from '../../context/currentlyPlayingContext'
 import SearchTreandingSong from "./SearchTreandingSong";
+import {RxCross2} from 'react-icons/rx'
 
 function Topnavbar(){
  
   const[inputValue,setInputValue]=useState('')
-  const{searchBarClicked,setSearchBarClicked,login,profile}=useCurrentPlayingContext();
+  const{searchBarClicked,setSearchBarClicked,login,setLogin,profile}=useCurrentPlayingContext();
 
   const[profileClicked,setProfileClicked]=useState(false);
+  const[musicClicked,setMusicClicked]=useState(false);
   
   const debounceSearch = (e) => {
     setInputValue(e.target.value);
@@ -25,6 +27,8 @@ function Topnavbar(){
     console.log("login",login)
     if(login){
       localStorage.clear();
+      setLogin(false);
+      setProfileClicked(!profileClicked);
     }
   }
     return(
@@ -35,7 +39,7 @@ function Topnavbar(){
       <Link to='/'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/JioSaavn_Logo.svg/1024px-JioSaavn_Logo.svg.png' alt="logo"/>
       </Link>
       <div id="mus-pod">
-      <div className="music">Music</div>
+      <div className="music" onClick={()=>setMusicClicked(!musicClicked)}>Music</div>
      <Link to='/podcast'><div className="pod">Podcasts</div></Link> 
       </div>
       <Link to='/subscription'>
@@ -83,8 +87,22 @@ function Topnavbar(){
           <div className="profile-dropedown-section">
           <Link to='/my-music'><p>My Music</p></Link> 
            <Link to='/my-music'><p>My Profile</p></Link> 
+           <Link to="/change-password"><p>Change Password</p></Link>
             <p onClick={handleLogOut}>Log Out</p>
           </div>
+        </aside>
+        <aside className={musicClicked?"musicbox-container":"hideSearchBar"} onScroll = {(e)=>e.stopPropagation()}>
+            <div className="musicbox-top">
+                <h2>What's Hot on jiosaavn</h2>
+                <RxCross2 onClick={()=>setMusicClicked(false)} className="m-close-bar"/>           
+            </div>
+  
+            <div className="musicbox-results">  
+            <Link to='/newrelease'><p onClick={()=>setMusicClicked(false)}>New Releases</p></Link>
+            <Link to='/topplaylist'><p onClick={()=>setMusicClicked(false)}>Top PlayList</p></Link>
+            <Link to='/topchart'><p onClick={()=>setMusicClicked(false)}>Top Charts</p></Link>
+            <Link to='/topartist'><p onClick={()=>setMusicClicked(false)}>Top Artist</p></Link>
+            </div>
         </aside>
         </> 
     )

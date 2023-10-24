@@ -115,17 +115,17 @@ function LoginPageHover(){
                     <input className="loginput" type="password" placeholder="Password"  value={password} onChange={(e)=>(setPassword(e.target.value))} autoComplete="off" required/>
                     <br/>
                    
-                    <div className="capta-container">
-                        <div className="input-l">
+                    <div className="capta-container-hover">
+                        <div className="input-l-hover">
                         <input type="checkbox" className="checkbox" value={checked} onChange={handleCheck}/>
                         <p>I'm not a robot</p>
                         </div>
-                    <div className="input-r">
+                    <div className="input-r-hover">
                     <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="captcha-logo"/>
-                    <p className="recaptcha">reCAPTCHA <br/><span>Privacy-Terms</span></p>      
+                    <div className="recaptcha"><p>reCAPTCHA </p><p>Privacy-Terms</p></div>   
                     </div>
                     </div>
-                    <button className="submit-btn" type="submit" onClick={handleClick}>Continue</button>
+                    <button className="submit-btn-hover" type="submit" onClick={handleClick}>Continue</button>
                    <Link to="/change-password"><p className="changepassword">Change Password?</p></Link> 
                     <p className="em">By selecting ‘Continue’, you agree to JioSaavn’s Terms of Service and Privacy Policy.</p>
                 

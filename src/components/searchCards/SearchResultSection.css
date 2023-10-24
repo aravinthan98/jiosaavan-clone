@@ -11,8 +11,7 @@ padding-top: 40px;
     padding: 22px 0px;
     margin: 10px 30px 10px 0px;
     cursor: pointer;
-    line-height: 2.75;
-    
+    line-height: 2.75;  
 }
 .barselected{
     border-bottom: 1px solid #3e3e3e!important;
@@ -33,4 +32,34 @@ padding-top: 40px;
 }
 .searchresult-songlist{
     padding-top: 30px;
+}
+@media screen and (max-width:600px){
+    .searchresult-sectiontop h1{
+        font-size: 24px!important;
+        font-size: 1.5rem!important;
+        line-height: 1.21!important;
+        font-weight: 600;
+      margin-left: 3%;
+    }
+    .searchresult-section-expand{
+        width: 100%;   
+        margin-left: 0;
+        padding-top: 40px;
+      
+    }
+    .searchresult-sectionbar{
+        width: 100%;
+        margin-left: 2%;
+
+    }
+    .searchresult-sectionbar p{
+        padding: 12px 0px;
+        margin: 0px 20px 0px 0px;
+        cursor: pointer;
+        line-height: 2.75;  
+    }
+    .searchresult-alllist{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 }

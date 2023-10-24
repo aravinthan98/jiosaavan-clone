@@ -8,6 +8,7 @@ import './Layout.css'
 import LoginPageHover from './login-signup-hover/LoginHover';
 import SignUpHover from './login-signup-hover/SignUpHover'
 import { useCurrentPlayingContext } from '../context/currentlyPlayingContext';
+import MobileNavbar from './mobileNavbar/mobileNavbar'
 
 
 
@@ -37,7 +38,9 @@ const Layout = ({ children }) => {
     
   return (
     <>
-      <Topnavbar />
+      {!pathname.includes('my-music-sec')&&
+        <Topnavbar />
+      }   
       <>
         {
           !pathname.includes('/queue') &&
@@ -54,7 +57,9 @@ const Layout = ({ children }) => {
       <LiveMusic />
       {loginIndicator==='pre-login' && <LoginPageHover/>}
       {loginIndicator==='pre-signup' && <SignUpHover/>}
-     
+       {!pathname.includes('subscription')&&
+      <MobileNavbar/>
+      }
      
     </>
   )

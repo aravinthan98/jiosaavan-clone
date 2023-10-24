@@ -35,7 +35,7 @@
     border-width: 0 0 1px;
     max-height: 75vh;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: hidden;
    
 }
 
@@ -48,7 +48,8 @@
     
 }
 .loginpara{
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    font-size: 0.8rem;
 }
 .errorBox{
     width: 67%;
@@ -61,7 +62,7 @@
     font-size: small;
 }
 .hoverlogin-form .loginput{
-    padding: 16px 22px;
+    padding: 10px 22px;
     width: 67%;
     margin-bottom: 15px;
     border-radius: 99px;
@@ -75,9 +76,9 @@
     color: black;
     font-size: 16px;
 }
-.submit-btn{
+.submit-btn-hover{
     width: 75%;
-    padding: 16px 22px;
+    padding: 10px 22px;
     border-radius: 99px;
     font-size: 16px;
     background-color: #2bc5b4;
@@ -85,10 +86,10 @@
     font-weight: 700;
     color: white;
 }
-.capta-container{
+.capta-container-hover{
    margin-left: 19%;
     width:62%;
-    height: 70px;
+    height: 55px;
     display: flex;
     justify-content: space-around;
     border: 0.5px solid #b7b8bb;  
@@ -100,19 +101,19 @@
     margin: 10px;
     color: #3d5798;
 }
-.input-l{
-   margin-top: 22px;
+.input-l-hover{
+   margin-top: 15px;
    margin-right: 30px;
     height: 30px;
     display: flex;
     justify-content: center;
 }
 
-.input-r img{
-    height: 32px;
-    width: 32px;
+.input-r-hover img{
+    height: 22px;
+    width: 22px;
 }
-.input-r{
+.input-r-hover{
     margin-top: 5px;
 }
 
@@ -128,12 +129,14 @@
     font-weight: 400;
     text-align: center;
     margin: 0;
+    line-height: 1;
 }
 .recaptcha span{
-    font-size: 8px;
+    font-size: 7px;
 }
 .hoverlogin-form h1{
-    padding-top: 30px;
+    padding-top: 10px;
+    font-size:larger;
 }
 .em{
    

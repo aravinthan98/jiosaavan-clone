@@ -9,7 +9,7 @@ import PickMood from "../pickMoods/pickMoods";
 
 // import CaroSample from "./corrosal/carosample";
 
-function Maincontent({handleCardsClick}){
+function Maincontent(){
 
 return(
        <div className="main-page">

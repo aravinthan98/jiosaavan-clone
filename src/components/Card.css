@@ -1,14 +1,4 @@
-.card:hover{
-    .card-background{
-        display: grid;
-        place-items: center;
-       position: absolute;
-        top: 0;
-        left: 24px;   
-        transition: opacity .3s ease-in-out;   
-        z-index: 1;
-    }
-}
+
 .card{
     position: relative;
 }
@@ -21,6 +11,18 @@
     border-radius: 5px;
     transition: opacity .3s ease-in-out;   
     z-index: 1;
+}
+.card:hover{
+    .card-background{
+        display: grid;
+        place-items: center;
+       position: absolute;
+        top: 0;
+        left: 0;
+         
+        transition: opacity .3s ease-in-out;   
+        z-index: 1;
+    }
 }
 .card-ply-icon{
     font-size: 2em;

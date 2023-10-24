@@ -3,6 +3,7 @@ import {useCurrentPlayingContext} from '../../context/currentlyPlayingContext'
 import './myFavoriteSection.css';
 import {PiUserBold} from 'react-icons/pi'
 import FavoriteSongs from './favoriteSong'
+import { Link } from 'react-router-dom';
 function FavoriteSection(){
     const{profile}=useCurrentPlayingContext();
 
@@ -33,7 +34,7 @@ function FavoriteSection(){
                     <div className='myprofile-name-section'>
                         <h2>{profile.userName&& profile.userName}</h2>
                         <p className='pro-status'>Pro Expired</p>
-                        <button className='pro-btn'>Go Pro</button>
+                        <Link to='/subscription'><button className='pro-btn'>Go Pro</button></Link>
                     </div>
                 </div>
                 

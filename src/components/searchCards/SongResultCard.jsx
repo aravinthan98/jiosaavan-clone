@@ -29,12 +29,12 @@ const SongResultCard = ({ selectedData}) => {
               <p className="d-s-artist">{item?item.artist:" "}</p>
                   
               <div className="d-b-icons">
-              <div>
+              {/* <div>
                   <p className="q-smpl fav"><AiOutlineHeart/></p> 
-              </div>
+              </div> */}
               <div>
                   <p className="q-smpl more"><FiMoreHorizontal/></p>
-                  <p>3:18</p>
+                  <p>0:20</p>
               </div>
               </div>        
           </div>

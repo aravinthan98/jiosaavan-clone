@@ -3,7 +3,7 @@
 .roundcard{
     margin-top: 25px;
     text-align: center;
-    padding-left: 10px;
+   margin-left: 30px;
     
 }
 .roundcard img{
@@ -15,16 +15,16 @@
 .roundcard p{
     font-size: 13px;
     white-space: nowrap; 
-    width: 120px;
-    margin-left: 10px;
+    width: 117px;
+   
     overflow: hidden;
    text-overflow: ellipsis;
     
 }
 .roundcard h4{
-    width: 120px;
+    width: 117px;
     font-weight: 500;
-    margin-left: 12px;
+
     font-size: 14px;
     white-space: nowrap; 
     overflow: hidden;
@@ -33,7 +33,7 @@
 .artist-caro{
     width: 80%;
     /* margin-left: 18%; */
-    padding-top: 40px;
+    padding-top: 10px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
@@ -47,8 +47,7 @@
         place-items: center;
        position: absolute;
         top: 0;
-        bottom: 0px; 
-        left: 5; 
+        left: 0; 
         transition: opacity .3s ease-in-out;   
         z-index: 1;
     }
@@ -66,4 +65,21 @@
     transition: opacity .3s ease-in-out;   
     z-index: 1;
     left: 18px;
+}
+@media  screen and (max-width: 600px) {
+    .artist-container{
+        width: 100%;
+        margin-left: 0;
+        
+    }
+    .artist-container h1{
+        margin-left: 15px;
+        font-size: 1.3rem;
+    }
+    .artist-caro{
+        width: 100%;
+        display: grid;
+        padding-top: 10px;
+        grid-template-columns: 1fr 1fr ;
+     }
 }

@@ -102,6 +102,9 @@
   margin-left: 10px;
   padding-top: 10px;
 }
+.music{
+  cursor: pointer;
+}
 .searchbox-btns{
   width: 95%;
     display: flex;
@@ -212,28 +215,80 @@ transition: right .3s ease-in-out,left .3s ease-in-out,padding .3s ease-in-out,b
 .noprofile{
   display: none;
 }
+.musicbox-container{
+  width: 50%;
+  position:fixed;
+  z-index: 1000;
+  left: 5%;
+  top: 10%;
+  background-color: white;
+  border-radius: 22px;
+  box-shadow: 0 0 12px 4px rgba(0,0,0,.05);
+}
 
+.musicbox-top{
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 10px;
+  border-bottom: 1px solid #e9e7e7;
+}
+.musicbox-top h2{
+  font-size: 1.3rem;
+}
+.m-close-bar{
+  font-size: 1.5em;
+}
+.musicbox-results p{
+  font-size: 0.8rem;
+  text-align: left;
+  margin-left: 10%;
+  padding: 15px 5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: #3e3e3e;
+  
+}
   @media screen and (max-width: 600px) {
-    .midnav, .login-btn, .signup-btn, .gopro{
+    .midnav, .login-btn, .signup-btn, .gopro,.myprofile-section-top{
       display: none;
     }
     .leftnav{
     
       display: block;
     }
-    .navbar{
-      /* width: 100vw; */
-      border: none;
-      height: 12vh;
-      width: 100%;
-    }
     .sidenav{    
       /* width: 100vw; */
-      position: relative;
       width: 100%;
+      position: relative;
+      
+    }
+    .navbar{
+      /* width: 100vw; */
+      width: 100%;
+      border: none;
+      height: 12vh;
+      
     }
     .leftnav div{    
       font-size: 1.1rem;
       margin:15px 8px 10px 15px;
     }
+    .searchbox-container{
+      width: 85%;
+      height: 75%;
+      position:fixed;
+      z-index: 1000;
+      left: 1%;
+      top: 5px;
+      background-color: white;
+      border-radius: 22px;
+      overflow-y: scroll;
+  }
+  .musicbox-container{
+    display: none;
+  }
+  .music{
+    border-bottom: 2px solid #2bc5b4;
+  }
   }

@@ -46,17 +46,16 @@ function SongDetails(){
         if(result.status==='success'){
             setAddSong((prev)=>prev+1);
         }
-        console.log("result",result)
+      
     })
     .catch(error => console.log('error', error));        
 }
 
    const handleFavorite=(item,id)=>{
-    console.log("id",id)
-    console.log("item",item)
+    
     if(login){
     const idCheck = activateHeartId.includes(id);
-    console.log("idCheck", idCheck)
+    
     if (idCheck) {
         const newIdArray=activateHeartId.filter((item)=>item!==id)
         const newObjectArray=favoriteSongs.filter((song)=>song.songId!==id)
@@ -85,12 +84,12 @@ function SongDetails(){
                     <h1>{songArr.length!==0?songArr[currentTrackIndex].title:" "}</h1>
                     <p> by {songArr.length!==0?songArr[currentTrackIndex].artist:" "}</p>
                     <p>No Details</p>
-                    {/* <p>No Details</p> */}
+                  
                     </div>
                     <div className="d-btn-section">
                         <div className="d-play-btn" onClick={handleDetailPlayButton}>Play</div>
                         <div className="d-favicon" onClick={()=>handleFavorite(songArr[currentTrackIndex],songArr[currentTrackIndex]?.songId)}>{activateHeartId.includes(songArr[currentTrackIndex]?.songId)?<AiFillHeart className="favorite-fill"/>:<AiOutlineHeart id="d-fav"/>}</div>
-                        {/* <div className="d-moreicon"><FiMoreHorizontal id="d-more"/></div> */}
+                     
                     </div>
 
                 </div>
@@ -100,7 +99,7 @@ function SongDetails(){
                 <div className="d-songcard" key={item.songId}>                              
                     <div className="d-b-des">
                         <p>{index+1}</p>
-                        <img src={item.length!==0?item.image:" "} alt="song-logo"/>
+                        <img src={item.length!==0?item.image:" "} alt="song-logo" onClick={()=>handleSongPlay(item.songId)}/>
                         <div className='relatedsong-hovercontent' onClick={()=>handleSongPlay(item.songId)} >< ImPlay2 className='mini-ply-icon'/></div>
                         <p className="d-s-name">{item.length!==0?item.title:" "}</p>
                     </div>

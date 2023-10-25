@@ -1,10 +1,6 @@
 import React from "react";
 import { useCurrentPlayingContext } from "../../context/currentlyPlayingContext";
-import{CgMusicNote} from 'react-icons/cg';
-import {RiAlbumLine} from 'react-icons/ri';
-import {MdOutlinePodcasts} from 'react-icons/md'
-import {LiaMicrophoneAltSolid} from 'react-icons/lia';
-import {VscHistory} from 'react-icons/vsc'
+
 import './MobileMyMusic.css'
 import { Link } from "react-router-dom";
 function MobileProfile(){

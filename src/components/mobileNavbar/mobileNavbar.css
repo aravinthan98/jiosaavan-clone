@@ -71,5 +71,8 @@
         cursor: pointer;
         
     }
+    .mobile-nav span{
+        color: #3e3e3e;
+    }
     }
     

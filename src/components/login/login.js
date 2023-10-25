@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import './login.css';
 import jioSaavnLogo from '../../assets/jioSaavnLogo.png'
 // import jioImage from '../../assets/JioSaavnIcon.png'
@@ -93,9 +93,6 @@ function LoginPage(){
       .catch(error => console.log('error', error));
  }
 
-//  if(message==="pass"){
-//     return navigate('/')
-// }
  
     return (
         <div className="login-container">

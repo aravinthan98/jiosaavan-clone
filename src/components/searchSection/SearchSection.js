@@ -40,9 +40,6 @@ import { Link } from "react-router-dom";
     setSongArr(albumSongsData)
     
 
-    // console.log("item.songs",item.songs);
-    // console.log("id",id);
-    // console.log("curIndex",curIndex);
     setCurrentTrackIndex(0);
     setSearchBarClicked(false);
   }
@@ -59,8 +56,7 @@ import { Link } from "react-router-dom";
         }
       );
       const artistData = await artistSongRes.json();
-      console.log("searchArtistfetchResult",artistData);
-      console.log("artistName",artistName);
+     
       const fetchResultFilter=artistData.data.filter(obj => {
         return obj.artist.some(item => item.name === artistName);
       });
@@ -78,7 +74,7 @@ import { Link } from "react-router-dom";
     
       setSongArr(searchArtistResult); 
       setCurrentTrackIndex(0);
-      console.log("searchArtistResult",searchArtistResult);
+     
     } catch (error) {
       console.error("error:searchArtistResult:", error);
  
@@ -116,7 +112,7 @@ import { Link } from "react-router-dom";
       }));
     
       setSongData(searchsongDataResult); 
-      console.log("searchsongData",searchsongDataResult);
+      
     } catch (error) {
       console.error("error:searchsongData:", error);
  
@@ -149,7 +145,7 @@ import { Link } from "react-router-dom";
         album: "",
         songId: item._id,
       }));
-      console.log("topArray",topTrendingSongsData)
+    
       setTopSongData(topTrendingSongsData); 
     } catch (error) {
       console.error("error:searchsongData:", error);
@@ -181,7 +177,7 @@ import { Link } from "react-router-dom";
         songId: item._id,
       }));
       setAlbumData(searchAlbumDataResult);
-      console.log("searchAlbumData",searchAlbumDataResult)
+     
     } catch (error) {
       console.error("error:searchAlbumData:", error);
    
@@ -208,7 +204,7 @@ import { Link } from "react-router-dom";
         album: "",
         songId: item._id,
       }));
-      console.log("searchArtistData",searchArtistDataResult)
+     
       setArtistData(searchArtistDataResult);
     } catch (error) {
       console.error("error:searchArtistData:", error);
@@ -220,7 +216,7 @@ import { Link } from "react-router-dom";
 
   const handleTypeHead = () => {  
     if (val) {
-      console.log("value",val);
+     
       fetchData(val);
     } 
     else{
@@ -247,7 +243,7 @@ import { Link } from "react-router-dom";
                                                  
             <div className="searchresultcard" key={item.key}>
                 <div className="q-icon">                   
-                    <img src={item.image} width="40px" alt="cardimage" 
+                    <img src={item.image} width="40px" alt="cardimage" onClick={() => handleDetails(item.songId,topSongData)}
                     
                     />
                     <div className='searchresult-hovercontent' onClick={() => handleDetails(item.songId,topSongData)} >< ImPlay2 className='mini-ply-icon'/></div>
@@ -271,7 +267,7 @@ import { Link } from "react-router-dom";
                                                  
             <div className="searchresultcard" key={item.key}>
                 <div className="q-icon">                   
-                    <img src={item.image} width="40px" alt="cardimage"
+                    <img src={item.image} width="40px" alt="cardimage" onClick={() => handleDetails(item.songId,songeData)}
                      
                      />
                     <div className='searchresult-hovercontent' onClick={() => handleDetails(item.songId,songeData)} >< ImPlay2 className='mini-ply-icon'/></div>
@@ -294,7 +290,7 @@ import { Link } from "react-router-dom";
                                                  
             <div className="searchresultcard" key={item.key}>
                 <div className="q-icon">                   
-                    <img src={item.image} width="40px" alt="cardimage" 
+                    <img src={item.image} width="40px" alt="cardimage" onClick={() => handleAlbumDetails(item)}
                     
                     />
                     <div className='searchresult-hovercontent' onClick={() => handleAlbumDetails(item)} >< ImPlay2 className='mini-ply-icon'/></div>
@@ -317,9 +313,7 @@ import { Link } from "react-router-dom";
                                                  
             <div className="searchresultcard" key={item.key}>
                 <div className="q-icon">                   
-                    <img src={item.image} width="40px" alt="cardimage"
-                    
-                     />
+                    <img src={item.image} width="40px" alt="cardimage" onClick={()=>handleArtistDetails(item)}/>
                     <div className='searchresult-hovercontent' onClick={()=>handleArtistDetails(item)} >< ImPlay2 className='mini-ply-icon'/></div>
                 </div>
 

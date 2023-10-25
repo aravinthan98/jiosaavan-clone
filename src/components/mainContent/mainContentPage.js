@@ -1,13 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import './mainContentPage.css'
 
 import Corrosal from "../corrosal/Corrosal";
 import TopAlbum from "../topAlbum/topAlbum";
 import PickMood from "../pickMoods/pickMoods";
-// import Loader from "react-js-loader";
-// import { useCurrentPlayingContext } from "./context/currentlyPlayingContext";
 
-// import CaroSample from "./corrosal/carosample";
 
 function Maincontent(){
 

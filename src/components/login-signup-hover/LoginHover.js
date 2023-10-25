@@ -1,6 +1,6 @@
 
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
+import React, {  useState } from "react";
+
 import { Link } from "react-router-dom";
 import { useCurrentPlayingContext } from "../../context/currentlyPlayingContext";
 import './LoginHover.css'
@@ -8,7 +8,7 @@ function LoginPageHover(){
 
     const{setLogin,profile,setProfile,setLoginIndicator}=useCurrentPlayingContext();
 
-    const navigate=useNavigate();
+    
     const[email,setEmail]=useState("");
     const[password,setPassword]=useState("");
     const[message,setMessage]=useState("");

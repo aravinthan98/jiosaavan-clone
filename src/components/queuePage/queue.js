@@ -17,7 +17,7 @@ function Queue(){
          SetFavoriteSongs,activateHeartId, setActivateHeartId,setLoginIndicator} = useCurrentPlayingContext();
     
    
-    // const[checked,setChecked]=useState(true);
+  
     const[relatedSong,setRelatedSong]=useState(songArr);
     const favoriteFetch=(songId)=>{
             var myHeaders = new Headers();
@@ -42,7 +42,7 @@ function Queue(){
                 if(result.status==='success'){
                     setAddSong((prev)=>prev+1);
                 }
-                console.log("result",result)
+               
             })
             .catch(error => console.log('error', error));        
     }
@@ -54,25 +54,12 @@ function Queue(){
         }
       }, [])
 
-    // const handleFavorite=(id)=>{
-    //     if(login){
-    //     const idCheck = arr.includes(id);
-    //     console.log("idCheck", idCheck)
-    //     if (idCheck) {
-    //         arr=arr.filter((item)=>item!==id)
-    //     } else {    
-    //         arr.push(id);     
-    //     }
-    //     favoriteFetch(id) 
-    //     setActivateHeartId(arr)
-    //     }
-    // }
+
     const handleFavorite=(item,id)=>{
-        console.log("id",id)
-        console.log("item",item)
+      
         if(login){
         const idCheck = activateHeartId.includes(id);
-        console.log("idCheck", idCheck)
+    
         if (idCheck) {
             const newIdArray=activateHeartId.filter((item)=>item!==id)
             const newObjectArray=favoriteSongs.filter((song)=>song.songId!==id)
@@ -107,9 +94,7 @@ function Queue(){
         setRelatedSong(songArr.slice(currentTrackIndex+1,songArr.length));          
         }
     },[currentTrackIndex])
-    // const handleChange=()=>{
-    //     setChecked(!checked)
-    // }
+ 
   
     return (
         <div className="queue-page">
@@ -125,13 +110,7 @@ function Queue(){
                     <h3>Queue</h3>
                     <Link to={`/songDetailPage/${songArr.length!=0?songArr[currentTrackIndex].songId:"13a"}`}>  <p id="qmore"><TfiMoreAlt className="more-btn"/></p>
                     </Link>
-                    {/* <div className="q-navele">
-                        
-                        <p>
-                        <span id="save"> Save</span>
-                        <span id="clear">Clear</span>
-                        </p>
-                    </div> */}
+             
                 </div>
                 <hr className="line"></hr>
                 <div className="q-songsection">
@@ -167,10 +146,7 @@ function Queue(){
                     </div>
                     <div className="q-autoplay">
                             <p>Autoplay more like this.</p>
-                            {/* <label className="switch">
-                            <input type="checkbox" onChange={handleChange} checked={checked}/>
-                            <span className="slider round"></span>
-                            </label> */}
+
                     </div>
                     <div className="q-related-section">
                     {relatedSong && relatedSong.map((item,index)=>(
@@ -180,7 +156,7 @@ function Queue(){
                                 </div>
                                 <div className="q-card-det">
                                 <div className="q-icon">                   
-                                    <img src={item.image?item.image:"https://c.saavncdn.com/973/Vikram-Tamil-2022-20220515182605-50x50.jpg"} width="40px"  alt="cardimage"/>
+                                    <img src={item.image?item.image:"https://c.saavncdn.com/973/Vikram-Tamil-2022-20220515182605-50x50.jpg"} width="40px"  alt="cardimage" onClick={()=>handleSongPlay(item.songId)}/>
                                     <div className='queuesong-hovercontent' onClick={()=>handleSongPlay(item.songId)} >< ImPlay2 className='mini-ply-icon'/></div>
                                 </div>
 

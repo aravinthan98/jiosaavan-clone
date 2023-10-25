@@ -6,7 +6,7 @@ const AlbumResultCard = ({ selectedData}) => {
     
     const handleAlbumDetails=(e,song)=>{
       e.stopPropagation();
-      console.log("song.album",song.album);
+     
       const albumSongsData=song.album?.map((item) => ({
         key: item._id,
         image: item.thumbnail,
@@ -27,7 +27,7 @@ const AlbumResultCard = ({ selectedData}) => {
         <div className="searchresult-alllist" >
           {selectedData.map((item,index) => (
            <div className="card" key={index}>
-           <img src={item.image}  alt="movie" />
+           <img src={item.image}  alt="movie" onClick={(e)=>handleAlbumDetails(e,item)}/>
            <div className='moodscard-hovercontent'><button onClick={(e)=>handleAlbumDetails(e,item)} className='card-ply-btn'><TbPlayerPlayFilled className='card-ply-icon'/></button></div>
            <h4>{item.title}</h4>
            <p>{item.artist}</p>

@@ -42,7 +42,7 @@ function SideNavbar(){
             
         </div>
 
-        {/* <button className="playlist-btn"> +  New Playlist</button> */}
+     
     </div>
     )
 }

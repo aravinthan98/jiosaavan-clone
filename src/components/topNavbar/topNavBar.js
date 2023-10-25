@@ -1,9 +1,8 @@
-import React, { useState ,useEffect} from "react";
+import React, { useState} from "react";
 import './topNavBar.css';
 import { Link } from "react-router-dom";
 import {TfiSearch} from 'react-icons/tfi';
 import {AiFillCloseCircle} from 'react-icons/ai'
-import Corrosal from "../corrosal/Corrosal";
 import  SearchSection  from "../searchSection/SearchSection";
 import {useCurrentPlayingContext} from '../../context/currentlyPlayingContext'
 import SearchTreandingSong from "./SearchTreandingSong";
@@ -19,12 +18,12 @@ function Topnavbar(){
   
   const debounceSearch = (e) => {
     setInputValue(e.target.value);
-    // console.log("work")
+    
     
   }
 
   const handleLogOut=()=>{
-    console.log("login",login)
+   
     if(login){
       localStorage.clear();
       setLogin(false);
@@ -49,7 +48,7 @@ function Topnavbar(){
       </div>
       <div className='midnav' onClick={()=>setSearchBarClicked(true)}>
         <p>Search</p>
-      {/* <input type='text' className='searchbar' placeholder="Search here" /> */}
+     
       </div>
       <div className='rightnav'>
        <Link to='/languages'><div className="languages-sec">Music Language</div></Link> 

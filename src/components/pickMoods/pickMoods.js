@@ -6,7 +6,7 @@ import {TbPlayerPlayFilled} from 'react-icons/tb';
 import LoaderFn from '../loader/Loader'
 
 function PickMood(){
-  const {setCurrentTrackIndex,setSongArr,setAddSong} = useCurrentPlayingContext();
+  const {setCurrentTrackIndex,setSongArr} = useCurrentPlayingContext();
     const [sadMood, setSadMood] = useState([]);
     const [happyMood, setHappyMood] = useState([]);
     const [romanticMood, setRomanticMood] = useState([]);
@@ -67,7 +67,7 @@ function PickMood(){
             }))
            
             setSadMood(sadSongData); 
-            // console.log("sadmood",sadMood);
+            
         })
       }
       catch (error) {
@@ -95,7 +95,7 @@ function PickMood(){
             }))
            
             setRomanticMood(romanticSongData); 
-            // console.log("setRomanticMood",romanticMood);
+           
         })
       }
       catch (error) {
@@ -123,7 +123,7 @@ function PickMood(){
                    
             }))
             setExcitedMood(exitedSongData); 
-            // console.log("setExcitedMood",excitedMood);
+            
         })
       }
       catch (error) {
@@ -150,7 +150,7 @@ function PickMood(){
                    
             }))
             setWeeklyTop(weeklyTopSongData); 
-            // console.log("setExcitedMood",excitedMood);
+            
         })
       }
       catch (error) {
@@ -177,7 +177,7 @@ function PickMood(){
                    
             }))
             setMelodies(melodieSongData); 
-            // console.log("setExcitedMood",excitedMood);
+        
         })
       }
       catch (error) {
@@ -205,7 +205,7 @@ function PickMood(){
             }))
            
             setSoulSoother(melodieSongData); 
-            // console.log("setExcitedMood",excitedMood);
+            
         })
         }
         catch (error) {
@@ -219,11 +219,7 @@ function PickMood(){
         fetchSongs();         
       }, []);
 
-      
-      // console.log("sadmood",sadMood);
-      // console.log("happymood",happyMood);\[i861q ]
-      // console.log("romantic",romanticMood);
-      // console.log("excited",excitedMood);
+
   const handlePlayMoods=(e,album)=>{
     e.stopPropagation();
     setSongArr(album)
@@ -238,43 +234,43 @@ return(
         <div className="pickmood-container">
         
             <div className="card" >
-                <img src={sadMood[0]?.image} alt="movie"/>
+                <img src={sadMood[0]?.image} alt="movie" onClick={(e)=>handlePlayMoods(e,sadMood)}/>
                 <div className='moodscard-hovercontent'><button onClick={(e)=>handlePlayMoods(e,sadMood)} className='card-ply-btn'><TbPlayerPlayFilled className='card-ply-icon'/></button></div>
                  <h4>{sadMood[0]?.title}</h4>
                <p>Sad</p>
             </div>
             <div className="card" >
-                <img src={happyMood[0]?.image} alt="movie"/>
+                <img src={happyMood[0]?.image} alt="movie" onClick={(e)=>handlePlayMoods(e,happyMood)}/>
                 <div className='moodscard-hovercontent'><button onClick={(e)=>handlePlayMoods(e,happyMood)} className='card-ply-btn'><TbPlayerPlayFilled className='card-ply-icon'/></button></div>
                 <h4>{happyMood[0]?.title}</h4>
                 <p>Happy</p>
             </div>
              <div className="card">
-                 <img src={romanticMood[0]?.image} alt="movie"/>
+                 <img src={romanticMood[0]?.image} alt="movie" onClick={(e)=>handlePlayMoods(e,romanticMood)}/>
                  <div className='moodscard-hovercontent'><button onClick={(e)=>handlePlayMoods(e,romanticMood)} className='card-ply-btn'><TbPlayerPlayFilled className='card-ply-icon'/></button></div>
                  <h4>{romanticMood[0]?.title}</h4>
                  <p>Romantic</p>
              </div>
              <div className="card">
-                 <img src={excitedMood[0]?.image} alt="movie"/>
+                 <img src={excitedMood[0]?.image} alt="movie" onClick={(e)=>handlePlayMoods(e,excitedMood)}/>
                  <div className='moodscard-hovercontent'><button onClick={(e)=>handlePlayMoods(e,excitedMood)} className='card-ply-btn'><TbPlayerPlayFilled className='card-ply-icon'/></button></div>
                  <h4>{excitedMood[0]?.title}</h4>
                  <p>Excited</p>
              </div>
              <div className="card">
-                 <img src={melodies[0]?.image} alt="movie"/>
+                 <img src={melodies[0]?.image} alt="movie" onClick={(e)=>handlePlayMoods(e,melodies)}/>
                  <div className='moodscard-hovercontent'><button onClick={(e)=>handlePlayMoods(e,melodies)} className='card-ply-btn'><TbPlayerPlayFilled className='card-ply-icon'/></button></div>
                  <h4>{melodies[0]?.title}</h4>
                  <p>Evergreen melodies</p>
              </div>
              <div className="card">
-                 <img src={soulSoother[0]?.image} alt="movie"/>
+                 <img src={soulSoother[0]?.image} alt="movie" onClick={(e)=>handlePlayMoods(e,soulSoother)}/>
                  <div className='moodscard-hovercontent'><button onClick={(e)=>handlePlayMoods(e,soulSoother)} className='card-ply-btn'><TbPlayerPlayFilled className='card-ply-icon'/></button></div>
                  <h4>{soulSoother[0]?.title}</h4>
                  <p>Soul Soother</p>
              </div>
              <div className="card">
-                 <img src={weeklyTop[0]?.image} alt="movie"/>
+                 <img src={weeklyTop[0]?.image} alt="movie" onClick={(e)=>handlePlayMoods(e,weeklyTop)}/>
                  <div className='moodscard-hovercontent'><button onClick={(e)=>handlePlayMoods(e,weeklyTop)} className='card-ply-btn'><TbPlayerPlayFilled className='card-ply-icon'/></button></div>
                  <h4>{weeklyTop[0]?.title}</h4>
                  <p>Weekly Top 20 Songs</p>

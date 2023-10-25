@@ -12,7 +12,7 @@ function TopPlayList(){
    
     const handleAlbumDetails=(e,song)=>{
       e.stopPropagation();
-      console.log("song.album",song.album);
+     
       const albumSongsData=song.album?.map((item) => ({
         key: item._id,
         image: item.thumbnail,
@@ -56,7 +56,7 @@ function TopPlayList(){
               album: item.songs,
               songId: item._id,
             }));
-            console.log("data.data",data.data)
+       
                 setAlbum(albumData);
 
         })
@@ -76,7 +76,7 @@ return(
             album.map((item)=>(
               
             <div className="card" key={item.songId}>
-                <img src={item.image} alt="albumlogo"/>
+                <img src={item.image} alt="albumlogo" onClick={(e)=>handleAlbumDetails(e,item)}/>
                 <div className='card-background'><button onClick={(e)=>handleAlbumDetails(e,item)} className='card-ply-btn'><TbPlayerPlayFilled className='card-ply-icon'/></button></div>
                 <h4>{item.title}</h4>
                 <p>{item.artist}</p>

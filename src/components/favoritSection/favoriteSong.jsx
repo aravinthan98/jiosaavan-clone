@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useCurrentPlayingContext } from "../../context/currentlyPlayingContext";
 import {AiFillHeart} from 'react-icons/ai';
 import {FiMoreHorizontal} from 'react-icons/fi'
 import {ImPlay2} from 'react-icons/im'
 function FavoriteSongs(){
-    const {setSongArr,profile,addSong,login,favoriteSongs, SetFavoriteSongs,activateHeartId,
+    const {setSongArr,profile,login,favoriteSongs, SetFavoriteSongs,
          setActivateHeartId,setCurrentTrackIndex}=useCurrentPlayingContext() 
     
     const getFavoriteSongs=()=>{
@@ -34,7 +34,7 @@ function FavoriteSongs(){
             SetFavoriteSongs(favArray);
             const newFavId=favArray.map(item=>item.songId)
             setActivateHeartId(newFavId);
-            console.log(result)})
+           })
           .catch(error => console.log('error', error));
     }
 
@@ -60,7 +60,7 @@ function FavoriteSongs(){
 
              <div className="d-b-des">
                 <p>{index+1}</p>
-                 <p className="d-ply"><img src={item?item.image:""} alt="song-logo"/></p>
+                 <p className="d-ply"><img src={item?item.image:""} alt="song-logo" onClick={()=>handleSongPlay(item.songId)}/></p>
                  <div className='relatedsong-hovercontent' onClick={()=>handleSongPlay(item.songId)} >< ImPlay2 className='mini-ply-icon'/></div>
                  <p className="d-s-name">{item?item.title:" "}</p>                
              </div>

@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { useCurrentPlayingContext } from "../../context/currentlyPlayingContext";
 import jioMobileLogo from '../../assets/JioSaavn Logo on White.png'
 function SignUp(){
-    const{profile,setProfile}=useCurrentPlayingContext();
+   
 
     const navigate=useNavigate();
     const[email,setEmail]=useState("");

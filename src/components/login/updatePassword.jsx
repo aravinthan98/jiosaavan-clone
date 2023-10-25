@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import './login.css';
 import jioSaavnLogo from '../../assets/jioSaavnLogo.png'
 import { useNavigate } from "react-router";
@@ -8,7 +8,7 @@ import { useCurrentPlayingContext } from "../../context/currentlyPlayingContext"
 import jioMobileLogo from '../../assets/JioSaavn Logo on White.png'
 function UpdatePassword(){
 
-    const{setLogin,profile}=useCurrentPlayingContext();
+    
 
     const navigate=useNavigate();
     const[email,setEmail]=useState("");
@@ -86,9 +86,6 @@ function UpdatePassword(){
       .catch(error => console.log('error', error));
  }
 
-//  if(message==="pass"){
-//     return navigate('/')
-// }
  
     return (
         <div className="login-container">

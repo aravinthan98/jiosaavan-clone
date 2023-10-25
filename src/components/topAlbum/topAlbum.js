@@ -7,7 +7,7 @@ import { useCurrentPlayingContext } from "../../context/currentlyPlayingContext"
 import LoaderFn from "../loader/Loader";
 const responsive = {
   superLargeDesktop: {
-    // the naming can be any, depends on you.
+    
     breakpoint: { max: 4000, min: 3000 },
     items: 7,
     slidesToSlide: 7
@@ -36,7 +36,7 @@ function TopAlbum(){
    
     const handleAlbumDetails=(e,song)=>{
       e.stopPropagation();
-      console.log("song.album",song.album);
+     
       const albumSongsData=song.album?.map((item) => ({
         key: item._id,
         image: item.thumbnail,
@@ -54,7 +54,7 @@ function TopAlbum(){
     
     }
     const fetchSongs = () => {
-        // Replace 'YOUR_PROJECT_ID' with your actual project ID
+      
         fetch('https://academics.newtonschool.co/api/v1/music/album?limit=14', {
           headers: {
             'projectId': 'f104bi07c490',
@@ -62,7 +62,7 @@ function TopAlbum(){
         })
           .then((response) => response.json())
           .then((data) => {
-            // console.log("data",data);
+            
             const albumData=data?.data.map((item) => ({
               key: item._id,
               image: item.image,
@@ -96,7 +96,7 @@ className="album-list"
             album.map((item)=>(
               
             <div className="card" key={item.songId}>
-                <img src={item.image} alt="albumlogo"/>
+                <img src={item.image} alt="albumlogo" onClick={(e)=>handleAlbumDetails(e,item)}/>
                 <div className='card-background'><button onClick={(e)=>handleAlbumDetails(e,item)} className='card-ply-btn'><TbPlayerPlayFilled className='card-ply-icon'/></button></div>
                 <h4>{item.title}</h4>
                 <p>{item.artist}</p>

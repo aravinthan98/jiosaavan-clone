@@ -18,7 +18,7 @@ function TopArtist(){
           .then((response) => response.json())
           .then((data) => {        
               setArtists(data.data)
-              console.log("artist",data.data); 
+              
         })
       }
       catch(error){
@@ -41,8 +41,7 @@ function TopArtist(){
             }
           );
           const artistData = await artistSongRes.json();
-          console.log("searchArtistfetchResult",artistData);
-          console.log("artistName",artistName);
+          
           const fetchResultFilter=artistData.data.filter(obj => {
             return obj.artist.some(item => item.name === artistName);
           });
@@ -60,7 +59,7 @@ function TopArtist(){
         
           setSongArr(searchArtistResult); 
           setCurrentTrackIndex(0);
-          console.log("searchArtistResult",searchArtistResult);
+          
         } catch (error) {
           console.error("error:searchArtistResult:", error);
      
@@ -68,7 +67,7 @@ function TopArtist(){
       }
       const handleArtistDetails=(e,item)=>{
         e.stopPropagation();
-        console.log("item.title",item.title)
+       
         fetchArtistData(item.name) 
         
       }
@@ -79,7 +78,7 @@ return(
          <div className="artist-caro">
             {artists.map((item,index)=>(
             <div className="roundcard" key={index}>
-                <img src={item.image} alt="movie" />
+                <img src={item.image} alt="movie" onClick={(e)=>handleArtistDetails(e,item)}/>
                 <div className='roundcard-hovercontent'><button onClick={(e)=>handleArtistDetails(e,item)} className='card-ply-btn'><TbPlayerPlayFilled className='card-ply-icon'/></button></div>
                 <h4>{item.name}</h4>
             </div>

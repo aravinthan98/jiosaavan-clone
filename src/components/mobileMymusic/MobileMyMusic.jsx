@@ -1,10 +1,7 @@
 import React from "react";
 import { useCurrentPlayingContext } from "../../context/currentlyPlayingContext";
 import{CgMusicNote} from 'react-icons/cg';
-import {RiAlbumLine} from 'react-icons/ri';
-import {MdOutlinePodcasts} from 'react-icons/md'
-import {LiaMicrophoneAltSolid} from 'react-icons/lia';
-import {VscHistory} from 'react-icons/vsc'
+
 import './MobileMyMusic.css'
 import { Link } from "react-router-dom";
 function MobileMyMusic(){
@@ -23,10 +20,7 @@ function MobileMyMusic(){
             
             <div className='mobile-navlist'>
             <Link to='/my-music/songs'><div className="my-list"><CgMusicNote/> <span>Liked Songs</span></div></Link>
-            {/* <div className="my-list"><RiAlbumLine/> <span> Albums</span></div>
-            <div className="my-list"><MdOutlinePodcasts/> <span> Podcasts</span></div>
-            <div className="my-list"><LiaMicrophoneAltSolid/> <span> Artists</span></div>
-            <div className="my-list"><VscHistory/> <span> History</span></div> */}
+           
             <Link to='/my-music-sec/my-profile-m'><div className="settings my-list"> <span>Settings</span></div></Link>
             </div>
         </div>

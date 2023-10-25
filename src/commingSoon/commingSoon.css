@@ -32,3 +32,28 @@
       transform: translateY(0px);
   }
 }
+@media screen and (max-width:600px){
+  .comming-soon-page {
+    display: grid;
+    place-items: center;
+    .coming-soon-image {
+        
+      position: relative;
+      width: 350px;
+      .image-cs {
+        width: 300px; 
+      }
+    }
+    
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: var(--SecondaryColor);
+  animation: letters-movement 5s infinite;
+}
+}

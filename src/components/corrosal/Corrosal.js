@@ -2,9 +2,9 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import './Corrosal.css'
 import { useCurrentPlayingContext } from "../../context/currentlyPlayingContext";
-import { useEffect ,useState} from "react";
+import { useEffect} from "react";
 import Card from "../Card";
-import {TbPlayerPlayFilled} from 'react-icons/tb';
+
 import LoaderFn from '../loader/Loader'
 
 
@@ -38,7 +38,7 @@ const Corrosal=()=>{
   const {setSongArr,trendingSongData,setTrendingSongData}=useCurrentPlayingContext()
 
 
-//   const [currentSong, setCurrentSong] = useState(null);
+
 
   const fetchSongs = () => {
 
@@ -61,7 +61,7 @@ const Corrosal=()=>{
           songId: item._id,
         }));
         setTrendingSongData(trendingSongs)
-        // setSongArr(trendingSongsData)
+   
       })
       .catch((error) => console.error('Error:', error));
   };
@@ -90,7 +90,7 @@ infinite={true}
   rows.map((row, index) => (
         <div className="trending-list" key={index}>
           {row.map((item) => (
-            // <Link to={`/${item._id}`} key={item._id}>
+         
         
               <Card key={item.key} item={item} album={trendingSongData}  />
              

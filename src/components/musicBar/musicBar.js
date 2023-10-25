@@ -1,4 +1,4 @@
-import React,{useState,useRef, useEffect,useNavi} from "react"
+import React,{useState,useRef, useEffect} from "react"
 import './musicBar.css'
 import {BiRepeat} from 'react-icons/bi';
 import {PiShuffle} from 'react-icons/pi';
@@ -11,7 +11,7 @@ import {CgArrowsExpandRight} from 'react-icons/cg';
 import {GiPauseButton} from 'react-icons/gi';
 import {MdVolumeOff} from 'react-icons/md';
 import { useLocation } from "react-router";
-// import Queue from "./queuePage/queue";
+
 
 import {GrContract} from 'react-icons/gr';
 import { Link } from "react-router-dom";
@@ -34,25 +34,6 @@ function LiveMusic(){
 
     const audioRef = useRef(null);
 
-    // const fetchSongs = () => {
-
-    //   fetch('https://academics.newtonschool.co/api/v1/music/song?filter={"featured":"Trending songs"}', {
-    //     headers: {
-    //       'projectId': 'f104bi07c490',
-    //     },
-    //   })
-    //     .then((response) => response.json())
-    //     .then((data) => {
-
-     
-    //       setSongArr(data.data)
-   
-    //     })
-    //     .catch((error) => console.error('Error:', error));
-    // };
-    // useEffect(() => {
-    //   fetchSongs(); 
-    // }, []);
 
  
     useEffect(() => {
@@ -111,17 +92,7 @@ function LiveMusic(){
           "0"
         )}`;
       };
-      // useEffect(() => {
-      //   // Handle automatic playback of the next track when current track ends
-      //   audioRef.current.addEventListener("ended", handleNextTrack);
-        
-      //   // Cleanup the event listener when the component unmounts
-        
-      //   return () => {
-         
-      //     audioRef.current.removeEventListener("ended", handleNextTrack);
-      // }
-      // }, [currentTrackIndex]);
+
       useEffect(() => {
           setPlaying(true)
       }, [currentTrackIndex]);
@@ -199,10 +170,7 @@ function LiveMusic(){
                 <p>{formatTime(currentTime)}/{formatTime(duration)}</p>
                 <Link to={`/songDetailPage/${songArr.length!=0?songArr[currentTrackIndex].songId:"13a"}`}>  <TfiMoreAlt className="more-btn"/>
                     </Link>
-                <div className="volume-sec"
-                //  onMouseEnter={handleMouseEnter}
-                    // onMouseLeave={handleMouseLeave}
-                    >
+                <div className="volume-sec">
                   <div className="volume-range-input">    
                 <input
                     className='volume-hovered' 
@@ -220,8 +188,7 @@ function LiveMusic(){
                 {expand?
                     (<Link to={`${path.current}`}><GrContract onClick={handleShrink} style={{color:"#3e3e3e"}}/></Link>):(<Link to='/queue'><CgArrowsExpandRight onClick={handleExpand} style={{color:"#3e3e3e"}}/></Link>)
                 }            
-                {/* <GrContract onClick={handleShrink}/> */}
-
+             
                
             </div>
         </div>

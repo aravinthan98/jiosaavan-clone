@@ -1,31 +1,13 @@
 import {useCurrentPlayingContext} from '../../context/currentlyPlayingContext'
 
 import './myFavoriteSection.css';
-import {PiUserBold} from 'react-icons/pi'
+
 import FavoriteSongs from './favoriteSong'
 import { Link } from 'react-router-dom';
 function FavoriteSection(){
     const{profile}=useCurrentPlayingContext();
 
-    
-    // let resultComponenet;
-
-    // switch (seletedResult) {
-    //     case 'Artists':
-    //         resultComponenet= <ArtistResultCard selectedData={artistData}/>;
-    //       break;
-    //     case 'Songs':
-    //         resultComponenet=<SongResultCard selectedData={songeData}/>;
-    //       break;
-    //     case 'Albums':
-    //         resultComponenet= <AlbumResultCard selectedData={albumData}/>;
-    //       break;
-    //     case 'Podcasts':
-    //         resultComponenet=  <div>No Result Found</div>;
-    //       break;
-    //     default:
-    //         resultComponenet=<div>No Result Found</div>;
-    //   }
+ 
      return(
         <div className='searchresult-section-expand'>
             <div className='searchresult-sectiontop'>
@@ -48,7 +30,7 @@ function FavoriteSection(){
                 </div>
             </div>
             <div className='searchresult-detailsection'>
-                {/* {resultComponenet} */}
+          
                 <FavoriteSongs/>
             </div>
         </div>

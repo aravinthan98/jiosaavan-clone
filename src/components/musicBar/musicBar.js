@@ -11,15 +11,17 @@ import {CgArrowsExpandRight} from 'react-icons/cg';
 import {GiPauseButton} from 'react-icons/gi';
 import {MdVolumeOff} from 'react-icons/md';
 import { useLocation } from "react-router";
-
+import { useNavigate } from 'react-router';
 
 import {GrContract} from 'react-icons/gr';
 import { Link } from "react-router-dom";
 import { useCurrentPlayingContext } from "../../context/currentlyPlayingContext";
 
+
 function LiveMusic(){
+  const navigate=useNavigate();
   const {pathname}=useLocation();
-    const {currentTrackIndex,setCurrentTrackIndex,songArr}=useCurrentPlayingContext()
+    const {currentTrackIndex,setCurrentTrackIndex,songArr,setSongObject,setSongPageArr,setSongPageIndex}=useCurrentPlayingContext()
 
     const[expand,setExpand]=useState(false) 
     const [playing, setPlaying] = useState(false); 
@@ -31,6 +33,8 @@ function LiveMusic(){
   const [shuffledTracks, setShuffledTracks] = useState([]);
 
   const path=useRef('/');
+
+  const screenSize=useRef(window.innerWidth);
 
     const audioRef = useRef(null);
 
@@ -94,8 +98,9 @@ function LiveMusic(){
       };
 
       useEffect(() => {
+          console.log("render");
           setPlaying(true)
-      }, [currentTrackIndex]);
+      }, [currentTrackIndex,songArr]);
     const handleNextTrack = () => {
       if (isShuffleOn) {
         const nextShuffledIndex = Math.floor(
@@ -136,13 +141,33 @@ function LiveMusic(){
   const handleShrink=()=>{
       setExpand(false)
   }
+
+  const handleSongPage=(index,array)=>{
+    screenSize.current=window.innerWidth;
+  if(screenSize.current<600){
+    
+    return navigate('/queue')
+  }
+  else{
+    if(array.length!==0){
+    setSongObject(array[index]);
+    setSongPageArr(array);
+    setSongPageIndex(index);
+    return navigate(`/songDetailPage/${array.length!=0?array[index].songId:"13a"}`)
+    }
+    else{
+      return navigate(`/songDetailPage/13a`)
+    }
+  }
+  }
     return(
 
         
         <div className="live_music">
-            <div className="leftb">
-               <Link to={`/songDetailPage/${songArr.length!=0?songArr[currentTrackIndex].songId:"13a"}`}> <img src={songArr.length!=0?songArr[currentTrackIndex].image:"https://c.saavncdn.com/973/Vikram-Tamil-2022-20220515182605-500x500.jpg"} width="50px" height="50px" alt="song_logo"/>
-               </Link>
+            <div className={!pathname.includes('queue')?"leftb":"leftm-bar"}>
+             
+               <img src={songArr.length!=0?songArr[currentTrackIndex].image:"https://c.saavncdn.com/973/Vikram-Tamil-2022-20220515182605-500x500.jpg"} width="50px" height="50px" alt="song_logo" onClick={()=>handleSongPage(currentTrackIndex,songArr)}/>
+            
                 <p>{songArr.length!=0?songArr[currentTrackIndex].title:"Once upon a time"}<br/><span className="describe">{songArr.length!=0?songArr[currentTrackIndex].artist:"Aniruth Ravichandran"}</span></p>
             </div>
             <div className="midb">
@@ -162,7 +187,7 @@ function LiveMusic(){
                 <BiRepeat className="plyrepeat" id={isLoopOn?"plyRepeat":"noRepeat"} onClick={handleToggleLoop}/>
                 <TbPlayerSkipBackFilled className="plyback" onClick={handlePrevTrack}/>
                 
-            {playing ? <GiPauseButton onClick={handlePause}/> : <TbPlayerPlayFilled onClick={ handlePlay}/>}
+            {playing ? (<GiPauseButton onClick={handlePause}/>) : (<TbPlayerPlayFilled onClick={ handlePlay}/>)}
                 <TbPlayerSkipForwardFilled className="plyskip" onClick={handleNextTrack}/>
                 <PiShuffle className="plyshuffle" id={isShuffleOn ? "shuffle" : "noShuffle"} onClick={handleToggleShuffle}/>
             </div>

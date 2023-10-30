@@ -1,7 +1,72 @@
 .mobile-nav{
     display: none;
     /* justify-content: space-evenly; */
+
 }
+.mobiletopnav{
+    display: none;
+    left: 0;
+    margin-bottom: 11px;
+    padding: 16.5px 22px;
+    position: relative;
+    top: 0;
+    /* width: 100%; */
+    z-index: 15;
+    /* background-color: red; */
+}
+.mobiletopnav-second{
+    display: flex;
+   
+    padding-top:11px;
+    padding-left: 10px;
+    
+    
+}
+.m-music,.m-pod{
+  
+    color: #3e3e3e;
+    cursor: pointer;
+    padding: 11px;
+    margin-right: 30px;
+    font-size: larger;
+    transition: all .3s ease-in-out;
+}
+
+.m-checkbar{
+    cursor: pointer;
+    padding: 11px 0px;
+    margin-left: 10px;
+    margin-right: 30px;
+    color: #3e3e3e;
+    transform: scale(1.4) ;
+    font-weight: 600;
+    transition: all .3s ease-in-out;
+    border-bottom: 2px solid #2bc5b4;
+   
+}
+
+.mobiletopnav-first{
+
+        display: flex;
+        justify-content: space-between;
+        
+        height: 34px;
+     
+        vertical-align: middle; 
+      
+        cursor: pointer;
+}
+.mobiletopnav-first div{
+    color: #3e3e3e;
+}
+.mobiletopnav-first img{
+ 
+    height: 34px;
+
+    width: 118px;
+    cursor: pointer;
+}
+
 @media screen and (max-width: 600px) {
 
     .mobile-nav{
@@ -27,7 +92,7 @@
     .mobile-nav-container{
         position: fixed;
         bottom: 0;
-      
+       
         width: 100%;
         height: 60px;
         background-color: #f6f6f6;
@@ -38,15 +103,15 @@
         
             width: 95%;
             position:fixed;
-            top: 15%;
+            top: 18%;
             left: 2%;
-            height: 63%;
+            height: 60%;
            
             z-index: 1100;
             opacity: 1;
-          
+            border-radius: 22px;
             background: white;
-
+            box-shadow: 0 0 12px 4px rgba(0,0,0,.05);
         
     }
     .browsebox-top{
@@ -69,10 +134,89 @@
         font-weight: 500;
         text-transform: uppercase;
         cursor: pointer;
-        
+        color: #3e3e3e;
     }
     .mobile-nav span{
         color: #3e3e3e;
     }
+    .mobiletopnav{
+        display:block;
     }
+    }
+    @media screen and (max-width: 980px) {
+
+        .mobile-nav{
+            width: 85%;
+            margin-top: 10px;
+            margin-left:30px;    
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+        .mobile-nav div{
+            text-align: center;
+            line-height: 1;
+            
+        }
+        .mobile-nav span{
+            font-size: .8rem;
+        }
+        .mobile-nav p{
+            font-size: 1.4rem;
+          
+        }
+        .mobile-nav-container{
+            position: fixed;
+            bottom: 0;
+           
+            width: 100%;
+            height: 60px;
+            background-color: #f6f6f6;
+            
+        }
+        .browsebox-container{
+            display: block;
+            
+                width: 95%;
+                position:fixed;
+                top: 18%;
+                left: 2%;
+                height: 60%;
+               
+                z-index: 1100;
+                opacity: 1;
+                border-radius: 22px;
+                background: white;
+                box-shadow: 0 0 12px 4px rgba(0,0,0,.05);
+            
+        }
+        .browsebox-top{
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 10px;
+            border-bottom: 1px solid #e9e7e7;
+        }
+        .browsebox-top h2{
+            font-size: 1.3rem;
+        }
+        .m-close-bar{
+            font-size: 1.5em;
+        }
+        .browsebox-results p{
+            font-size: 1.1rem;
+            text-align: left;
+            margin-left: 10%;
+            padding: 15px 5px;
+            font-weight: 500;
+            text-transform: uppercase;
+            cursor: pointer;
+            color: #3e3e3e;
+        }
+        .mobile-nav span{
+            color: #3e3e3e;
+        }
+        .mobiletopnav{
+            display:block;
+        }
+        }
     

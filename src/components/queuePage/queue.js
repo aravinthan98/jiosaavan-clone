@@ -9,6 +9,7 @@ import {PiDotsSixVerticalBold} from 'react-icons/pi';
 import { useCurrentPlayingContext } from "../../context/currentlyPlayingContext";
 import {AiFillHeart} from 'react-icons/ai';
 import { Link } from "react-router-dom";
+import LiveMusic from "../musicBar/musicBar";
 
 
 
@@ -97,14 +98,22 @@ function Queue(){
  
   
     return (
+    
         <div className="queue-page">
+            <div className='mobilenav-s-logo'>
+                <Link to='/'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/JioSaavn_Logo.svg/1024px-JioSaavn_Logo.svg.png' alt="logo"/>
+                </Link>  
+            </div>
             <div className="page-left">
                 <div className="q-img-container">
                 <img src={songArr.length!==0?songArr[currentTrackIndex].image:"https://c.saavncdn.com/973/Vikram-Tamil-2022-20220515182605-500x500.jpg"} alt="songimage"/>    
+             
                 <h3 className="img-title"><a href="#">{songArr.length!==0?songArr[currentTrackIndex].title:"Porkanda Singam"}</a></h3>
                 <p className="img-para"><a href="#">{songArr.length!==0?songArr[currentTrackIndex].artist:"Anirudh Ravichander"}</a></p>
+              
                 </div>
             </div>
+                <p className="m-fav" onClick={()=>handleFavorite(songArr[currentTrackIndex],songArr[currentTrackIndex]?.songId)}>{activateHeartId.includes(songArr[currentTrackIndex]?.songId)?<AiFillHeart className="favorite-song"/>:<AiOutlineHeart />}</p>
             <div className="page-right"> 
                 <div className="q-navbar">
                     <h3>Queue</h3>
@@ -184,6 +193,7 @@ function Queue(){
                 </div>
             </div>
         </div>
+    
     )
 }
 

@@ -3,10 +3,12 @@ import React,{useState,useEffect} from 'react';
 import { useCurrentPlayingContext } from '../../context/currentlyPlayingContext';
 
 import {TbPlayerPlayFilled} from 'react-icons/tb'
+import { useNavigate } from 'react-router';
 function TopChart(){
-    const {setCurrentTrackIndex,setSongArr} = useCurrentPlayingContext();
+    const {setCurrentTrackIndex,setSongArr,setSongPageIndex,setSongPageArr,setSongObject} = useCurrentPlayingContext();
     const [weeklyTop, setweeklyTop] = useState([])
   
+    const navigate=useNavigate();
 
 
      function fetchSongs() {
@@ -64,15 +66,27 @@ const handlePlaySong=(e,id)=>{
     setCurrentTrackIndex(curIndex);
   }
 
+  const handleSongPage=(id,song)=>{
+    setSongObject(song)
+    setSongPageArr(weeklyTop);
+    const curIndex=weeklyTop.findIndex(object => {
+      return object.songId === id;
+    });
+    setSongPageIndex(curIndex);
+    
+    return navigate(`/songDetailPage/${id}`)
+  }
+
 return(
         <div className='newRelease-page'>
         <h1>Top Charts</h1>
         <div className="newrelease-caro">
             
-            {weeklyTop&& weeklyTop.map((item,index)=>(
+            {weeklyTop.length!==0&& weeklyTop.map((item,index)=>(
                 <div className="card" key={item.songId}>
-                <img src={item.image}  className='card-image' alt="movie" onClick={(e)=>handlePlaySong(e,item.songId)} />
-                <div className='card-background'><button onClick={(e)=>handlePlaySong(e,item.songId)} className='card-ply-btn'><TbPlayerPlayFilled className='card-ply-icon'/></button></div>
+                <img src={item.image}  className='card-image' alt="movie" onClick={()=>handleSongPage(item.songId,item)} />
+                <div className='card-background' onClick={()=>handleSongPage(item.songId,item)}>
+                  <button onClick={(e)=>handlePlaySong(e,item.songId)} className='card-ply-btn'><TbPlayerPlayFilled className='card-ply-icon'/></button></div>
                 <h4>{item.title}</h4>
                 <p>{item.artist}</p>
                 </div>

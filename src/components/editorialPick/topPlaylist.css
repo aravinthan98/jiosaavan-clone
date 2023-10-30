@@ -1,11 +1,16 @@
-.topplaylist-section{
+/* .topplaylist-section{
     width: 80%;
     margin-left: 18%;
     padding-top: 40px;
-}
+} */
 .topplaylist-container{
+    width: 95%;
    display: grid;
    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+}
+.topplaylist-section h1{
+    font-size: 1.6rem;
+    margin-top: 15px;
 }
 @media  screen and (max-width: 600px) {
     .topplaylist-section{

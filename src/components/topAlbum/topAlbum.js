@@ -5,6 +5,8 @@ import './topAlbum.css'
 import {TbPlayerPlayFilled} from 'react-icons/tb'
 import { useCurrentPlayingContext } from "../../context/currentlyPlayingContext";
 import LoaderFn from "../loader/Loader";
+import { useNavigate } from 'react-router';
+
 const responsive = {
   superLargeDesktop: {
     
@@ -31,7 +33,8 @@ const responsive = {
 };
 
 function TopAlbum(){
-  const{setSongArr,setCurrentTrackIndex}=useCurrentPlayingContext();
+  const navigate=useNavigate();
+  const{setSongArr,setCurrentTrackIndex,setSongPageIndex,setSongPageArr,setSongObject}=useCurrentPlayingContext();
     const [album, setAlbum] = useState([]);
    
     const handleAlbumDetails=(e,song)=>{
@@ -52,6 +55,28 @@ function TopAlbum(){
 
       setCurrentTrackIndex(0);
     
+    }
+    
+    const handleSongPage=(id,song)=>{
+    
+      setSongObject(song);
+      const albumSongsData=song.album?.map((item) => ({
+        key: item._id,
+        image: item.thumbnail,
+        title: item.title || "",
+        audio: item.audio_url,
+        artist:
+          song.artist|| "",
+        mood: item.mood || "",
+        album: "",
+        songId: item._id,
+      }));
+     
+      setSongPageArr(albumSongsData);
+     
+      setSongPageIndex(0);
+      
+      return navigate(`/songDetailPage/${id}`)
     }
     const fetchSongs = () => {
       
@@ -96,8 +121,9 @@ className="album-list"
             album.map((item)=>(
               
             <div className="card" key={item.songId}>
-                <img src={item.image} alt="albumlogo" onClick={(e)=>handleAlbumDetails(e,item)}/>
-                <div className='card-background'><button onClick={(e)=>handleAlbumDetails(e,item)} className='card-ply-btn'><TbPlayerPlayFilled className='card-ply-icon'/></button></div>
+                <img src={item.image} alt="albumlogo" onClick={()=>handleSongPage(item.songId,item)}/>
+                <div className='card-background' onClick={()=>handleSongPage(item.songId,item)}>
+                  <button onClick={(e)=>handleAlbumDetails(e,item)} className='card-ply-btn'><TbPlayerPlayFilled className='card-ply-icon'/></button></div>
                 <h4>{item.title}</h4>
                 <p>{item.artist}</p>
             </div>

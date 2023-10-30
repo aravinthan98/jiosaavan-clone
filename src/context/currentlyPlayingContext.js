@@ -15,6 +15,10 @@ const CurrentPlayingProvider = ({ children }) => {
   const [seletedResult,setSeletedResult]=useState('');
   const[searchBarClicked,setSearchBarClicked]=useState(false);
   const [login,setLogin]=useState(false);
+
+  const[songPageIndex,setSongPageIndex]=useState(0);
+  const[songPageArr,setSongPageArr]=useState([]);
+
   const[profile,setProfile]=useState({
     userName:"Aravinth",
     token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MjhlOTIxMTQ0MzI0MzQ5NTQyNmVkMSIsImlhdCI6MTY5NzE3OTkzNywiZXhwIjoxNzI4NzE1OTM3fQ.Zly7amn1_Xyg3H_DCqhtSeuEU1P30o2AQyzeq2-KHKc"
@@ -24,6 +28,8 @@ const CurrentPlayingProvider = ({ children }) => {
   const [activateHeartId, setActivateHeartId] = useState([]);
   const [trendingSongData,setTrendingSongData]=useState([]);
   const[loginIndicator,setLoginIndicator]=useState('');
+
+  const[songObject,setSongObject]=useState([]);
  
   useEffect(()=>{
     const userlog=JSON.parse(localStorage.getItem('userLogin'));
@@ -41,7 +47,8 @@ const CurrentPlayingProvider = ({ children }) => {
     selectedSong,setSelectedSong,songeData, setSongData,albumData, setAlbumData,artistData, setArtistData,
     topSongData, setTopSongData,seletedResult,setSeletedResult,searchBarClicked,setSearchBarClicked,login,
     setLogin,profile,setProfile,addSong, setAddSong,favoriteSongs, SetFavoriteSongs,activateHeartId, setActivateHeartId,
-    trendingSongData,setTrendingSongData,loginIndicator,setLoginIndicator}} >
+    trendingSongData,setTrendingSongData,loginIndicator,setLoginIndicator,songPageIndex,setSongPageIndex,
+    songPageArr,setSongPageArr,songObject,setSongObject}} >
       {children}
     </CurrentPlayingContext.Provider>
   );

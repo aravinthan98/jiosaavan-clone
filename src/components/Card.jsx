@@ -1,13 +1,15 @@
 import React from 'react';
 import './Card.css';
 import {TbPlayerPlayFilled} from 'react-icons/tb'
-import { useCurrentPlayingContext } from '../context/currentlyPlayingContext'
+import { useCurrentPlayingContext } from '../context/currentlyPlayingContext';
+import { useNavigate } from 'react-router';
 
 
 
 const Card = ({item,album}) => {
 
-  const { setSongArr,setCurrentTrackIndex} = useCurrentPlayingContext();
+  const navigate =useNavigate();
+  const { setSongArr,setCurrentTrackIndex,setSongPageIndex,setSongPageArr,setSongObject} = useCurrentPlayingContext();
   
  
   const handlePlaySong=(e,id)=>{
@@ -18,10 +20,20 @@ const Card = ({item,album}) => {
     });
     setCurrentTrackIndex(curIndex);
   }
+  const handleSongPage=(id,song)=>{
+    setSongObject(song);
+    setSongPageArr(album);
+    const curIndex=album.findIndex(object => {
+      return object.songId === id;
+    });
+    setSongPageIndex(curIndex);
+    
+    return navigate(`/songDetailPage/${id}`)
+  }
   return (
     <div className="card" key={item.songId}>
-      <img src={item.image}  className='card-image' alt="movie" onClick={(e)=>handlePlaySong(e,item.songId)}/>
-      <div className='card-background'>
+      <img src={item.image}  className='card-image' alt="movie" onClick={()=>handleSongPage(item.songId,item)}/>
+      <div className='card-background' onClick={()=>handleSongPage(item.songId,item)}>
         <button onClick={(e)=>handlePlaySong(e,item.songId)} className='card-ply-btn'>
           <TbPlayerPlayFilled className='card-ply-icon'/>
         </button>

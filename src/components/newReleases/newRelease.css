@@ -1,12 +1,17 @@
 
-.newRelease-page{
+/* .newRelease-page{
     width: 80%;
     margin-left: 18%;
     padding-top: 40px;
-}
+} */
 .newrelease-caro{
+    width: 95%;
    display: grid;
    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+}
+.newRelease-page h1{
+    font-size: 1.6rem;
+    margin-top: 15px;
 }
 @media  screen and (max-width: 600px) {
     .newRelease-page{

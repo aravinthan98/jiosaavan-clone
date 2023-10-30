@@ -15,11 +15,30 @@
     margin-top: 25px;
     
 }
+.d-songcard-song-des{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+}
+.song-des-sec{
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    white-space: nowrap; 
+    overflow: hidden;
+   text-overflow:ellipsis;
+}
+.song-des-sec p{
+    padding-top: 8px;
+   
+}
 .d-description h1{
     margin-bottom: 10px;
 }
 .d-description-top p{
     margin-bottom: 7px;
+    text-align: center;
 }
 .d-description-top{
     margin-bottom: 20px;
@@ -104,7 +123,7 @@
     margin: 0 20px;
     align-items: center;
 }
-.q-smpl, .d-s-artist{
+.q-smpl{
     padding-top: 8px;
     text-align: center;
 }
@@ -139,6 +158,24 @@
     color: red;
     padding-top: 10px;
 }
+.m-songPagePlay-btn{
+    display: none;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: #2bc5b4;
+    font-size: 1.6em;
+    color: white;
+}
+.mobilenav-logo{
+    display: none;
+}
+.mobilenav-logo img{
+    width: 118px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    transform: translateX(100%);
+  }
 @media screen and (max-width: 600px) {
     .details-section-top{
         flex-direction: column;
@@ -149,10 +186,7 @@
     .d-play-btn{
         display: none;
     }
-    .d-description{
-        display: flex;
-        justify-content: space-between;
-    }
+
 
     .details-section {
         /* width: 100vw; */
@@ -161,4 +195,49 @@
         margin-right: 0;
         width: 100%;
     }
+    .m-songPagePlay-btn{
+        display: block;
+    }
+    .m-ply-btn{
+        padding-top: 12px;
+        padding-left: 13px;
+    }
+    .d-description{
+        margin-left: 10px;
+        margin-top: 15px;
+        
+    }
+    .d-description h1{
+        margin-bottom: 5px;
+    }
+    .d-btn-section{
+        display: flex;
+       justify-content: center;
+    }
+    .details-section{
+       
+       
+        padding-top: 0px;
+    }
+    .mobilenav-logo{
+        display: block;
+    }
+    .d-songcard-song-des{
+        width: 40%;
+        display: block;
+       
+    }
+    .song-des-sec{
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        
+    }
+    .song-des-sec p{
+        padding-top: 0px;
+    }
+    .fav{
+        display: none;
+    }
+
 }

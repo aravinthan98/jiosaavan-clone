@@ -21,6 +21,7 @@ import TopPlayList from './components/editorialPick/topPlaylist'
 import MobileMyMusic from './components/mobileMymusic/MobileMyMusic';
 import FavoriteSongs from './components/favoritSection/favoriteSong';
 import MobileProfile from './components/mobileMymusic/MobileProfile';
+import TopCategories from './components/topCategories/TopCategories';
 
 function App() {
 
@@ -43,17 +44,18 @@ function App() {
               <Route path='/signup' element={<SignUp/>} />
               <Route path='/change-password' element={<UpdatePassword/>}/>
               
-              <Route path='/newrelease' element={<NewReleases />} />
-              <Route path='/topchart' element={<TopChart />} />
-              <Route path='/topplaylist' element={<TopPlayList />} />
+              <Route path='/new-releases' element={<TopCategories />} />
+              <Route path='/charts' element={<TopCategories />} />
+              <Route path='/featured-playlists' element={<TopCategories />} />
               
-              <Route path='/podcast' element={<ComingSoonPage />} />
-              <Route path='/topartist' element={<TopArtist/>} />
-              <Route path='/radio' element={<ComingSoonPage />} />
-              <Route path='/my-music' element={<FavoriteSection/>}/>
+              <Route path='/original-podcasts' element={<TopCategories />} />
+              <Route path='/top-artists' element={<TopCategories/>} />
+              <Route path='/radio' element={<TopCategories />} />
+              <Route path='/my-music/:section' element={<FavoriteSection/>}/>
+              <Route path='/listening-history' element={<FavoriteSection/>}/>
               <Route path='/my-music-sec' element={<MobileMyMusic/>}/>
               <Route path='/languages' element={<ComingSoonPage/>}/>
-              <Route path='/my-music/songs' element={<FavoriteSongs/>}/>
+              {/* <Route path='/my-music/songs' element={<FavoriteSongs/>}/> */}
               <Route path='/my-music-sec/my-profile-m' element={<MobileProfile/>}/>
               <Route path='/redeem' element={<ComingSoonPage/>}/>
             </Routes>

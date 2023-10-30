@@ -6,13 +6,14 @@
 
 
 .react-multiple-carousel__arrow {
-    z-index: 500;
+    z-index: 1;
 }
-.corrosal-card{
-    width: 100%;
-    /* margin-left: 18%; */
-    /* padding-top: 40px; */
-}
+/* .corrosal-card{
+    width: 92%; 
+    margin-left: 15px;
+    
+   
+} */
 .card{
     width: 117px;
     margin-top: 25px;
@@ -38,7 +39,7 @@
     
 }
 .card h4{
-    width: 120px;
+    width: 117px;
     font-weight: 500;
   
     font-size: 14px;
@@ -50,6 +51,9 @@
     padding-bottom: 40px;
 }
 
+/* .react-multi-carousel-item {
+    width: 140px!important;
+} */
 @media screen and (max-width: 600px) {
     .card img{
         width: 117px;
@@ -69,13 +73,29 @@
         width: 100%;
        
     }
-    .card{
-        text-align: center;     
-       width: 147px;
+
+    .card{    
+        width: 147px!important;     
+        text-align: center!important;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .card img{
+        width: 147px!important;
+        height: 147px!important;
     }
     .corrosal-card{
         width: 100%;
    
+    }
+    .card h4,.card p{
+        width: 147px!important;
+    }
+    .trending-list{
+        /* width: 147px; */
+        /* padding-left: 20px;
+        padding-right: 20px; */
+       
     }
   
 

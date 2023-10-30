@@ -8,21 +8,40 @@ body{
 .trending{
     color: #3e3e3e;
     font-size: 20px;
-    margin-left: 15px;
+    
     
 }
 .main-page{    
       
-    width: 80%;
+    width: 75%;
     margin-left: 18%;
+    margin-right: 5%;
     padding-top: 40px;
       
 }
 
 @media only screen and (max-width: 600px) {
     .main-page{        
-        width: 100%;
-        margin-left: 0;    
-        padding-top: 40px;     
+        width: 95%;
+        
+        margin-right: 3%; 
+        padding-top: 5px;  
+        margin-left: 2%;   
+    }
+    .trending{
+        margin-left: 5%
+        
+    }
+}
+@media screen and (max-width: 980px) {
+    .main-page{        
+        width: 95%;       
+        margin-right: 3%; 
+        padding-top: 5px;  
+        margin-left: 2%;   
+    }
+    .trending{
+        margin-left: 5%
+        
     }
 }

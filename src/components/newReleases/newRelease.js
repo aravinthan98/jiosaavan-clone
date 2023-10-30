@@ -3,9 +3,12 @@ import './newRelease.css'
 import React,{useState,useEffect} from 'react';
 import { useCurrentPlayingContext } from '../../context/currentlyPlayingContext';
 
+import { useNavigate } from 'react-router';
+
 import {TbPlayerPlayFilled} from 'react-icons/tb'
 function NewReleases(){
-    const {setCurrentTrackIndex,setSongArr} = useCurrentPlayingContext();
+  const navigate=useNavigate();
+    const {setCurrentTrackIndex,setSongArr,setSongPageIndex,setSongPageArr,setSongObject} = useCurrentPlayingContext();
     const [weeklyTop, setweeklyTop] = useState([])
   
 
@@ -64,6 +67,17 @@ const handlePlaySong=(e,id)=>{
     });
     setCurrentTrackIndex(curIndex);
   }
+  const handleSongPage=(id,song)=>{
+    console.log("song",song);
+    setSongObject(song)
+    setSongPageArr(weeklyTop);
+    const curIndex=weeklyTop.findIndex(object => {
+      return object.songId === id;
+    });
+    setSongPageIndex(curIndex);
+    
+    return navigate(`/songDetailPage/${id}`)
+  }
 
 return(
         <div className='newRelease-page'>
@@ -72,8 +86,9 @@ return(
             
             {weeklyTop&& weeklyTop.map((item)=>(
                 <div className="card" key={item.songId}>
-                <img src={item.image}  className='card-image' alt="movie" onClick={(e)=>handlePlaySong(e,item.songId)} />
-                <div className='card-background'><button onClick={(e)=>handlePlaySong(e,item.songId)} className='card-ply-btn'><TbPlayerPlayFilled className='card-ply-icon'/></button></div>
+                <img src={item.image}  className='card-image' alt="movie" onClick={()=>handleSongPage(item.songId,item)} />
+                <div className='card-background' onClick={()=>handleSongPage(item.songId,item)}>
+                  <button onClick={(e)=>handlePlaySong(e,item.songId)} className='card-ply-btn'><TbPlayerPlayFilled className='card-ply-icon'/></button></div>
                 <h4>{item.title}</h4>
                 <p>{item.artist}</p>
                 </div>

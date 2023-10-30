@@ -3,7 +3,8 @@
 .roundcard{
     margin-top: 25px;
     text-align: center;
-   margin-left: 30px;
+   /* margin-left: 30px; */
+
     
 }
 .roundcard img{
@@ -16,42 +17,35 @@
     font-size: 13px;
     white-space: nowrap; 
     width: 117px;
-   
+   text-align: center;
     overflow: hidden;
    text-overflow: ellipsis;
+  
+   
     
 }
 .roundcard h4{
-    width: 117px;
+    /* width: 100%; */
+ 
     font-weight: 500;
-
-    font-size: 14px;
+    text-align: center;
     white-space: nowrap; 
     overflow: hidden;
    text-overflow: ellipsis;
+   font-size: 13px;
 }
 .artist-caro{
-    width: 80%;
+    width: 95%;
     /* margin-left: 18%; */
     padding-top: 10px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
-.artist-container{
+/* .artist-container{
     padding-top: 50px;
     margin-left: 18%;
-}
-.roundcard:hover{
-    .roundcard-hovercontent{
-        display: grid;
-        place-items: center;
-       position: absolute;
-        top: 0;
-        left: 0; 
-        transition: opacity .3s ease-in-out;   
-        z-index: 1;
-    }
-}
+} */
+
 .roundcard{
     position: relative;
 }
@@ -66,6 +60,21 @@
     z-index: 1;
     left: 18px;
 }
+.roundcard:hover{
+    .roundcard-hovercontent{
+        display: grid;
+        place-items: center;
+       position: absolute;
+        top: 0;
+        left: 13px; 
+        transition: opacity .3s ease-in-out;   
+        z-index: 1;
+    }
+}
+.artist-container h1{
+    font-size: 1.6rem;
+    margin-top: 15px;
+}
 @media  screen and (max-width: 600px) {
     .artist-container{
         width: 100%;
@@ -74,7 +83,7 @@
     }
     .artist-container h1{
         margin-left: 15px;
-        font-size: 1.3rem;
+        font-size: 1.6rem!important;
     }
     .artist-caro{
         width: 100%;

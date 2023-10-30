@@ -1,4 +1,5 @@
 .live_music{
+  
     width: 98%;
     height: 78px;
     display: flex;
@@ -39,6 +40,7 @@
     font-size: 1.5em;
     cursor: pointer;
     position: relative;
+    transition: width 2s; 
 }
 
 .rightb p{
@@ -86,7 +88,12 @@
         display: block;       
      }
 }
-
+.leftm-bar{
+        
+    visibility: hidden;
+    width: 20%;
+    transition:width 2s; 
+}
 @media screen and (max-width: 600px) {
    .rightb, .plyrepeat, .plyback, .plyskip, .plyshuffle{
     display: none;
@@ -102,6 +109,26 @@
    .live_music{
     width: 100%;
     margin-bottom: 59px;
+    border-bottom: 1px solid #dfdede;
     
+    }     
 }
-}
+@media screen and (max-width: 980px) {
+    .rightb, .plyrepeat, .plyback, .plyskip, .plyshuffle{
+     display: none;
+    }
+    .leftb {
+     width: 100%;
+     text-align: center;
+     
+    }
+    .leftb p {
+     text-align: center;
+    }
+    .live_music{
+     width: 100%;
+     margin-bottom: 59px;
+     border-bottom: 1px solid #dfdede;
+     
+     }     
+ }

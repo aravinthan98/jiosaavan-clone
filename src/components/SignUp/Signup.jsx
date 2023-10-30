@@ -21,10 +21,13 @@ function SignUp(){
     const handleCheck=()=>{
         setChecked(!checked);
     }
+    function isValidEmail(mail) {
+        return /\S+@\S+\.\S+/.test(mail);
+      }
  const handleClick=(e)=>{
    
     if( email && password&&name&&checked){
-       if(email.indexOf('@')===-1){       
+        if(!isValidEmail(email)){      
           setMessage('Email is invalid'); 
           setError(true)       
        }

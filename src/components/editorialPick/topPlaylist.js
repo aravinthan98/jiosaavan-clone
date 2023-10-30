@@ -5,9 +5,11 @@ import './topPlaylist.css'
 import {TbPlayerPlayFilled} from 'react-icons/tb'
 import { useCurrentPlayingContext } from "../../context/currentlyPlayingContext";
 import LoaderFn from "../loader/Loader";
+import { useNavigate } from 'react-router';
 
 function TopPlayList(){
-  const{setSongArr,setCurrentTrackIndex}=useCurrentPlayingContext();
+  const navigate=useNavigate();
+  const{setSongArr,setCurrentTrackIndex,setSongPageIndex,setSongPageArr,setSongObject}=useCurrentPlayingContext();
     const [album, setAlbum] = useState([]);
    
     const handleAlbumDetails=(e,song)=>{
@@ -29,6 +31,26 @@ function TopPlayList(){
       setCurrentTrackIndex(0);
     
     }
+    const handleSongPage=(id,song)=>{
+      console.log("albumsong",song);
+      setSongObject(song)
+      const albumSongsData=song.album?.map((item) => ({
+        key: item._id,
+        image: item.thumbnail,
+        title: item.title || "",
+        audio: item.audio_url,
+        artist:
+          song.artist|| "",
+        mood: item.mood || "",
+        album: "",
+        songId: item._id,
+      }));
+      setSongPageArr(albumSongsData);
+      
+      setSongPageIndex(0);
+      
+      return navigate(`/songDetailPage/${id}`)
+    }
     const fetchSongs = () => {
         // Replace 'YOUR_PROJECT_ID' with your actual project ID
         fetch('https://academics.newtonschool.co/api/v1/music/album?limit=24', {
@@ -38,13 +60,14 @@ function TopPlayList(){
         })
           .then((response) => response.json())
           .then((data) => {
-
+            console.log("newArray",data);
             const newarray=data?.data.sort((a,b)=>{
                 b=parseInt(b.release?.slice(0,4))
                 a=parseInt(a.release?.slice(0,4))
                 
                 return  b - a;
             })
+            
             const albumData=newarray?.map((item) => ({
               key: item._id,
               image: item.image,
@@ -76,8 +99,9 @@ return(
             album.map((item)=>(
               
             <div className="card" key={item.songId}>
-                <img src={item.image} alt="albumlogo" onClick={(e)=>handleAlbumDetails(e,item)}/>
-                <div className='card-background'><button onClick={(e)=>handleAlbumDetails(e,item)} className='card-ply-btn'><TbPlayerPlayFilled className='card-ply-icon'/></button></div>
+                <img src={item.image} alt="albumlogo" onClick={()=>handleSongPage(item.songId,item)}/>
+                <div className='card-background' onClick={()=>handleSongPage(item.songId,item)}>
+                  <button onClick={(e)=>handleAlbumDetails(e,item)} className='card-ply-btn'><TbPlayerPlayFilled className='card-ply-icon'/></button></div>
                 <h4>{item.title}</h4>
                 <p>{item.artist}</p>
             </div>

@@ -9,6 +9,8 @@ import LoginPageHover from './login-signup-hover/LoginHover';
 import SignUpHover from './login-signup-hover/SignUpHover'
 import { useCurrentPlayingContext } from '../context/currentlyPlayingContext';
 import MobileNavbar from './mobileNavbar/mobileNavbar'
+import FloatingNavbar from '../components/flottingNavbar/FloatingNavbar';
+import MobileTopNavbar from './mobileNavbar/MobiletopNavbar'
 
 
 
@@ -38,6 +40,9 @@ const Layout = ({ children }) => {
     
   return (
     <div className='layout'>
+      {pathname==='/'&&
+      <MobileTopNavbar/>
+      }
       {!pathname.includes('my-music-sec')&&
         <Topnavbar />
       }   
@@ -47,14 +52,17 @@ const Layout = ({ children }) => {
           <SideNavbar />
         }
         {children}
-
+        <FloatingNavbar/>
           {
           !pathname.includes('/queue') &&
           <Footer className='main-page'/>
         }
        
       </>
-      <LiveMusic />
+    
+        <LiveMusic />
+    
+      
       {loginIndicator==='pre-login' && <LoginPageHover/>}
       {loginIndicator==='pre-signup' && <SignUpHover/>}
        {!pathname.includes('subscription')&&

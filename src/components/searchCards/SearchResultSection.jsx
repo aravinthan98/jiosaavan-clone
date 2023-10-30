@@ -28,7 +28,7 @@ function SearchResultSection(){
     return(
         <div className='searchresult-section-expand'>
             <div className='searchresult-sectiontop'>
-                <h1>Search results for</h1>
+                <h1>Search results</h1>
                 <p></p>
                 <div className='searchresult-sectionbar'>
                         <p className={seletedResult==="Playlists"?"barselected":"nobar"} onClick={()=>setSeletedResult("Playlists")}>Playlists</p>

@@ -4,10 +4,34 @@ import './myFavoriteSection.css';
 
 import FavoriteSongs from './favoriteSong'
 import { Link } from 'react-router-dom';
+import ComingSoonPage from '../../commingSoon/commingSoon';
 function FavoriteSection(){
     const{profile}=useCurrentPlayingContext();
 
- 
+    const{seletedResult,setSeletedResult}=useCurrentPlayingContext();
+
+    
+    let resultComponenet;
+
+    switch (seletedResult) {
+        case 'MySongs':
+            resultComponenet= <FavoriteSongs/>;
+          break;
+        // case 'MyAlbum':
+        //     resultComponenet=<ComingSoonPage/>;
+        //   break;
+        // case 'MyPodcast':
+        //     resultComponenet= <ComingSoonPage/>;
+        //   break;
+        // case 'MyArtist':
+        //     resultComponenet=  <ComingSoonPage/>;
+        //   break;
+        // case 'MyHistory':
+        //     resultComponenet=  <ComingSoonPage/>;
+        // break;
+        default:
+            resultComponenet=<ComingSoonPage/>;
+      }
      return(
         <div className='searchresult-section-expand'>
             <div className='searchresult-sectiontop'>
@@ -21,17 +45,17 @@ function FavoriteSection(){
                 </div>
                 
                 <div className='searchresult-sectionbar'>
-                        <p >Playlists</p>
-                        <p >Songs</p>
-                        <p >Albums</p>
-                        <p >Podcasts</p>
-                        <p>Artists</p>
-                        <p >Artists</p> 
+                    <p className={seletedResult==="MySongs"?"barselected":"nobar"} onClick={()=>setSeletedResult("MySongs")}>Songs</p>
+                    <p className={seletedResult==="MyAlbum"?"barselected":"nobar"} onClick={()=>setSeletedResult("MyAlbum")}>Albums</p>
+                    <p className={seletedResult==="MyPodcast"?"barselected":"nobar"} onClick={()=>setSeletedResult("MyPodcast")}>Podcasts</p>
+                    <p className={seletedResult==="MyArtist"?"barselected":"nobar"} onClick={()=>setSeletedResult("MyArtist")}>Artists</p> 
+                    <p className={seletedResult==="MyHistory"?"barselected":"nobar"} onClick={()=>setSeletedResult("MyHistory")}>History</p> 
                 </div>
+                <hr className='myfav-bar'></hr>
             </div>
             <div className='searchresult-detailsection'>
           
-                <FavoriteSongs/>
+                {resultComponenet}
             </div>
         </div>
     )

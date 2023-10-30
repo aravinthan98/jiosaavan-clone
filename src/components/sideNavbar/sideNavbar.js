@@ -10,35 +10,37 @@ import './sideNavbar.css'
 function SideNavbar(){
     const navigate=useNavigate();
 
-    const{login,setLoginIndicator}=useCurrentPlayingContext();
+    const{login,setLoginIndicator,setSeletedResult}=useCurrentPlayingContext();
 
 
-    const handleMymusicSection=()=>{
+    const handleMymusicSection=(nav,component)=>{
         if(login){
-            return navigate('/my-music')
+            setSeletedResult(component)
+            return navigate(`${nav}`)
         }
         else{
             setLoginIndicator('pre-login')
         }
     }
+    
     return(
         <div className="sidebar">
         <h4 className="brws">BROWSE</h4>
         <ul className="browse-item">
-            <Link to='/newrelease'><li>New Releases</li></Link>
-            <Link to='/topchart'><li >Top Charts</li></Link>
-            <Link to='/topplaylist'><li  >Top Playlists</li></Link>
-            <Link to='/podcast'><li  >Podcasts</li></Link>
-            <Link to='/topartist'><li  >Top Artists</li></Link>
-            <Link to='/radio'><li  >Radio</li></Link>
+            <Link to='/new-releases'><li  onClick={()=>setSeletedResult('NewSongs')}>New Releases</li></Link>
+            <Link to='/charts'><li value='TopCharts' onClick={()=>setSeletedResult('TopCharts')}>Top Charts</li></Link>
+            <Link to='/featured-playlists'><li onClick={()=>setSeletedResult('TopPlaylist')}>Top Playlists</li></Link>
+            <Link to='/original-podcasts'><li onClick={()=>setSeletedResult('TopPodcast')}>Podcasts</li></Link>
+            <Link to='/top-artists'><li onClick={()=>setSeletedResult('TopArtists')}>Top Artists</li></Link>
+            <Link to='/radio'><li  onClick={(e)=>setSeletedResult('Radio')}>Radio</li></Link>
         </ul>
         <p className="lib">LIBRARY</p>
         <div className="library-item">
-            <div><VscHistory/> <span> History</span></div>
-            <div onClick={handleMymusicSection}><CgMusicNote/> <span> Songs</span></div>
-            <div onClick={handleMymusicSection}><RiAlbumLine/> <span> Albums</span></div>
-            <div onClick={handleMymusicSection}><MdOutlinePodcasts/> <span> Podcasts</span></div>
-            <div onClick={handleMymusicSection}><LiaMicrophoneAltSolid/> <span> Artists</span></div>
+            <div onClick={()=>handleMymusicSection("/listening-history","MyHistory")}><VscHistory/> <span> History</span></div>
+            <div onClick={()=>handleMymusicSection("/my-music/songs","MySongs")}><CgMusicNote/> <span>Liked Songs</span></div>
+            <div onClick={()=>handleMymusicSection("/my-music/albums","MyAlbum")}><RiAlbumLine/> <span> Albums</span></div>
+            <div onClick={()=>handleMymusicSection("/my-music/podcasts","MyPodcast")}><MdOutlinePodcasts/> <span> Podcasts</span></div>
+            <div onClick={()=>handleMymusicSection("/my-music/artists","MyArtist")}><LiaMicrophoneAltSolid/> <span> Artists</span></div>
             
         </div>
 

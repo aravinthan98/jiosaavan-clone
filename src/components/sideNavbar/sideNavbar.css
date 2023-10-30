@@ -78,3 +78,8 @@
        display: none;
     }
 }
+@media screen and (max-width: 980px) {
+    .sidebar{
+        display: none;
+     }
+}

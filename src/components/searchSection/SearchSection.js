@@ -318,7 +318,7 @@ import { Link } from "react-router-dom";
                 </div>
 
                 <div className="q-des">
-                    <p className="q-s-name">{item.title}</p>
+                    <p className="q-s-name" >{item.title}</p>
                 </div>
             </div>
             

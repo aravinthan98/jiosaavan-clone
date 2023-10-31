@@ -303,7 +303,7 @@ transition: right .3s ease-in-out,left .3s ease-in-out,padding .3s ease-in-out,b
   
   }
   }
-  @media screen and (max-width: 980px) {
+  @media screen and (max-width: 979px) {
     .midnav, .login-btn, .signup-btn, .gopro,.myprofile-section-top{
       display: none;
     }
@@ -354,4 +354,33 @@ transition: right .3s ease-in-out,left .3s ease-in-out,padding .3s ease-in-out,b
   
   }
 
+  }
+  @media screen and (max-width:1099px){
+    .midnav{
+      height: 40px;
+      width: 350px;
+      border-radius: 99px;
+      overflow: hidden;
+      margin-top: 11px;
+      margin-right: 5px;
+      background-color: white;
+     border: 0.5px solid rgb(221, 220, 220);
+     cursor:text;
+      
+    text-align: center;
+    }
+    .leftnav{
+      width: 32%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      
+    }
+    .rightnav{
+      width: 32%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      position: relative;
+    }
   }

@@ -246,7 +246,7 @@ import { Link } from "react-router-dom";
                     <img src={item.image} width="40px" alt="cardimage" onClick={() => handleDetails(item.songId,topSongData)}
                     
                     />
-                    <div className='searchresult-hovercontent' onClick={() => handleDetails(item.songId,topSongData)} >< ImPlay2 className='mini-ply-icon'/></div>
+                    <div className='searchresult-hovercontent hovercard' onClick={() => handleDetails(item.songId,topSongData)} >< ImPlay2 className='mini-ply-icon'/></div>
                 </div>
 
                 <div className="q-des">
@@ -270,7 +270,7 @@ import { Link } from "react-router-dom";
                     <img src={item.image} width="40px" alt="cardimage" onClick={() => handleDetails(item.songId,songeData)}
                      
                      />
-                    <div className='searchresult-hovercontent' onClick={() => handleDetails(item.songId,songeData)} >< ImPlay2 className='mini-ply-icon'/></div>
+                    <div className='searchresult-hovercontent hovercard' onClick={() => handleDetails(item.songId,songeData)} >< ImPlay2 className='mini-ply-icon'/></div>
                 </div>
 
                 <div className="q-des">
@@ -293,7 +293,7 @@ import { Link } from "react-router-dom";
                     <img src={item.image} width="40px" alt="cardimage" onClick={() => handleAlbumDetails(item)}
                     
                     />
-                    <div className='searchresult-hovercontent' onClick={() => handleAlbumDetails(item)} >< ImPlay2 className='mini-ply-icon'/></div>
+                    <div className='searchresult-hovercontent hovercard' onClick={() => handleAlbumDetails(item)} >< ImPlay2 className='mini-ply-icon'/></div>
                 </div>
 
                 <div className="q-des">
@@ -314,7 +314,7 @@ import { Link } from "react-router-dom";
             <div className="searchresultcard" key={item.key}>
                 <div className="q-icon">                   
                     <img src={item.image} width="40px" alt="cardimage" onClick={()=>handleArtistDetails(item)}/>
-                    <div className='searchresult-hovercontent' onClick={()=>handleArtistDetails(item)} >< ImPlay2 className='mini-ply-icon'/></div>
+                    <div className='searchresult-hovercontent hovercard' onClick={()=>handleArtistDetails(item)} >< ImPlay2 className='mini-ply-icon'/></div>
                 </div>
 
                 <div className="q-des">

@@ -6,13 +6,14 @@ import {AiFillCloseCircle} from 'react-icons/ai'
 import  SearchSection  from "../searchSection/SearchSection";
 import {useCurrentPlayingContext} from '../../context/currentlyPlayingContext'
 import SearchTreandingSong from "./SearchTreandingSong";
-import {RxCross2} from 'react-icons/rx'
+import {RxCross2} from 'react-icons/rx';
+import { useNavigate } from "react-router-dom";
 
 function Topnavbar(){
- 
+  const navigate=useNavigate();
   const[inputValue,setInputValue]=useState('')
-  const{searchBarClicked,setSearchBarClicked,login,setLogin,profile}=useCurrentPlayingContext();
-
+  const{searchBarClicked,setSearchBarClicked,login,setLogin,profile,setSeletedResult}=useCurrentPlayingContext();
+ 
   const[profileClicked,setProfileClicked]=useState(false);
   const[musicClicked,setMusicClicked]=useState(false);
   
@@ -30,6 +31,12 @@ function Topnavbar(){
       setProfileClicked(!profileClicked);
     }
   }
+  const handleMusicClicked=(value,nav)=>{
+    setMusicClicked(false);
+    setSeletedResult(value);
+    return navigate(`${nav}`)
+
+  }
     return(
       <>
       <div className="sidenav">
@@ -39,7 +46,7 @@ function Topnavbar(){
       </Link>
       <div id="mus-pod">
       <div className="music" onClick={()=>setMusicClicked(!musicClicked)}>Music</div>
-     <Link to='/podcast'><div className="pod">Podcasts</div></Link> 
+     <Link to='/original-podcasts'><div className="pod">Podcasts</div></Link> 
       </div>
       <Link to='/subscription'>
       <div className="gopro">Go Pro</div>
@@ -84,8 +91,8 @@ function Topnavbar(){
         </div>
         <aside className={profileClicked?"profile-dropedown":"noprofile"}>
           <div className="profile-dropedown-section">
-          <Link to='/my-music'><p onClick={()=>setProfileClicked(!profileClicked)}>My Music</p></Link> 
-           <Link to='/my-music'><p onClick={()=>setProfileClicked(!profileClicked)}>My Profile</p></Link> 
+          <Link to='/listening-history'><p onClick={()=>setProfileClicked(!profileClicked)}>My Music</p></Link> 
+           <Link to='/subscription'><p onClick={()=>setProfileClicked(!profileClicked)}>Subscription</p></Link> 
            <Link to="/change-password"><p onClick={()=>setProfileClicked(!profileClicked)}>Change Password</p></Link>
             <p onClick={handleLogOut}>Log Out</p>
           </div>
@@ -97,10 +104,10 @@ function Topnavbar(){
             </div>
   
             <div className="musicbox-results">  
-            <Link to='/newrelease'><p onClick={()=>setMusicClicked(false)}>New Releases</p></Link>
-            <Link to='/topplaylist'><p onClick={()=>setMusicClicked(false)}>Top PlayList</p></Link>
-            <Link to='/topchart'><p onClick={()=>setMusicClicked(false)}>Top Charts</p></Link>
-            <Link to='/topartist'><p onClick={()=>setMusicClicked(false)}>Top Artist</p></Link>
+            <p onClick={()=>handleMusicClicked('NewSongs','/new-releases')}>New Releases</p>
+            <p onClick={()=>handleMusicClicked('TopPlaylist','/featured-playlists')}>Top PlayList</p>
+            <p onClick={()=>handleMusicClicked('TopCharts','/charts')}>Top Charts</p>
+            <p onClick={()=>handleMusicClicked('TopArtists','/top-artists')}>Top Artist</p>
             </div>
         </aside>
         </> 

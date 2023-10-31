@@ -53,9 +53,10 @@ function App() {
               <Route path='/radio' element={<TopCategories />} />
               <Route path='/my-music/:section' element={<FavoriteSection/>}/>
               <Route path='/listening-history' element={<FavoriteSection/>}/>
-              <Route path='/my-music-sec' element={<MobileMyMusic/>}/>
+
+              <Route path='/my-profile-section' element={<MobileMyMusic/>}/>
               <Route path='/languages' element={<ComingSoonPage/>}/>
-              {/* <Route path='/my-music/songs' element={<FavoriteSongs/>}/> */}
+              <Route path='/my-music/mysongs' element={<FavoriteSongs/>}/>
               <Route path='/my-music-sec/my-profile-m' element={<MobileProfile/>}/>
               <Route path='/redeem' element={<ComingSoonPage/>}/>
             </Routes>

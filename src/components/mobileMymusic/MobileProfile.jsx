@@ -12,8 +12,8 @@ function MobileProfile(){
         }
     }
     return(
-        <div className='searchresult-section-expand'>
-        <div className='searchresult-sectiontop'>
+        <div className='mobile-mymusic-section'>
+        <div className='mobile-mymusic-sectiontop'>
             <div className='myprofile-section'>
                 <div className='myprofile-logo'><img src='https://staticfe.saavn.com/web6/jioindw/dist/1696482270/_i/default_images/default-user-500x500.jpg' className='profile-logo' alt='my-logo'/></div>
                 <div className='myprofile-name-section'>

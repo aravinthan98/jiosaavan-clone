@@ -23,7 +23,7 @@ function Subscription(){
             
             <div className="subs-navbar-btns">
             <Link to='/redeem'><div><p className="subs boarder-styl">Redeem</p></div></Link> 
-            <Link to='/my-music'> <div><p className="subs ">MyAccount</p></div></Link> 
+            <Link to='/redeem'> <div><p className="subs ">MyAccount</p></div></Link> 
             </div>
            
             </div>

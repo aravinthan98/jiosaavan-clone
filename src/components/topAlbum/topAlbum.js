@@ -9,28 +9,28 @@ import { useNavigate } from 'react-router';
 
 const responsive = {
   superLargeDesktop: {
-    
     breakpoint: { max: 4000, min: 3000 },
     items: 7,
     slidesToSlide: 7
     
   },
   desktop: {
-    breakpoint: { max: 3000, min: 1024 },
+    breakpoint: { max: 3000, min: 979 },
     items: 7,
     slidesToSlide: 7
   },
   tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 4,
-    slidesToSlide: 4
+    breakpoint: { max: 979, min: 464 },
+    items: 3,
+    slidesToSlide: 3
   },
+ 
   mobile: {
     breakpoint: { max: 464, min: 0 },
     items:2,
     slidesToSlide: 2
   }
-};
+};;
 
 function TopAlbum(){
   const navigate=useNavigate();
@@ -122,7 +122,7 @@ className="album-list"
               
             <div className="card" key={item.songId}>
                 <img src={item.image} alt="albumlogo" onClick={()=>handleSongPage(item.songId,item)}/>
-                <div className='card-background' onClick={()=>handleSongPage(item.songId,item)}>
+                <div className='card-background hovercard' onClick={()=>handleSongPage(item.songId,item)}>
                   <button onClick={(e)=>handleAlbumDetails(e,item)} className='card-ply-btn'><TbPlayerPlayFilled className='card-ply-icon'/></button></div>
                 <h4>{item.title}</h4>
                 <p>{item.artist}</p>

@@ -1,7 +1,6 @@
-.mobile-nav{
-    display: none;
-    /* justify-content: space-evenly; */
 
+.mobile-nav-container{
+    display: none;
 }
 .mobiletopnav{
     display: none;
@@ -68,6 +67,7 @@
 }
 
 @media screen and (max-width: 600px) {
+    
 
     .mobile-nav{
         width: 85%;
@@ -90,6 +90,7 @@
       
     }
     .mobile-nav-container{
+        display: block;
         position: fixed;
         bottom: 0;
        
@@ -143,7 +144,7 @@
         display:block;
     }
     }
-    @media screen and (max-width: 980px) {
+    @media screen and (max-width: 979px) {
 
         .mobile-nav{
             width: 85%;
@@ -166,6 +167,7 @@
           
         }
         .mobile-nav-container{
+            display: block;
             position: fixed;
             bottom: 0;
            

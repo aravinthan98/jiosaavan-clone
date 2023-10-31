@@ -1,17 +1,37 @@
-@media screen and (max-width: 600px){
-    .mobile-navlist{
-        margin-top: 10px;
+.mobile-mymusic-section{
+    display: none;
+}
+.mobile-navlist{
+    margin-top: 10px;
+}
+.mobile-navlist .my-list{
+    padding: 22px;
+    font-size: 1.2rem;
+    background-color: white;
+    border-bottom: 2px solid #f6f6f6;
+}
+.settings{
+    margin-top: 30px;
+}
+.my-list{
+    color: #3e3e3e;
+}
+@media screen and (max-width: 979px){
+    .mobile-mymusic-section{
+        padding-top: 20px;
+        display: block;
+       
     }
-    .mobile-navlist .my-list{
-        padding: 22px;
-        font-size: 1.2rem;
-        background-color: white;
-        border-bottom: 2px solid #f6f6f6;
+    .myprofile-section{
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       text-align: center;
+       flex-direction: column;
+
     }
-    .settings{
-        margin-top: 30px;
+    .myprofile-logo{
+        margin-right: 0;
     }
-    .my-list{
-        color: #3e3e3e;
-    }
+
 }

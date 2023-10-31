@@ -109,7 +109,7 @@ function SongDetails(){
                     <div className="d-b-des">
                         <p>{index+1}</p>
                         <img src={item.length!==0?item.image:" "} alt="song-logo" onClick={()=>handleSongPlay(item.songId)}/>
-                        <div className='relatedsong-hovercontent' onClick={()=>handleSongPlay(item.songId)} >< ImPlay2 className='mini-ply-icon'/></div>
+                        <div className='relatedsong-hovercontent hovercard' onClick={()=>handleSongPlay(item.songId)} >< ImPlay2 className='mini-ply-icon'/></div>
                     </div>
                     <div className="d-songcard-song-des">
                     <div className="song-des-sec"><p>{item.length!==0?item.title:" "}</p></div>

@@ -39,3 +39,11 @@
     background-color: rgba(0,0,0,.7);;
     
 }
+@media screen and (max-width:979px){
+ 
+    .card:hover{
+        .hovercard{
+            display: none;
+        }
+    }
+}

@@ -166,7 +166,7 @@ function Queue(){
                                 <div className="q-card-det">
                                 <div className="q-icon">                   
                                     <img src={item.image?item.image:"https://c.saavncdn.com/973/Vikram-Tamil-2022-20220515182605-50x50.jpg"} width="40px"  alt="cardimage" onClick={()=>handleSongPlay(item.songId)}/>
-                                    <div className='queuesong-hovercontent' onClick={()=>handleSongPlay(item.songId)} >< ImPlay2 className='mini-ply-icon'/></div>
+                                    <div className='queuesong-hovercontent hoversmall' onClick={()=>handleSongPlay(item.songId)} >< ImPlay2 className='mini-ply-icon'/></div>
                                 </div>
 
                                 <div className="q-des">

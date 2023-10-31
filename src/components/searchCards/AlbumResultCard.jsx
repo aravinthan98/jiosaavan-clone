@@ -51,7 +51,7 @@ const AlbumResultCard = ({ selectedData}) => {
           {selectedData.map((item,index) => (
            <div className="card" key={index}>
            <img src={item.image}  alt="movie" onClick={()=>handleSongPage(item.songId,item)}/>
-           <div className='card-background' onClick={()=>handleSongPage(item.songId,item)}>
+           <div className='card-background hovercard' onClick={()=>handleSongPage(item.songId,item)}>
             <button onClick={(e)=>handleAlbumDetails(e,item)} className='card-ply-btn'><TbPlayerPlayFilled className='card-ply-icon'/></button></div>
            <h4>{item.title}</h4>
            <p>{item.artist}</p>

@@ -25,14 +25,16 @@ return(
         <HappyMoodSongs/>
         <h2 className="trending">Romantic Songs</h2>
         <RomanticMoodSongs/>
-        <h2 className="trending">Excited Songs</h2>
+        <h2 className="trending">Weekly Top20 Songs</h2>
+        <WeeklyTopSongs/>
+        {/* <h2 className="trending">Excited Songs</h2>
         <ExcitedMoodSongs/>
         <h2 className="trending">Evergreen Melodies</h2>
         <MelodiesSongs/>
         <h2 className="trending">Weekly Top20 Songs</h2>
         <WeeklyTopSongs/>
         <h2 className="trending">SoulSoother Songs</h2>
-        <SoulSootherSongs/>
+        <SoulSootherSongs/> */}
        </div>
       
     )

@@ -216,7 +216,43 @@
     top: 0;
    left: 50%;
 }
-@media  screen and (max-width: 600px) {
+/* @media  screen and (max-width: 979px) {
+    .left-container{
+        display: none;
+      }
+      .right-container{
+        width: 100%;
+      }
+      .jio-logo-log{
+        display: block;
+        width: 150px;
+        position: absolute;
+        top: 0;
+       left: 0;
+      
+      }
+      .login-form{
+         width: 60%; 
+        left: 22%;
+     }
+     .login-form h1{
+        font-size: 1.6rem;
+     }
+    
+    .capta-container {
+        margin-left: 14%;
+        width: 71%;
+    }
+    .account-toggle-text{
+        display: none;
+    }
+    .account {
+      right: 0;
+      margin-left: 80%;
+
+    }
+} */
+@media  screen and (max-width: 979px) {
   .left-container{
     display: none;
   }
@@ -229,7 +265,7 @@
     position: absolute;
     top: 0;
    left: 0;
-   /* width: 20%; */
+  
   }
   .login-form{
      width: 96%; 
@@ -241,13 +277,17 @@
 
 .capta-container {
     margin-left: 14%;
-    width: 80%;
+    width: 72%;
 }
 .account-toggle-text{
     display: none;
 }
-.account button{
-   right: 0;
+.account{
+    margin-left: 65%;
+    
+    color: #3f424c;
+    font-size: 13px;  
+    padding: 22px;
+    display: flex;
 }
-
 }

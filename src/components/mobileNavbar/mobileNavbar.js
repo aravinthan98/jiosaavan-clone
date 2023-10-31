@@ -6,11 +6,21 @@ import {ImCompass2} from 'react-icons/im';
 import {PiUser} from 'react-icons/pi'
 import { Link } from "react-router-dom";
 import { useCurrentPlayingContext } from "../../context/currentlyPlayingContext";
-import {RxCross2} from 'react-icons/rx'
+import {RxCross2} from 'react-icons/rx';
+import { useNavigate } from "react-router-dom";
 
 function MobileNavbar(){
-    const{login,setSearchBarClicked,searchBarClicked}=useCurrentPlayingContext();
+    const navigate=useNavigate();
+    const{login,setSearchBarClicked,searchBarClicked,setSeletedResult}=useCurrentPlayingContext();
     const[browseBarClicked,setBrowseBarClicked]=useState(false);
+
+    const handleBarClicked=(value,nav)=>{
+        setSeletedResult(value);
+
+        setBrowseBarClicked(false);
+        return navigate(`${nav}`);
+
+    }
 
     return(
         <div className="mobile-nav-container"> 
@@ -29,7 +39,7 @@ function MobileNavbar(){
                 </div>
                 <div className="m-log">
                 <p><PiUser/></p>
-                {login?(<Link to='/my-music-sec'><span>My Music</span></Link> ):(<Link to='/login'><span>Login</span></Link>)}
+                {login?(<Link to="/my-profile-section"><span>My Music</span></Link> ):(<Link to='/login'><span>Login</span></Link>)}
                
                 </div>
                 
@@ -40,10 +50,10 @@ function MobileNavbar(){
                     </div>
           
                     <div className="browsebox-results">  
-                    <Link to='/newrelease'><p onClick={()=>setBrowseBarClicked(false)}>New Releases</p></Link>
-                    <Link to='/topplaylist'><p onClick={()=>setBrowseBarClicked(false)}>Top PlayList</p></Link>
-                    <Link to='/topchart'><p onClick={()=>setBrowseBarClicked(false)}>Top Charts</p></Link>
-                    <Link to='/topartist'><p onClick={()=>setBrowseBarClicked(false)}>Top Artist</p></Link>
+                   <p onClick={()=>handleBarClicked('NewSongs','/new-releases')}>New Releases</p>
+                   <p onClick={()=>handleBarClicked('TopPlaylist','/featured-playlists')}>Top PlayList</p>
+                    <p onClick={()=>handleBarClicked('TopCharts','/charts')}>Top Charts</p>
+                    <p onClick={()=>handleBarClicked('TopArtists','/top-artists')}>Top Artist</p>
                     </div>
                 </aside>
             </div>

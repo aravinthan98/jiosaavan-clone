@@ -98,7 +98,7 @@ const ArtistResultCard = ({ selectedData}) => {
           {selectedData.map((item,index) => (
            <div className="roundcard" key={index}>
            <img src={item.image} alt="movie" onClick={()=>handleSongPage(item.songId,item)}/>
-           <div className='roundcard-hovercontent'onClick={()=>handleSongPage(item.songId,item)}>
+           <div className='roundcard-hovercontent hovercard'onClick={()=>handleSongPage(item.songId,item)}>
             <button onClick={(e)=>handleArtistDetails(e,item)} className='card-ply-btn'><TbPlayerPlayFilled className='card-ply-icon'/></button></div>
            <h4>{item.title}</h4>
            <p></p>

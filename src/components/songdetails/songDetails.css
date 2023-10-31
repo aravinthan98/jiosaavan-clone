@@ -31,14 +31,14 @@
 }
 .song-des-sec p{
     padding-top: 8px;
-   
+
 }
 .d-description h1{
     margin-bottom: 10px;
 }
 .d-description-top p{
     margin-bottom: 7px;
-    text-align: center;
+    
 }
 .d-description-top{
     margin-bottom: 20px;
@@ -100,6 +100,7 @@
     display: flex;
     align-items: center;
 }
+
 .d-songcard{
     width: 80%;
     display: flex;   
@@ -174,9 +175,14 @@
     width: 118px;
     padding-top: 20px;
     padding-bottom: 20px;
-    transform: translateX(100%);
+    
   }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 979px) {
+    .mobilenav-logo{
+    display: grid;
+    place-items: center;
+
+    }
     .details-section-top{
         flex-direction: column;
         align-items: center;
@@ -189,7 +195,7 @@
 
 
     .details-section {
-        /* width: 100vw; */
+       
         margin-left: 0;
         padding-top: 60px;
         margin-right: 0;
@@ -219,9 +225,70 @@
        
         padding-top: 0px;
     }
-    .mobilenav-logo{
+
+    .d-songcard-song-des{
+        width: 40%;
+        display: block;
+       
+    }
+    .song-des-sec{
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        
+    }
+    .song-des-sec p{
+        padding-top: 0px;
+    }
+    .fav{
+        display: none;
+    }
+
+}
+@media screen and (max-width: 600px) {
+    .details-section-top{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+    }
+    .d-play-btn{
+        display: none;
+    }
+
+
+    .details-section {
+       
+        margin-left: 0;
+        padding-top: 60px;
+        margin-right: 0;
+        width: 100%;
+    }
+    .m-songPagePlay-btn{
         display: block;
     }
+    .m-ply-btn{
+        padding-top: 12px;
+        padding-left: 13px;
+    }
+    .d-description{
+        margin-left: 10px;
+        margin-top: 15px;
+        
+    }
+    .d-description h1{
+        margin-bottom: 5px;
+    }
+    .d-btn-section{
+        display: flex;
+       justify-content: center;
+    }
+    .details-section{
+       
+       
+        padding-top: 0px;
+    }
+
     .d-songcard-song-des{
         width: 40%;
         display: block;

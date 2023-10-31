@@ -34,10 +34,15 @@ function LiveMusic(){
 
   const path=useRef('/');
 
+
   const screenSize=useRef(window.innerWidth);
 
     const audioRef = useRef(null);
 
+  if(pathname.includes('queue')&&screenSize<979){
+    console.log("come")
+   
+  }
 
  
     useEffect(() => {
@@ -98,7 +103,7 @@ function LiveMusic(){
       };
 
       useEffect(() => {
-          console.log("render");
+        
           setPlaying(true)
       }, [currentTrackIndex,songArr]);
     const handleNextTrack = () => {
@@ -170,7 +175,7 @@ function LiveMusic(){
             
                 <p>{songArr.length!=0?songArr[currentTrackIndex].title:"Once upon a time"}<br/><span className="describe">{songArr.length!=0?songArr[currentTrackIndex].artist:"Aniruth Ravichandran"}</span></p>
             </div>
-            <div className="midb">
+            <div className={screenSize.current<979&&pathname.includes('queue')?'queuebar':'midb'}>
                 <audio
                     ref={audioRef}
                     src={songArr.length!=0?
@@ -187,7 +192,7 @@ function LiveMusic(){
                 <BiRepeat className="plyrepeat" id={isLoopOn?"plyRepeat":"noRepeat"} onClick={handleToggleLoop}/>
                 <TbPlayerSkipBackFilled className="plyback" onClick={handlePrevTrack}/>
                 
-            {playing ? (<GiPauseButton onClick={handlePause}/>) : (<TbPlayerPlayFilled onClick={ handlePlay}/>)}
+            <p className="plysong">{playing ? (<GiPauseButton onClick={handlePause}/>) : (<TbPlayerPlayFilled onClick={ handlePlay}/>)}</p>
                 <TbPlayerSkipForwardFilled className="plyskip" onClick={handleNextTrack}/>
                 <PiShuffle className="plyshuffle" id={isShuffleOn ? "shuffle" : "noShuffle"} onClick={handleToggleShuffle}/>
             </div>
@@ -205,6 +210,7 @@ function LiveMusic(){
                     step={0.01}
                     value={volume}
                     onChange={handleVolumeChange}
+                    
                 />
                 </div>
                  {volume!=0?<RiVolumeUpFill className="volum-btn" onClick={handleMute}/>

@@ -87,7 +87,7 @@ return(
             {weeklyTop&& weeklyTop.map((item)=>(
                 <div className="card" key={item.songId}>
                 <img src={item.image}  className='card-image' alt="movie" onClick={()=>handleSongPage(item.songId,item)} />
-                <div className='card-background' onClick={()=>handleSongPage(item.songId,item)}>
+                <div className='card-background hovercard' onClick={()=>handleSongPage(item.songId,item)}>
                   <button onClick={(e)=>handlePlaySong(e,item.songId)} className='card-ply-btn'><TbPlayerPlayFilled className='card-ply-icon'/></button></div>
                 <h4>{item.title}</h4>
                 <p>{item.artist}</p>

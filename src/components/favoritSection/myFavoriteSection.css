@@ -1,3 +1,9 @@
+/* .favoritesong-section{
+    width: 80%;
+    margin-left: 18%;
+    padding-top: 40px;
+} */
+
 .myprofile-section{
     display: flex;
 }
@@ -50,6 +56,9 @@
     /* margin-left: 30px; */
     border-top: 1px solid #e6e5e5;
 }
+.m-mysongs-title{
+    display: none;
+}
 @media screen and (max-width: 600px){
     .myprofile-section{
       
@@ -93,4 +102,12 @@
         position: relative;
         font-size: small;
     }
+}
+@media screen and (max-width: 979px){
+.m-mysongs-title{
+    display: block;
+    text-align: center;
+    font-weight: 500;
+    padding-top: 10px;
+}
 }

@@ -25,6 +25,25 @@
     }
     .newrelease-caro{
         display: grid;
-        grid-template-columns: 1fr 1fr ;
+        grid-template-columns: 1fr 1fr 1fr;
      }
+}
+@media  screen and (max-width: 464px) {
+    .newrelease-caro{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+     }
+}
+@media  screen and (max-width: 815px) {
+    .newrelease-caro{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+     }
+}
+@media  screen and (max-width: 979px) {
+    .newrelease-caro{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+     }
+ 
 }

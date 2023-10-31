@@ -56,6 +56,7 @@ function FavoriteSongs(){
     }
     return(
        <div className="favoritesong-section">
+        <h2 className="m-mysongs-title">My Music Songs</h2>
         <div className="details-section-buttom">
        {login &&favoriteSongs?.map((item,index)=>(
         <div className="d-songcard" key={item.songId}>
@@ -63,7 +64,7 @@ function FavoriteSongs(){
              <div className="d-b-des">
                 <p>{index+1}</p>
                  <p className="d-ply"><img src={item?item.image:""} alt="song-logo" onClick={()=>handleSongPlay(item.songId)}/></p>
-                 <div className='relatedsong-hovercontent' onClick={()=>handleSongPlay(item.songId)} >< ImPlay2 className='mini-ply-icon'/></div>
+                 <div className='relatedsong-hovercontent hovercard' onClick={()=>handleSongPlay(item.songId)} >< ImPlay2 className='mini-ply-icon'/></div>
                  <p className="d-s-name">{item?item.title:" "}</p>                
              </div>
               

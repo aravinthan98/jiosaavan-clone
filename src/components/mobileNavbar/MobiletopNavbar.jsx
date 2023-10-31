@@ -19,7 +19,7 @@ return(
 
       <div className="mobiletopnav-second">
         <Link to='/'><div className={barclicked==="music"?"m-checkbar":"m-music"} onClick={()=>setBarclicked('music')}>Music</div></Link> 
-        <Link to='/podcast'><div className={barclicked==="podcast"?"m-checkbar":"m-pod"} onClick={()=>setBarclicked('podcast')}>Podcasts</div></Link> 
+        <Link to='/original-podcasts'><div className={barclicked==="podcast"?"m-checkbar":"m-pod"} onClick={()=>setBarclicked('podcast')}>Podcasts</div></Link> 
       </div>
 
       </div>

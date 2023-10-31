@@ -52,8 +52,10 @@ const Layout = ({ children }) => {
           <SideNavbar />
         }
         {children}
-        <FloatingNavbar/>
-          {
+        {
+          !pathname.includes('/queue') && <FloatingNavbar/>
+        }
+        {
           !pathname.includes('/queue') &&
           <Footer className='main-page'/>
         }

@@ -16,9 +16,11 @@ import { useNavigate } from 'react-router';
 import {GrContract} from 'react-icons/gr';
 import { Link } from "react-router-dom";
 import { useCurrentPlayingContext } from "../../context/currentlyPlayingContext";
+import Queue from "../queuePage/queue";
 
 
 function LiveMusic(){
+
   const navigate=useNavigate();
   const {pathname}=useLocation();
     const {currentTrackIndex,setCurrentTrackIndex,songArr,setSongObject,setSongPageArr,setSongPageIndex}=useCurrentPlayingContext()
@@ -36,13 +38,10 @@ function LiveMusic(){
 
 
   const screenSize=useRef(window.innerWidth);
-
+ 
     const audioRef = useRef(null);
 
-  if(pathname.includes('queue')&&screenSize<979){
-    console.log("come")
-   
-  }
+
 
  
     useEffect(() => {
@@ -64,7 +63,7 @@ function LiveMusic(){
     const handlePlay = () => {
         audioRef.current.play();
         setPlaying(true);
-      };
+    };
 
    
     
@@ -102,10 +101,12 @@ function LiveMusic(){
         )}`;
       };
 
-      useEffect(() => {
-        
-          setPlaying(true)
-      }, [currentTrackIndex,songArr]);
+  
+    useEffect(() => {
+      setPlaying(true);
+    }, [currentTrackIndex,songArr]);
+
+  
     const handleNextTrack = () => {
       if (isShuffleOn) {
         const nextShuffledIndex = Math.floor(
@@ -148,9 +149,9 @@ function LiveMusic(){
   }
 
   const handleSongPage=(index,array)=>{
+   
     screenSize.current=window.innerWidth;
-  if(screenSize.current<600){
-    
+  if(screenSize.current<979){
     return navigate('/queue')
   }
   else{
@@ -165,20 +166,21 @@ function LiveMusic(){
     }
   }
   }
+ 
     return(
 
-        
+        <>
         <div className="live_music">
             <div className={!pathname.includes('queue')?"leftb":"leftm-bar"}>
              
-               <img src={songArr.length!=0?songArr[currentTrackIndex].image:"https://c.saavncdn.com/973/Vikram-Tamil-2022-20220515182605-500x500.jpg"} width="50px" height="50px" alt="song_logo" onClick={()=>handleSongPage(currentTrackIndex,songArr)}/>
+               <img src={songArr.length!==0?songArr[currentTrackIndex].image:"https://c.saavncdn.com/973/Vikram-Tamil-2022-20220515182605-500x500.jpg"} width="50px" height="50px" alt="song_logo" onClick={()=>handleSongPage(currentTrackIndex,songArr)}/>
             
-                <p>{songArr.length!=0?songArr[currentTrackIndex].title:"Once upon a time"}<br/><span className="describe">{songArr.length!=0?songArr[currentTrackIndex].artist:"Aniruth Ravichandran"}</span></p>
+                <p>{songArr.length!==0?songArr[currentTrackIndex].title:"Once upon a time"}<br/><span className="describe">{songArr.length!=0?songArr[currentTrackIndex].artist:"Aniruth Ravichandran"}</span></p>
             </div>
             <div className={screenSize.current<979&&pathname.includes('queue')?'queuebar':'midb'}>
                 <audio
                     ref={audioRef}
-                    src={songArr.length!=0?
+                    src={songArr.length!==0?
                        
                       songArr[currentTrackIndex].audio
                         :"https://pagalsong.in/uploads/systemuploads/mp3/Vikram/Once Upon A Time - Vikram 128 Kbps.mp3"
@@ -187,6 +189,7 @@ function LiveMusic(){
                     onEnded={handleNextTrack} 
                     controls
                     autoPlay
+                   
                     style={{display:"none"}}
                 />
                 <BiRepeat className="plyrepeat" id={isLoopOn?"plyRepeat":"noRepeat"} onClick={handleToggleLoop}/>
@@ -198,7 +201,7 @@ function LiveMusic(){
             </div>
             <div className="rightb">
                 <p>{formatTime(currentTime)}/{formatTime(duration)}</p>
-                <Link to={`/songDetailPage/${songArr.length!=0?songArr[currentTrackIndex].songId:"13a"}`}>  <TfiMoreAlt className="more-btn"/>
+                <Link to={`/songDetailPage/${songArr.length!==0?songArr[currentTrackIndex].songId:"13a"}`}>  <TfiMoreAlt className="more-btn"/>
                     </Link>
                 <div className="volume-sec">
                   <div className="volume-range-input">    
@@ -213,7 +216,7 @@ function LiveMusic(){
                     
                 />
                 </div>
-                 {volume!=0?<RiVolumeUpFill className="volum-btn" onClick={handleMute}/>
+                 {volume!==0?<RiVolumeUpFill className="volum-btn" onClick={handleMute}/>
                  :<MdVolumeOff className="volum-btn"/>}
                 </div>
                 {expand?
@@ -223,7 +226,8 @@ function LiveMusic(){
                
             </div>
         </div>
-
+       
+        </>
     )
 }
 export default LiveMusic;

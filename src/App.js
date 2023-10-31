@@ -56,6 +56,7 @@ function App() {
 
               <Route path='/my-profile-section' element={<MobileMyMusic/>}/>
               <Route path='/languages' element={<ComingSoonPage/>}/>
+             
               <Route path='/my-music/mysongs' element={<FavoriteSongs/>}/>
               <Route path='/my-music-sec/my-profile-m' element={<MobileProfile/>}/>
               <Route path='/redeem' element={<ComingSoonPage/>}/>

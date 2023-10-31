@@ -38,7 +38,7 @@ const SongResultCard = ({ selectedData}) => {
                   <p className="d-s-name" onClick={()=>handleSongPage(item.songId,item)}>{item?item.title:" "}</p>
                                
               </div>
-              <p className="d-s-artist" >{item?item.artist:" "}</p>
+              {/* <p className="d-s-artist" >{item?item.artist:" "}</p> */}
                   
               <div className="d-b-icons">
         

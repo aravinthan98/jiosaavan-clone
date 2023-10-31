@@ -34,7 +34,7 @@ function SideNavbar(){
             <Link to='/top-artists'><li onClick={()=>setSeletedResult('TopArtists')}>Top Artists</li></Link>
             <Link to='/radio'><li  onClick={(e)=>setSeletedResult('Radio')}>Radio</li></Link>
         </ul>
-        <p className="lib">LIBRARY</p>
+        <p className="lib">MY LIBRARY</p>
         <div className="library-item">
             <div onClick={()=>handleMymusicSection("/listening-history","MyHistory")}><VscHistory/> <span> History</span></div>
             <div onClick={()=>handleMymusicSection("/my-music/songs","MySongs")}><CgMusicNote/> <span>Liked Songs</span></div>

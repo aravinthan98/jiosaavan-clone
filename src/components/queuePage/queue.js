@@ -10,15 +10,18 @@ import { useCurrentPlayingContext } from "../../context/currentlyPlayingContext"
 import {AiFillHeart} from 'react-icons/ai';
 import { Link } from "react-router-dom";
 import LiveMusic from "../musicBar/musicBar";
+import { useLocation } from "react-router-dom";
 
 
 
 function Queue(){
+    const location=useLocation();
+  
     const {currentTrackIndex,setCurrentTrackIndex,songArr,profile,login,setAddSong,favoriteSongs,
          SetFavoriteSongs,activateHeartId, setActivateHeartId,setLoginIndicator} = useCurrentPlayingContext();
     
    
-  
+        
     const[relatedSong,setRelatedSong]=useState(songArr);
     const favoriteFetch=(songId)=>{
             var myHeaders = new Headers();
@@ -49,6 +52,7 @@ function Queue(){
     }
     
     useEffect(()=> {
+        console.log(location,"pathname")
         if(login){
        const arr= favoriteSongs.map(obj => obj.songId);
         setActivateHeartId(arr);
@@ -104,16 +108,20 @@ function Queue(){
                 <Link to='/'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/JioSaavn_Logo.svg/1024px-JioSaavn_Logo.svg.png' alt="logo"/>
                 </Link>  
             </div>
+            {/* <Link to={`${path.current}`}> <RxCross2 className='q-reject-btn'/></Link> */}
             <div className="page-left">
                 <div className="q-img-container">
                 <img src={songArr.length!==0?songArr[currentTrackIndex].image:"https://c.saavncdn.com/973/Vikram-Tamil-2022-20220515182605-500x500.jpg"} alt="songimage"/>    
-             
+                <div className="q-img-container-des">
+                <p className="m-fav" onClick={()=>handleFavorite(songArr[currentTrackIndex],songArr[currentTrackIndex]?.songId)}>{activateHeartId.includes(songArr[currentTrackIndex]?.songId)?<AiFillHeart className="favorite-song"/>:<AiOutlineHeart />}</p>
+                <div>
                 <h3 className="img-title"><a href="#">{songArr.length!==0?songArr[currentTrackIndex].title:"Porkanda Singam"}</a></h3>
                 <p className="img-para"><a href="#">{songArr.length!==0?songArr[currentTrackIndex].artist:"Anirudh Ravichander"}</a></p>
-              
+                </div>
+                </div>
                 </div>
             </div>
-                <p className="m-fav" onClick={()=>handleFavorite(songArr[currentTrackIndex],songArr[currentTrackIndex]?.songId)}>{activateHeartId.includes(songArr[currentTrackIndex]?.songId)?<AiFillHeart className="favorite-song"/>:<AiOutlineHeart />}</p>
+                
             <div className="page-right"> 
                 <div className="q-navbar">
                     <h3>Queue</h3>

@@ -279,7 +279,7 @@ transition: right .3s ease-in-out,left .3s ease-in-out,padding .3s ease-in-out,b
       margin:15px 8px 10px 15px;
     }
     .searchbox-container{
-      width: 85%;
+      width: 90%;
       height: 75%;
       position:fixed;
       z-index: 1000;
@@ -329,30 +329,25 @@ transition: right .3s ease-in-out,left .3s ease-in-out,padding .3s ease-in-out,b
       font-size: 1.1rem;
       margin:15px 8px 10px 15px;
     }
-    .searchbox-container{
-      width: 85%;
-      height: 75%;
-      position:fixed;
-      z-index: 1000;
-      left: 1%;
-      top: 5px;
-      background-color: white;
-      border-radius: 22px;
-      overflow-y: scroll;
-  }
+   
   .musicbox-container{
     display: none;
   }
   .music{
     border-bottom: 2px solid #2bc5b4;
   }
-  .treandingcards{
-    display: grid;
-    grid-template-columns: 1fr ;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-   overflow: hidden;
-  
-  }
+  .searchbox-container{
+    width: 90%;
+    height: 75%;
+    position:fixed;
+    z-index: 1000;
+    left: 1%;
+    top: 5px;
+    background-color: white;
+    border-radius: 22px;
+    overflow-y: scroll;
+}
+
 
   }
   @media screen and (max-width:1099px){

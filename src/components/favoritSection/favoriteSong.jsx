@@ -40,10 +40,9 @@ function FavoriteSongs(){
           .catch(error => console.log('error', error));
     }
 
-    useEffect(()=>{
-        if(login){
+    useEffect(()=>{  
         getFavoriteSongs()
-        }
+        
     },[])
 
     const handleSongPlay=(id)=>{

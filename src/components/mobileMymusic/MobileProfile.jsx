@@ -3,12 +3,15 @@ import { useCurrentPlayingContext } from "../../context/currentlyPlayingContext"
 
 import './MobileMyMusic.css'
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 function MobileProfile(){
+    const navigate=useNavigate();
     const{profile,login,setLogin}=useCurrentPlayingContext();
     const handleLogOut=()=>{
         if(login){
         localStorage.clear();
         setLogin(false)
+       
         }
     }
     return(
@@ -27,7 +30,7 @@ function MobileProfile(){
             <Link to='/change-password'><div className="my-list">Change Password</div></Link>
             <Link to='/subscription'><div className="my-list"> Subscription</div></Link>
             
-            <div className="settings my-list" onClick={handleLogOut}> Log Out</div>
+       <Link to='/'><div className="settings my-list" onClick={handleLogOut}> Log Out</div></Link> 
             </div>
         </div>
        

@@ -6,10 +6,11 @@ import {GrYoutube} from 'react-icons/gr';
 import {BsInstagram} from 'react-icons/bs';
 import {FaLinkedin} from 'react-icons/fa';
 import { Link } from "react-router-dom";
+import { useCurrentPlayingContext } from "../../context/currentlyPlayingContext";
 
 function Footer(){
 
-
+    const{setSeletedResult}=useCurrentPlayingContext();
 
     return(
         <div className="footer-container">
@@ -37,12 +38,12 @@ function Footer(){
             <p>Amitabh Bachchan</p>
             <p>Varun Dhawan</p>
         <h5>BROWSE</h5>  
-        <Link to='/newrelease'><p>New Releases</p></Link>
-           <Link to='/topplaylist'><p>Featured Playlists</p></Link> 
-           <Link to='/newrelease'><p>Weekly Top Songs</p></Link>
-           <Link to='/topartist'><p>Top Artists</p></Link> 
-        <Link to='/topchart'><p>Top Charts</p></Link>  
-        <Link to='/radio'> <p>Top Radios</p></Link>
+        <Link to='/new-releases'><p onClick={()=>setSeletedResult('NewSongs')}>New Releases</p></Link>
+           <Link to='/featured-playlists'><p onClick={()=>setSeletedResult('TopPlaylist')}>Featured Playlists</p></Link> 
+           <Link to='/new-releases'><p onClick={()=>setSeletedResult('NewSongs')}>Weekly Top Songs</p></Link>
+           <Link to='/top-artists'><p onClick={()=>setSeletedResult('TopArtists')}>Top Artists</p></Link> 
+        <Link to='/charts' onClick={()=>setSeletedResult('TopCharts')}><p>Top Charts</p></Link>  
+        <Link to='/radio'> <p onClick={(e)=>setSeletedResult('Radio')}>Top Radios</p></Link>
         </div>
         <div>
         <h5>DEVOTIONAL SONGS</h5>
@@ -102,7 +103,7 @@ function Footer(){
             <Link to='subscription'><p>JioSaavn Pro</p></Link>
             <a href="https://apps.apple.com/us/app/jiosaavn-music-podcasts/id441813332" target="blank"><p>JioSaavn for iOS</p></a>
             <a href="https://play.google.com/store/apps/details?id=com.jio.media.jiobeats&referrer=utm_source%4DSite%26utm_medium%3DHomePage%26utm_campaign%3DProducts" target="blank"><p>JioSaavn for Android</p></a>
-            <Link to='/newrelease'><p>New Releases</p></Link>
+            <Link to='/new-releases'><p onClick={()=>setSeletedResult('NewSongs')}>New Releases</p></Link>
        </div>
        <div className="f-last ">
        <div className="f-comment"><p>© 2023 Saavn Media Limited All rights reserved.</p></div>

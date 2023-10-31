@@ -89,7 +89,11 @@
 }
 .more-btn{
     color: #3e3e3e;
+   
     
+}
+.plysong{
+    padding-top: 5px;
 }
 .volume-sec:hover{
     .volume-range-input{
@@ -102,6 +106,19 @@
     width: 20%;
     transition:width 2s; 
 }
+.queuebar{
+   
+    width: 20%;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.9em;
+    margin-left: 1%;
+    cursor: pointer;
+}
+
 /* @media screen and (max-width: 600px) {
    .rightb, .plyrepeat, .plyback, .plyskip, .plyshuffle{
     display: none;

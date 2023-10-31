@@ -97,7 +97,7 @@ function Topnavbar(){
             <p onClick={handleLogOut}>Log Out</p>
           </div>
         </aside>
-        <aside className={musicClicked?"musicbox-container":"hideSearchBar"} onScroll = {(e)=>e.stopPropagation()}>
+        <aside className={musicClicked?"musicbox-container":"hideSearchBar"} >
             <div className="musicbox-top">
                 <h2>What's Hot on jiosaavn</h2>
                 <RxCross2 onClick={()=>setMusicClicked(false)} className="m-close-bar"/>           

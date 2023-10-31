@@ -32,7 +32,7 @@ function TopPlayList(){
     
     }
     const handleSongPage=(id,song)=>{
-      console.log("albumsong",song);
+   
       setSongObject(song)
       const albumSongsData=song.album?.map((item) => ({
         key: item._id,

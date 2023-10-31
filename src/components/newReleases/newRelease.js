@@ -68,7 +68,7 @@ const handlePlaySong=(e,id)=>{
     setCurrentTrackIndex(curIndex);
   }
   const handleSongPage=(id,song)=>{
-    console.log("song",song);
+ 
     setSongObject(song)
     setSongPageArr(weeklyTop);
     const curIndex=weeklyTop.findIndex(object => {

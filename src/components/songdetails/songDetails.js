@@ -47,7 +47,7 @@ function SongDetails(){
     fetch("https://academics.newtonschool.co/api/v1/music/favorites/like", requestOptions)
     .then(response => response.json())
     .then((result) => {
-        console.log("result",result);
+       
         if(result.status==='success'){
             setAddSong((prev)=>prev+1);
         }
@@ -57,7 +57,7 @@ function SongDetails(){
 }
 
    const handleFavorite=(item,id)=>{
-    console.log("id",id);
+   
     if(login){
     const idCheck = activateHeartId.includes(id);
     

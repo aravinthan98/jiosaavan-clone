@@ -12,6 +12,7 @@ body{
     background-color: #f6f6f6;
     width: 80%;
     margin-left: 18%;
+    cursor: pointer;
 }
 .footer-container h5{
     font-size: 11px;
@@ -93,6 +94,7 @@ body{
       
        margin-left: 0;
         margin-bottom: 50px;
+
     }
     .f-top{
         width: 95%;

@@ -21,8 +21,7 @@ function FavoriteSongs(){
         fetch("https://academics.newtonschool.co/api/v1/music/favorites/like", requestOptions)
           .then(response => response.json())
           .then((result) =>{ 
-            console.log("result",result)
-            console.log("result.data.songs",result.data.songs);
+           
             const favArray=result.data.songs.map((item)=>({
                 key: item._id,
                 image: item.thumbnail,

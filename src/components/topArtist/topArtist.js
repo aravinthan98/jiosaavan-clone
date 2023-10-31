@@ -19,7 +19,7 @@ function TopArtist(){
         })
           .then((response) => response.json())
           .then((data) => {      
-            console.log("data.artist",data.data);  
+             
              
               const artistSongsData=data.data?.map((item) => ({
                 key: item._id,
@@ -124,7 +124,7 @@ function TopArtist(){
       }
       
     const handleSongPage=(id,song)=>{
-      console.log("artistsong",song)
+    
      setSongObject(song)
     
      fetchArtistSongData(song.title)

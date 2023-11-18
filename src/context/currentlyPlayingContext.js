@@ -7,7 +7,6 @@ const CurrentPlayingProvider = ({ children }) => {
   const [songArr,setSongArr]=useState([])
   const [currentTrackIndex,setCurrentTrackIndex]=useState(0);
   const [selectedSong,setSelectedSong]=useState({});
-
   const [songeData, setSongData] = useState([]);
   const [albumData, setAlbumData] = useState([]);
   const [artistData, setArtistData] = useState([]);
@@ -15,10 +14,8 @@ const CurrentPlayingProvider = ({ children }) => {
   const [seletedResult,setSeletedResult]=useState('');
   const[searchBarClicked,setSearchBarClicked]=useState(false);
   const [login,setLogin]=useState(false);
-
   const[songPageIndex,setSongPageIndex]=useState(0);
   const[songPageArr,setSongPageArr]=useState([]);
-
   const[profile,setProfile]=useState({
     userName:"Aravinth",
     token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MjhlOTIxMTQ0MzI0MzQ5NTQyNmVkMSIsImlhdCI6MTY5NzE3OTkzNywiZXhwIjoxNzI4NzE1OTM3fQ.Zly7amn1_Xyg3H_DCqhtSeuEU1P30o2AQyzeq2-KHKc"
@@ -28,7 +25,6 @@ const CurrentPlayingProvider = ({ children }) => {
   const [activateHeartId, setActivateHeartId] = useState([]);
   const [trendingSongData,setTrendingSongData]=useState([]);
   const[loginIndicator,setLoginIndicator]=useState('');
-
   const[songObject,setSongObject]=useState([]);
  
   useEffect(()=>{
@@ -55,9 +51,6 @@ const CurrentPlayingProvider = ({ children }) => {
 };
 export default CurrentPlayingProvider;
 
-
 export const useCurrentPlayingContext = () => {
   return useContext(CurrentPlayingContext);
-
-
 }

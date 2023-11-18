@@ -5,10 +5,8 @@ import SongResultCard from './SongResultCard';
 import './SearchResultSection.css';
 function SearchResultSection(){
     const{songeData,albumData,artistData ,seletedResult,setSeletedResult}=useCurrentPlayingContext();
-
-    
+   
     let resultComponenet;
-
     switch (seletedResult) {
         case 'Artists':
             resultComponenet= <ArtistResultCard selectedData={artistData}/>;

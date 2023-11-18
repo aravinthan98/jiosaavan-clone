@@ -53,10 +53,8 @@ function TopAlbum(){
       }));
       setSongArr(albumSongsData)
 
-      setCurrentTrackIndex(0);
-    
-    }
-    
+      setCurrentTrackIndex(0);    
+    }   
     const handleSongPage=(id,song)=>{
     
       setSongObject(song);
@@ -111,25 +109,35 @@ function TopAlbum(){
       }, []);
 
 
-return(
-<Carousel 
-responsive={responsive}
-infinite={true}
-className="album-list"
->
-    {album.length===0?(<LoaderFn/>):(
-            album.map((item)=>(
-              
-            <div className="card" key={item.songId}>
-                <img src={item.image} alt="albumlogo" onClick={()=>handleSongPage(item.songId,item)}/>
-                <div className='card-background hovercard' onClick={()=>handleSongPage(item.songId,item)}>
-                  <button onClick={(e)=>handleAlbumDetails(e,item)} className='card-ply-btn'><TbPlayerPlayFilled className='card-ply-icon'/></button></div>
-                <h4>{item.title}</h4>
-                <p>{item.artist}</p>
-            </div>
-            ))         
-      )}
-</Carousel>
-)
+return (
+  <Carousel responsive={responsive} infinite={true} className="album-list">
+    {album.length === 0 ? (
+      <LoaderFn />
+    ) : (
+      album.map((item) => (
+        <div className="card" key={item.songId}>
+          <img
+            src={item.image}
+            alt="albumlogo"
+            onClick={() => handleSongPage(item.songId, item)}
+          />
+          <div
+            className="card-background hovercard"
+            onClick={() => handleSongPage(item.songId, item)}
+          >
+            <button
+              onClick={(e) => handleAlbumDetails(e, item)}
+              className="card-ply-btn"
+            >
+              <TbPlayerPlayFilled className="card-ply-icon" />
+            </button>
+          </div>
+          <h4>{item.title}</h4>
+          <p>{item.artist}</p>
+        </div>
+      ))
+    )}
+  </Carousel>
+);
 }
 export default TopAlbum;

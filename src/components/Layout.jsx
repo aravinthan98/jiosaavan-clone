@@ -12,32 +12,16 @@ import MobileNavbar from './mobileNavbar/mobileNavbar'
 import FloatingNavbar from '../components/flottingNavbar/FloatingNavbar';
 import MobileTopNavbar from './mobileNavbar/MobiletopNavbar'
 
-
-
-
 const Layout = ({ children }) => {
 
   const { pathname } = useLocation();
   const {loginIndicator}=useCurrentPlayingContext();
 
 
-  if (pathname.includes('login')) {
+  if (pathname.includes('login')||pathname.includes('signup')||pathname.includes('subscription')||pathname.includes('/change-password')) {
     return <> {children}</>;
   }
-  if (pathname.includes('signup')) {
-    return <> {children}</>;
-  }
-  if (pathname.includes('subscription')) {
-    return <> {children}</>;
-
-  }
-  if (pathname.includes('/change-password')) {
-    return <> {children}</>;
-
-  }
-
-
-    
+  
   return (
     <div className='layout'>
       {pathname==='/'&&

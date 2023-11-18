@@ -1,7 +1,5 @@
 import React from "react";
 import './mainContentPage.css'
-
-import Corrosal from "../corrosal/Corrosal";
 import TopAlbum from "../topAlbum/topAlbum";
 import SadMoodSongs from "../pickMoods/SadMoodSongs";
 import HappyMoodSongs from '../pickMoods/HappyMoodSongs';
@@ -10,13 +8,14 @@ import ExcitedMoodSongs from "../pickMoods/ExcitedSongs";
 import MelodiesSongs from "../pickMoods/Melodies";
 import WeeklyTopSongs from "../pickMoods/weeklyTopSongs";
 import SoulSootherSongs from "../pickMoods/SoulSoother";
+import TrendingSong from "../trendingSong/TrendingSong";
 
 function Maincontent(){
 
 return(
-       <div className="main-page">
+    <div className="main-page">
         <h2 className="trending">Trending Songs</h2>     
-        <Corrosal/>
+        <TrendingSong/>
         <h2 className="trending">Top Albums</h2>
         <TopAlbum/>
         <h2 className="trending">Sad Mood Songs</h2>
@@ -35,9 +34,8 @@ return(
         <WeeklyTopSongs/>
         <h2 className="trending">SoulSoother Songs</h2>
         <SoulSootherSongs/> */}
-       </div>
-      
-    )
+    </div>   
+)
 }
 
 export default Maincontent;

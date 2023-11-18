@@ -9,8 +9,7 @@ import ComingSoonPage from '../../commingSoon/commingSoon';
 import { Link } from 'react-router-dom';
 function TopCategories(){
     const{seletedResult,setSeletedResult}=useCurrentPlayingContext();
-
-    
+       
     let resultComponenet;
 
     switch (seletedResult) {

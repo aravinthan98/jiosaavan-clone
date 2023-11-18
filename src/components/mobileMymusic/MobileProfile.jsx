@@ -1,11 +1,9 @@
 import React from "react";
 import { useCurrentPlayingContext } from "../../context/currentlyPlayingContext";
-
 import './MobileMyMusic.css'
 import { Link } from "react-router-dom";
 
-function MobileProfile(){
-   
+function MobileProfile(){  
     const{profile,login,setLogin}=useCurrentPlayingContext();
     const handleLogOut=()=>{
         if(login){
@@ -13,8 +11,8 @@ function MobileProfile(){
         setLogin(false)
         }
     }
-    return(
-        <div className='mobile-mymusic-section'>
+return(
+    <div className='mobile-mymusic-section'>
         <div className='mobile-mymusic-sectiontop'>
             <div className='myprofile-section'>
                 <div className='myprofile-logo'><img src='https://staticfe.saavn.com/web6/jioindw/dist/1696482270/_i/default_images/default-user-500x500.jpg' className='profile-logo' alt='my-logo'/></div>
@@ -23,18 +21,15 @@ function MobileProfile(){
                     <p className='pro-status'>Pro Expired</p>
                     <Link to='/subscription'><button className='pro-btn'>Go Pro</button></Link>
                 </div>
-            </div>
-            
+            </div>           
             <div className='mobile-navlist'>
-            <Link to='/change-password'><div className="my-list">Change Password</div></Link>
-            <Link to='/subscription'><div className="my-list"> Subscription</div></Link>
-            
-       <Link to='/'><div className="settings my-list" onClick={handleLogOut}> Log Out</div></Link> 
+                <Link to='/change-password'><div className="my-list">Change Password</div></Link>
+                <Link to='/subscription'><div className="my-list"> Subscription</div></Link>           
+                <Link to='/'><div className="settings my-list" onClick={handleLogOut}> Log Out</div></Link> 
             </div>
-        </div>
-       
+        </div>   
     </div>
-    )
+)
 
 }
 export default MobileProfile;

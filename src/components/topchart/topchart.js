@@ -1,15 +1,11 @@
-
 import React,{useState,useEffect} from 'react';
 import { useCurrentPlayingContext } from '../../context/currentlyPlayingContext';
-
 import {TbPlayerPlayFilled} from 'react-icons/tb'
 import { useNavigate } from 'react-router';
 function TopChart(){
     const {setCurrentTrackIndex,setSongArr,setSongPageIndex,setSongPageArr,setSongObject} = useCurrentPlayingContext();
-    const [weeklyTop, setweeklyTop] = useState([])
-  
+    const [weeklyTop, setweeklyTop] = useState([]); 
     const navigate=useNavigate();
-
 
      function fetchSongs() {
         try{
@@ -20,16 +16,12 @@ function TopChart(){
         })
           .then((response) => response.json())
           .then((data) => {
-
-
             const newarray=data?.data.sort((a,b)=>{
                 b=parseInt(b.dateOfRelease?.slice(0,4))
                 a=parseInt(a.dateOfRelease?.slice(0,4))
                 
                 return  b - a;
             })
-  
- 
             const newRelease=newarray.map((item) => ({
               key: item._id,
               image: item.thumbnail,
@@ -55,8 +47,6 @@ function TopChart(){
         fetchSongs();         
       }, []);
 
-
-
 const handlePlaySong=(e,id)=>{
     e.stopPropagation();
     setSongArr(weeklyTop)
@@ -65,7 +55,6 @@ const handlePlaySong=(e,id)=>{
     });
     setCurrentTrackIndex(curIndex);
   }
-
   const handleSongPage=(id,song)=>{
     setSongObject(song)
     setSongPageArr(weeklyTop);
@@ -76,12 +65,10 @@ const handlePlaySong=(e,id)=>{
     
     return navigate(`/songDetailPage/${id}`)
   }
-
 return(
         <div className='newRelease-page'>
         <h1>Top Charts</h1>
-        <div className="newrelease-caro">
-            
+        <div className="newrelease-caro">           
             {weeklyTop.length!==0&& weeklyTop.map((item,index)=>(
                 <div className="card" key={item.songId}>
                 <img src={item.image}  className='card-image' alt="movie" onClick={()=>handleSongPage(item.songId,item)} />

@@ -6,8 +6,7 @@ import {useCurrentPlayingContext} from '../../context/currentlyPlayingContext'
 import { Link } from "react-router-dom";
  const SearchSection = ({val}) => {
 
-  const [loading, setLoading] = useState(false);
-  
+  const [loading, setLoading] = useState(false);  
   const{songeData, setSongData,albumData, setAlbumData,artistData, setArtistData,
     topSongData, setTopSongData,setSearchBarClicked,setSeletedResult,setSongArr,setCurrentTrackIndex}=useCurrentPlayingContext()
 
@@ -38,8 +37,6 @@ import { Link } from "react-router-dom";
       songId: item._id,
     }));
     setSongArr(albumSongsData)
-    
-
     setCurrentTrackIndex(0);
     setSearchBarClicked(false);
   }
@@ -162,9 +159,6 @@ import { Link } from "react-router-dom";
         }
       );
       const searchAlbumData = await albumRes.json();
-  
-      
-      
         const searchAlbumDataResult=searchAlbumData?.data.map((item) => ({
         key: item._id,
         image: item.image,

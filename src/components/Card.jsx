@@ -4,14 +4,11 @@ import {TbPlayerPlayFilled} from 'react-icons/tb'
 import { useCurrentPlayingContext } from '../context/currentlyPlayingContext';
 import { useNavigate } from 'react-router';
 
-
-
 const Card = ({item,album}) => {
 
   const navigate =useNavigate();
   const { setSongArr,setCurrentTrackIndex,setSongPageIndex,setSongPageArr,setSongObject} = useCurrentPlayingContext();
   
- 
   const handlePlaySong=(e,id)=>{
     e.stopPropagation();
     setSongArr(album)

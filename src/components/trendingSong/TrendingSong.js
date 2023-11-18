@@ -1,16 +1,13 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import './Corrosal.css'
+import './TrendingSong.css'
 import { useCurrentPlayingContext } from "../../context/currentlyPlayingContext";
 import { useEffect} from "react";
 import Card from "../Card";
-
 import LoaderFn from '../loader/Loader'
-
 
 const responsive = {
   superLargeDesktop: {
-    // the naming can be any, depends on you.
     breakpoint: { max: 4000, min: 3000 },
     items: 7,
     slidesToSlide: 7
@@ -34,12 +31,8 @@ const responsive = {
   }
 };
 
-
-const Corrosal=()=>{
+const TrendingSong=()=>{
   const {setSongArr,trendingSongData,setTrendingSongData}=useCurrentPlayingContext()
-
-
-
 
   const fetchSongs = () => {
 
@@ -75,11 +68,8 @@ const Corrosal=()=>{
   for (let i = 0; i < trendingSongData.length; i += 2) {
     rows.push(trendingSongData.slice(i, i + 2));
   }
-  
 
 return(
-
-
 <Carousel 
 responsive={responsive}
 infinite={true}
@@ -104,4 +94,4 @@ infinite={true}
 )
 
 }
-export default Corrosal;
+export default TrendingSong;

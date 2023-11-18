@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useCurrentPlayingContext } from "../../context/currentlyPlayingContext";
 function SignUpHover(){
@@ -7,75 +6,66 @@ function SignUpHover(){
     const[password,setPassword]=useState("");
     const[message,setMessage]=useState("");
     const[name,setUserName]=useState("");
-
-    const[error,setError]=useState(false);
-   
+    const[error,setError]=useState(false);   
     const[checked,setChecked]=useState(false);
+
     const handleCheck=()=>{
         setChecked(!checked);
     }
     function isValidEmail(mail) {
         return /\S+@\S+\.\S+/.test(mail);
       }
- const handleClick=(e)=>{
-   
-    if( email && password&&name&&checked){
-       if(!isValidEmail(email)){     
-          setMessage('Email is invalid'); 
-          setError(true)       
-       }
-  
-       else if(password.length<8){
-        setMessage('Password must be at least 8 characters long')
-        setError(true)
-       }      
-       else{
+    const handleClick=(e)=>{ 
+        if( email && password&&name&&checked){
+        if(!isValidEmail(email)){     
+            setMessage('Email is invalid'); 
+            setError(true)       
+        }   
+        else if(password.length<8){
+            setMessage('Password must be at least 8 characters long')
+            setError(true)
+        }      
+        else{
             fetchAccount()
-       }
+        }
+        }
+        else{   
+        setMessage('All Fields must be filled');
+        setError(true)
+        }   
     }
-    else{   
-       setMessage('All Fields must be filled');
-       setError(true)
-    }
-   
-    
- }
  
 
- const fetchAccount=()=>{
-    var myHeaders = new Headers();
-    myHeaders.append("projectId", "f104bi07c490");
-    myHeaders.append("Content-Type", "application/json");
-    
-    var raw = JSON.stringify({
-      "name": `${name}`,
-      "email": `${email}`,
-      "password": `${password}`,
-      "appType": "music"
-    });
-    
-    var requestOptions = {
-      method: 'POST',
-      headers: myHeaders,
-      body: raw,
-      redirect: 'follow'
-    };
-    
-    fetch("https://academics.newtonschool.co/api/v1/user/signup", requestOptions)
-    .then((response) => response.json())
-    .then((result) =>{
-      if(result.status=="success"){
-          
-          setLoginIndicator('pre-login')
-      }
-      else{
-          setMessage(result.message);
-          setError(true)
-      }
-   
-  })
-      .catch(error => console.log('error', error));
- }
+    const fetchAccount=()=>{
+        var myHeaders = new Headers();
+        myHeaders.append("projectId", "f104bi07c490");
+        myHeaders.append("Content-Type", "application/json");
+        
+        var raw = JSON.stringify({
+        "name": `${name}`,
+        "email": `${email}`,
+        "password": `${password}`,
+        "appType": "music"
+        });        
+        var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+        };     
+        fetch("https://academics.newtonschool.co/api/v1/user/signup", requestOptions)
+        .then((response) => response.json())
+        .then((result) =>{
+        if(result.status=="success"){           
+            setLoginIndicator('pre-login')
+        }
+        else{
+            setMessage(result.message);
+            setError(true)
+        }   
+    })
+        .catch(error => console.log('error', error));
+    }
     const handleLoginInstant=(e)=>{
         e.stopPropagation()
         setLoginIndicator('pre-login')
@@ -86,13 +76,12 @@ function SignUpHover(){
     const handlePropagation=(e)=>{
         e.stopPropagation()
     }
- 
-    return (
-        <aside className="loginhover-container" onClick={handleInstantLogon}>
-            <div className="loginhover-center-container" onClick={(e)=>handlePropagation(e)} >
+return (
+    <aside className="loginhover-container" onClick={handleInstantLogon}>
+        <div className="loginhover-center-container" onClick={(e)=>handlePropagation(e)} >
             <div className="loginhover-content">
                 <div className="account-toggle">
-                   <p>Already have an account?</p><span className="toggle-btn" onClick={(e)=>handleLoginInstant(e)}>Log In</span>
+                    <p>Already have an account?</p><span className="toggle-btn" onClick={(e)=>handleLoginInstant(e)}>Log In</span>
                 </div>
                 <div className="hoverlogin-form">
                     <h1>Welcome to JioSaavn.</h1>
@@ -104,7 +93,7 @@ function SignUpHover(){
                     <br/>
                     <input className="loginput" type="password" placeholder="Password"  value={password} onChange={(e)=>(setPassword(e.target.value))} autoComplete="off" required/>
                     <br/>
-                   
+                    
                     <div className="capta-container-hover">
                         <div className="input-l-hover">
                         <input type="checkbox" className="checkbox" value={checked} onChange={handleCheck}/>
@@ -120,8 +109,8 @@ function SignUpHover(){
                 
                 </div>
             </div>
-            </div>
-        </aside>
-    )
+        </div>
+    </aside>
+)
 }
 export default  SignUpHover;

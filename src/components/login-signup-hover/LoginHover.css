@@ -3,7 +3,6 @@
     height: 100%;
     width: 100%;
     left: 0;
-    opacity: 0;
     position: fixed;
     opacity: 1;
     top: 0; 
@@ -15,8 +14,7 @@
     max-height: 75vh;
    background-color: #fff;
     border-radius: 8px;
-    bottom: auto;
-   
+    bottom: auto; 
    margin-left: 35%;
    margin-top: 5%;
    

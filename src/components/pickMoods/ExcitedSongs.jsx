@@ -1,4 +1,3 @@
-
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import {useState,useEffect} from "react";
@@ -32,87 +31,75 @@ const responsive = {
   }
 };
 function ExcitedMoodSongs(){
-    const navigate=useNavigate();
-    const {setCurrentTrackIndex,setSongArr,setSongPageIndex,setSongPageArr,setSongObject} = useCurrentPlayingContext();
-    const [excitedMood, setExcitedMood] = useState([]);
-
-    
-
-    const fetchSongs=()=>{
-     
-        try{
-        fetch('https://academics.newtonschool.co/api/v1/music/song?filter={"mood":"excited"}', {
-          headers: {
-            'projectId': 'f104bi07c490',
-          },
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            
-            const exitedSongData=data?.data.map((item) => ({
-              key: item._id,
-              image: item.thumbnail,
-              title: item.title || "",
-              audio: item.audio_url,
-              artist:
-                (item.artist && item.artist[0] && item.artist[0].name) || "",
-              mood: item.mood || "",
-              album: "",
-              songId: item._id,
-                   
-            }))
-            setExcitedMood(exitedSongData); 
-            
-        })
-      }
-      catch (error) {
-        console.log("Error fetching excitedMood data", error)
-      }
-     
-
+  const navigate=useNavigate();
+  const {setCurrentTrackIndex,setSongArr,setSongPageIndex,setSongPageArr,setSongObject} = useCurrentPlayingContext();
+  const [excitedMood, setExcitedMood] = useState([]);
+  const fetchSongs=()=>{     
+    try{
+      fetch('https://academics.newtonschool.co/api/v1/music/song?filter={"mood":"excited"}', {
+        headers: {
+          'projectId': 'f104bi07c490',
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          
+          const exitedSongData=data?.data.map((item) => ({
+            key: item._id,
+            image: item.thumbnail,
+            title: item.title || "",
+            audio: item.audio_url,
+            artist:
+              (item.artist && item.artist[0] && item.artist[0].name) || "",
+            mood: item.mood || "",
+            album: "",
+            songId: item._id,                 
+          }))
+          setExcitedMood(exitedSongData);          
+      })
     }
-    useEffect(() => {
-    fetchSongs();         
-    }, []);
-  
-    const handlePlayMoods=(e,id)=>{
-      e.stopPropagation();
-      setSongArr(excitedMood)
-      const curIndex=excitedMood.findIndex(object => {
-        return object.songId === id;
-      });
-      setCurrentTrackIndex(curIndex)
+    catch (error) {
+      console.log("Error fetching excitedMood data", error)
     }
-    
-const handleSongPage=(id,song)=>{
-  setSongObject(song)
+  }
+  useEffect(() => {
+  fetchSongs();         
+  }, []);
+  const handlePlayMoods=(e,id)=>{
+    e.stopPropagation();
+    setSongArr(excitedMood)
+    const curIndex=excitedMood.findIndex(object => {
+      return object.songId === id;
+    });
+    setCurrentTrackIndex(curIndex)
+  }  
+  const handleSongPage=(id,song)=>{
+    setSongObject(song)
     setSongPageArr(excitedMood);
     const curIndex=excitedMood.findIndex(object => {
       return object.songId === id;
     });
-    setSongPageIndex(curIndex);
-    
+    setSongPageIndex(curIndex);   
     return navigate(`/songDetailPage/${id}`)
   }
-    return(
-        <Carousel 
-        responsive={responsive}
-        infinite={true}
-        className="album-list"
-        >
-            {excitedMood.length===0?(<LoaderFn/>):(
-                    excitedMood.map((item)=>(
-                      
-                    <div className="card" key={item.songId}>
-                        <img src={item.image} alt="albumlogo" onClick={()=>handleSongPage(item.songId,item)}/>
-                        <div className='card-background hovercard' onClick={()=>handleSongPage(item.songId,item)}>
-                          <button onClick={(e)=>handlePlayMoods(e,item.songId)} className='card-ply-btn'><TbPlayerPlayFilled className='card-ply-icon'/></button></div>
-                        <h4>{item.title}</h4>
-                        <p>{item.artist}</p>
-                    </div>
-                    ))         
-              )}
-        </Carousel>
-    )
+return(
+  <Carousel 
+  responsive={responsive}
+  infinite={true}
+  className="album-list"
+  >
+    {excitedMood.length===0?(<LoaderFn/>):(
+      excitedMood.map((item)=>(       
+      <div className="card" key={item.songId}>
+          <img src={item.image} alt="albumlogo" onClick={()=>handleSongPage(item.songId,item)}/>
+          <div className='card-background hovercard' onClick={()=>handleSongPage(item.songId,item)}>
+            <button onClick={(e)=>handlePlayMoods(e,item.songId)} className='card-ply-btn'><TbPlayerPlayFilled className='card-ply-icon'/></button></div>
+          <h4>{item.title}</h4>
+          <p>{item.artist}</p>
+      </div>
+      ))         
+    )}
+  </Carousel>
+)
 }
 export default ExcitedMoodSongs;

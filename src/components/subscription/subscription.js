@@ -12,7 +12,6 @@ import {PiChalkboardBold} from 'react-icons/pi';
 import {BsFiles} from 'react-icons/bs';
 import {BsCloudArrowDown} from 'react-icons/bs';
 import jioSaavnLogo from '../../assets/jioSaavnLogo.png'
-import jioSaavnLogo1 from '../../assets/jiosaavnicon.png' 
 import { Link } from "react-router-dom";
 function Subscription() {
   return (
@@ -310,7 +309,7 @@ function Subscription() {
       <div className="subs-section-footer">
         <div className="subs-footer-sec">
           <img
-            src={jioSaavnLogo1} alt="jio-logo"       
+            src="https://play-lh.googleusercontent.com/gUR8xEKvCngapSZGkZUgoNETAYuhhkCr0Npza-lPSjbRCM55zdS0SK_KxBj1tg2RoQ" alt="jio-logo"       
           />
           <div className="subs-footer-container">
             <div className="subs-footer-card">

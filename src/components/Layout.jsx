@@ -13,10 +13,8 @@ import FloatingNavbar from '../components/flottingNavbar/FloatingNavbar';
 import MobileTopNavbar from './mobileNavbar/MobiletopNavbar'
 
 const Layout = ({ children }) => {
-
   const { pathname } = useLocation();
   const {loginIndicator}=useCurrentPlayingContext();
-
 
   if (pathname.includes('login')||pathname.includes('signup')||pathname.includes('subscription')||pathname.includes('/change-password')) {
     return <> {children}</>;
@@ -44,11 +42,9 @@ const Layout = ({ children }) => {
           <Footer className='main-page'/>
         }
        
-      </>
-    
+      </>    
         <LiveMusic />
-    
-      
+
       {loginIndicator==='pre-login' && <LoginPageHover/>}
       {loginIndicator==='pre-signup' && <SignUpHover/>}
        {!pathname.includes('subscription')&&
